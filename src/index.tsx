@@ -5,7 +5,7 @@ import PokeAPI, { Pokemon } from "pokedex-promise-v2";
 
 const P = new PokeAPI();
 
-function capitalize(name:string) {
+function capitalize(name: string) {
   return name.toLowerCase().replace(/\b[a-z](?=[a-z]{2})/g, function(letter) {
     return letter.toUpperCase()
   })
@@ -46,6 +46,14 @@ export default function SearchResults() {
     setSearch(newSearch);
   };
 
+  const abilities = pokemon?.abilities.map(a => {
+    if (a.is_hidden) {
+      return `${capitalize(a.ability.name)} (hidden)`
+    }
+
+    return capitalize(a.ability.name)
+  }).join(', ')
+
   return (
     <List
       throttle
@@ -54,18 +62,43 @@ export default function SearchResults() {
       searchBarPlaceholder="Search Pokémon by name or number..."
     >
       {pokemon && pokemon.id && (
-        <List.Item
-          key={pokemon.id}
-          title={capitalize(pokemon.name)}
-          subtitle={pokemon.types.map(t => capitalize(t.type.name)).join(', ')}
-          accessoryTitle={`National №: ${pokemon.id}`}
-          icon={{ source: pokemon.sprites.other["official-artwork"].front_default || '' }}
-          actions={
-            <ActionPanel>
-              <OpenInBrowserAction url={`https://www.pokemon.com/us/pokedex/` + pokemon?.name} />
-            </ActionPanel>
-          }
-        />
+        <>
+          <List.Section>
+            <List.Item
+              key={pokemon.id}
+              title={capitalize(pokemon.name)}
+              subtitle={`#${pokemon.id.toString().padStart(3, '0')}`}
+              icon={{ source: pokemon.sprites.other["official-artwork"].front_default || '' }}
+              actions={
+                <ActionPanel>
+                  <OpenInBrowserAction url={`https://www.pokemon.com/us/pokedex/` + pokemon?.name} />
+                </ActionPanel>
+              }
+            />
+          </List.Section>
+          <List.Section title="Pokédex data">
+            <List.Item
+              key={pokemon.id}
+              title="Type"
+              subtitle={pokemon.types.map(t => capitalize(t.type.name)).join(', ')}
+            />
+            <List.Item
+              key={pokemon.id}
+              title="Height"
+              subtitle={`${pokemon.height / 10}m`}
+            />
+            <List.Item
+              key={pokemon.id}
+              title="Weight"
+              subtitle={`${pokemon.weight / 10}kg`}
+            />
+            <List.Item
+              key={pokemon.id}
+              title="Abilities"
+              subtitle={abilities}
+            />
+          </List.Section>
+        </>
       )}
     </List>
   );
