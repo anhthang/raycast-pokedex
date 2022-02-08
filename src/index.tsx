@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { getPokemon } from "./api";
 import type { PokemonV2Pokemon } from "./types";
 
-export default function SearchResults() {
-  const [search, setSearch] = useState<string>("");
+export default function SearchPokemon() {
+  const [nameOrId, setNameOrId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemons, setPokemons] = useState<PokemonV2Pokemon[]>([]);
 
   useEffect(() => {
     async function fetch() {
-      await getPokemon(search)
+      await getPokemon(nameOrId)
         .then(data => {
           setPokemons(data)
         })
@@ -21,21 +21,21 @@ export default function SearchResults() {
       setLoading(false)
     }
 
-    if (search.length > 0) {
+    if (nameOrId.length > 0) {
       setLoading(true);
       fetch();
     }
-  }, [search]);
+  }, [nameOrId]);
 
   const onSearchChange = (newSearch: string) => {
     // backspace
-    if (newSearch.length < search.length) {
+    if (newSearch.length < nameOrId.length) {
       setPokemons([])
     }
-    setSearch(newSearch);
+    setNameOrId(newSearch);
   };
 
-  const abilities = (pkm: PokemonV2Pokemon) => pkm.pokemon_v2_pokemonabilities.map(a => {
+  const abilities = (pkm: PokemonV2Pokemon) => pkm.pokemon_v2_pokemonabilities_aggregate.nodes.map(a => {
     if (a.is_hidden) {
       return `${a.pokemon_v2_ability.pokemon_v2_abilitynames[0].name} (hidden)`
     }
@@ -74,7 +74,7 @@ export default function SearchResults() {
               <List.Item
                 key="type"
                 title="Type"
-                subtitle={pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.pokemon_v2_typenames.map(t => t.name).join(', ')}
+                subtitle={pokemon.pokemon_v2_pokemontypes_aggregate.nodes.map(n => n.pokemon_v2_type.pokemon_v2_typenames[0].name).join(', ')}
               />
               <List.Item
                 key="height"
