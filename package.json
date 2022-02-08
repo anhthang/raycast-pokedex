@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@raycast/api": "^1.25.4",
-    "pokedex-promise-v2": "^4.0.0"
+    "axios": "^0.25.0"
   },
   "devDependencies": {
     "@types/node": "~16.10.0",

@@ -1,32 +1,21 @@
 import { List, ActionPanel, OpenInBrowserAction } from "@raycast/api";
 import { useEffect, useState } from "react";
-
-import PokeAPI, { Pokemon, PokemonSpecies } from "pokedex-promise-v2";
-
-const P = new PokeAPI();
-
-function capitalize(name: string) {
-  return name.toLowerCase().replace(/\b[a-z](?=[a-z]{2})/g, function(letter) {
-    return letter.toUpperCase()
-  })
-}
+import { getPokemon } from "./api";
+import type { PokemonV2Pokemon } from "./types";
 
 export default function SearchResults() {
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-  const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies | null>(null);
+  const [pokemons, setPokemons] = useState<PokemonV2Pokemon[]>([]);
 
   useEffect(() => {
     async function fetch() {
-      await Promise.all([P.getPokemonByName(search), P.getPokemonSpeciesByName(search)])
-        .then(([pokemon, pokemonSpecies]) => {
-          setPokemon(Array.isArray(pokemon) ? pokemon[0] : pokemon)
-          setPokemonSpecies(Array.isArray(pokemonSpecies) ? pokemonSpecies[0] : pokemonSpecies)
+      await getPokemon(search)
+        .then(data => {
+          setPokemons(data)
         })
         .catch(() => {
-          setPokemon(null)
-          setPokemonSpecies(null)
+          setPokemons([])
         });
 
       setLoading(false)
@@ -41,18 +30,22 @@ export default function SearchResults() {
   const onSearchChange = (newSearch: string) => {
     // backspace
     if (newSearch.length < search.length) {
-      setPokemon(null)
+      setPokemons([])
     }
     setSearch(newSearch);
   };
 
-  const abilities = pokemon?.abilities.map(a => {
+  const abilities = (pkm: PokemonV2Pokemon) => pkm.pokemon_v2_pokemonabilities.map(a => {
     if (a.is_hidden) {
-      return `${capitalize(a.ability.name)} (hidden)`
+      return `${a.pokemon_v2_ability.pokemon_v2_abilitynames[0].name} (hidden)`
     }
 
-    return capitalize(a.ability.name)
-  }).join(', ')
+    return a.pokemon_v2_ability.pokemon_v2_abilitynames[0].name
+  }).join(', ');
+
+  const pkmNumber = (id: number) => {
+    return id.toString().padStart(3, '0')
+  };
 
   return (
     <List
@@ -61,46 +54,60 @@ export default function SearchResults() {
       onSearchTextChange={onSearchChange}
       searchBarPlaceholder="Search Pokémon by name or number..."
     >
-      {pokemon && pokemon.id && (
-        <>
-          <List.Section>
-            <List.Item
-              key={pokemon.id}
-              title={pokemonSpecies?.names.find(n => n.language.name === 'en')?.name || capitalize(pokemon.name)}
-              // subtitle={pokemonSpecies?.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text.slice(0, 20)}
-              subtitle={`#${pokemon.id.toString().padStart(3, '0')}`}
-              icon={{ source: pokemon.sprites.other["official-artwork"].front_default || '' }}
-              actions={
-                <ActionPanel>
-                  <OpenInBrowserAction url={`https://www.pokemon.com/us/pokedex/` + pokemon?.name} />
-                </ActionPanel>
-              }
-            />
-          </List.Section>
-          <List.Section title="Pokédex data">
-            <List.Item
-              key="type"
-              title="Type"
-              subtitle={pokemon.types.map(t => capitalize(t.type.name)).join(', ')}
-            />
-            <List.Item
-              key="height"
-              title="Height"
-              subtitle={`${pokemon.height / 10}m`}
-            />
-            <List.Item
-              key="weight"
-              title="Weight"
-              subtitle={`${pokemon.weight / 10}kg`}
-            />
-            <List.Item
-              key="abilities"
-              title="Abilities"
-              subtitle={abilities}
-            />
-          </List.Section>
-        </>
-      )}
+      {pokemons.map(pokemon => {
+        return (
+          <>
+            <List.Section>
+              <List.Item
+                key={pokemon.id}
+                title={pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames[0].name}
+                subtitle={`#${pkmNumber(pokemon.id)}`}
+                icon={{ source: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pkmNumber(pokemon.id)}.png` }}
+                actions={
+                  <ActionPanel>
+                    <OpenInBrowserAction url={`https://www.pokemon.com/us/pokedex/` + pokemon.name} />
+                  </ActionPanel>
+                }
+              />
+            </List.Section>
+            <List.Section title="Pokédex data">
+              <List.Item
+                key="type"
+                title="Type"
+                subtitle={pokemon.pokemon_v2_pokemontypes[0].pokemon_v2_type.pokemon_v2_typenames.map(t => t.name).join(', ')}
+              />
+              <List.Item
+                key="height"
+                title="Height"
+                subtitle={`${pokemon.height / 10}m`}
+              />
+              <List.Item
+                key="weight"
+                title="Weight"
+                subtitle={`${pokemon.weight / 10}kg`}
+              />
+              <List.Item
+                key="abilities"
+                title="Abilities"
+                subtitle={abilities(pokemon)}
+              />
+            </List.Section>
+            <List.Section title="Pokédex entries">
+              {pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesflavortexts
+                .filter(f => f.pokemon_v2_version.pokemon_v2_versionnames.length)
+                .map(flavor => {
+                  return (
+                    <List.Item
+                      key={flavor.pokemon_v2_version.name}
+                      title={flavor.pokemon_v2_version.pokemon_v2_versionnames[0].name}
+                      subtitle={flavor.flavor_text.split('\n').join(' ')}
+                    />
+                  )
+                })}
+            </List.Section>
+          </>
+        )
+      })}
     </List>
   );
 }
