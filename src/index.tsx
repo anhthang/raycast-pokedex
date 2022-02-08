@@ -1,7 +1,7 @@
 import { List, ActionPanel, OpenInBrowserAction } from "@raycast/api";
 import { useEffect, useState } from "react";
 
-import PokeAPI, { Pokemon } from "pokedex-promise-v2";
+import PokeAPI, { Pokemon, PokemonSpecies } from "pokedex-promise-v2";
 
 const P = new PokeAPI();
 
@@ -15,19 +15,19 @@ export default function SearchResults() {
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies | null>(null);
 
   useEffect(() => {
     async function fetch() {
-      const data: Pokemon | Pokemon[] | null = await P.getPokemonByName(search)
+      await Promise.all([P.getPokemonByName(search), P.getPokemonSpeciesByName(search)])
+        .then(([pokemon, pokemonSpecies]) => {
+          setPokemon(Array.isArray(pokemon) ? pokemon[0] : pokemon)
+          setPokemonSpecies(Array.isArray(pokemonSpecies) ? pokemonSpecies[0] : pokemonSpecies)
+        })
         .catch(() => {
-          return null
+          setPokemon(null)
+          setPokemonSpecies(null)
         });
-
-      if (Array.isArray(data)) {
-        setPokemon(data[0])
-      } else {
-        setPokemon(data)
-      }
 
       setLoading(false)
     }
@@ -66,7 +66,8 @@ export default function SearchResults() {
           <List.Section>
             <List.Item
               key={pokemon.id}
-              title={capitalize(pokemon.name)}
+              title={pokemonSpecies?.names.find(n => n.language.name === 'en')?.name || capitalize(pokemon.name)}
+              // subtitle={pokemonSpecies?.flavor_text_entries.find(f => f.language.name === 'en')?.flavor_text.slice(0, 20)}
               subtitle={`#${pokemon.id.toString().padStart(3, '0')}`}
               icon={{ source: pokemon.sprites.other["official-artwork"].front_default || '' }}
               actions={
@@ -78,22 +79,22 @@ export default function SearchResults() {
           </List.Section>
           <List.Section title="Pokédex data">
             <List.Item
-              key={pokemon.id}
+              key="type"
               title="Type"
               subtitle={pokemon.types.map(t => capitalize(t.type.name)).join(', ')}
             />
             <List.Item
-              key={pokemon.id}
+              key="height"
               title="Height"
               subtitle={`${pokemon.height / 10}m`}
             />
             <List.Item
-              key={pokemon.id}
+              key="weight"
               title="Weight"
               subtitle={`${pokemon.weight / 10}kg`}
             />
             <List.Item
-              key={pokemon.id}
+              key="abilities"
               title="Abilities"
               subtitle={abilities}
             />
