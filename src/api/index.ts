@@ -1,6 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { showToast, ToastStyle } from "@raycast/api";
+import { showToast, ToastStyle, getPreferenceValues } from "@raycast/api";
 import type { PokemonV2Pokemon } from "../types";
+
+const { language } = getPreferenceValues();
 
 export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
   const query = JSON.stringify({
@@ -76,7 +78,7 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
       }
     }`,
     variables: {
-      language_id: 9, // en
+      language_id: Number(language),
       pokemon_id: id,
     },
   });

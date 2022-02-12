@@ -60,6 +60,7 @@ export default function SearchPokemon() {
           <List.Item
             key="surprise"
             title="Surprise Me!"
+            accessoryTitle="Random Pokémon selector"
             icon={Icon.MagnifyingGlass}
             actions={
               <ActionPanel>
@@ -79,6 +80,7 @@ export default function SearchPokemon() {
       {Object.entries(generation).map(([generation, pokemons]) => {
         return (
           <List.Section
+            key={generation}
             title={generation}
             subtitle={pokemons.length.toString()}
           >

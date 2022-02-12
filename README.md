@@ -10,21 +10,19 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
 ![Example](./media/example.png)
 
 ## Features
+
 - [x] 🔍 Search for a Pokémon by name or using its National Pokédex number.
 - [x] Surprise Me!
+- [x] Pokémon details by prefered language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish.
 
 ## TODO
 
-### Pokémon details
 - [ ] Egg moves
 - [ ] Moves learnt by level up
 - [ ] Moves learnt by TM
 - [ ] Name in other languages
 - [ ] Sprites
 - [ ] Where to find
-
-### Features
-- [ ] Multiple languages
 
 ## Issue tracker
 
