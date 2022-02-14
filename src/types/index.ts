@@ -22,17 +22,13 @@ export type PokemonV2Pokemon = {
   name: string;
   height: number;
   weight: number;
-  pokemon_v2_pokemonabilities_aggregate: PokemonV2PokemonabilitiesAggregate;
-  pokemon_v2_pokemonstats_aggregate: PokemonV2PokemonstatsAggregate;
-  pokemon_v2_pokemontypes_aggregate: PokemonV2PokemontypesAggregate;
+  pokemon_v2_pokemonabilities: PokemonV2Pokemonability[];
+  pokemon_v2_pokemonstats: PokemonV2Pokemonstat[];
+  pokemon_v2_pokemontypes: PokemonV2Pokemontype[];
   pokemon_v2_pokemonspecy: PokemonV2Pokemonspecy;
 };
 
-type PokemonV2PokemonabilitiesAggregate = {
-  nodes: PokemonV2PokemonabilitiesAggregateNode[];
-};
-
-type PokemonV2PokemonabilitiesAggregateNode = {
+type PokemonV2Pokemonability = {
   is_hidden: boolean;
   pokemon_v2_ability: PokemonV2Ability;
 };
@@ -42,7 +38,6 @@ type PokemonV2Ability = {
 };
 
 type PokemonV2Name = {
-  genus: string;
   name: string;
 };
 
@@ -52,7 +47,7 @@ export type PokemonV2Pokemonspecy = {
   is_baby: boolean;
   name: string;
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
-  pokemon_v2_pokemonspeciesnames: PokemonV2Name[];
+  pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
   pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
 };
 
@@ -63,7 +58,12 @@ type PokemonV2Evolutionchain = {
 type PokemonV2PokemonspecyElement = {
   id: number;
   name: string;
-  pokemon_v2_pokemonspeciesnames: PokemonV2Name[];
+  pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
+};
+
+type PokemonV2Pokemonspeciesname = {
+  genus: string;
+  name: string;
 };
 
 type PokemonV2Pokemonspeciesflavortext = {
@@ -77,20 +77,7 @@ type PokemonV2Version = {
   pokemon_v2_versionnames: PokemonV2Name[];
 };
 
-type PokemonV2PokemonstatsAggregate = {
-  nodes: PokemonV2PokemonstatsAggregateNode[];
-  aggregate: Aggregate;
-};
-
-type Aggregate = {
-  sum: Sum;
-};
-
-type Sum = {
-  base_stat: number;
-};
-
-type PokemonV2PokemonstatsAggregateNode = {
+type PokemonV2Pokemonstat = {
   base_stat: number;
   pokemon_v2_stat: PokemonV2Stat;
 };
@@ -100,11 +87,7 @@ type PokemonV2Stat = {
   pokemon_v2_statnames: PokemonV2Name[];
 };
 
-type PokemonV2PokemontypesAggregate = {
-  nodes: PokemonV2PokemontypesAggregateNode[];
-};
-
-type PokemonV2PokemontypesAggregateNode = {
+type PokemonV2Pokemontype = {
   pokemon_v2_type: PokemonV2Type;
 };
 

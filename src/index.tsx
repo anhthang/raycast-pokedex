@@ -90,9 +90,7 @@ export default function SearchPokemon() {
                     <Action.Push
                       title="Show Details"
                       icon={Icon.MagnifyingGlass}
-                      target={
-                        <PokemonDetail id={pokemon.id} />
-                      }
+                      target={<PokemonDetail id={pokemon.id} />}
                     />
                   </ActionPanel>
                 }
