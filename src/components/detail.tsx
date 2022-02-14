@@ -1,21 +1,20 @@
-import { ActionPanel, Detail, OpenInBrowserAction } from "@raycast/api";
+import { Action, ActionPanel, Detail } from "@raycast/api";
 import { useEffect, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
 import type { PokemonV2Pokemon, PokemonV2Pokemonspecy } from "../types";
 
-type PropsType = {
-  id: number;
-  name: string;
-};
+function random(lower: number, upper: number) {
+  return lower + Math.floor(Math.random() * (upper - lower + 1));
+}
 
-export default function PokemonDetail(props: PropsType) {
+export default function PokemonDetail(props: { id?: number }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemons, setPokemons] = useState<PokemonV2Pokemon[]>([]);
 
   useEffect(() => {
     setLoading(true);
-    getPokemon(props.id)
+    getPokemon(props.id || random(1, 898))
       .then((data) => {
         setPokemons(data);
         setLoading(false);
@@ -146,11 +145,11 @@ export default function PokemonDetail(props: PropsType) {
   return (
     <Detail
       isLoading={loading}
-      navigationTitle={`Pokémon - ${props.name}`}
+      navigationTitle={"Pokémon Details"}
       markdown={markdown(pokemons[0])}
       actions={
         <ActionPanel>
-          <OpenInBrowserAction
+          <Action.OpenInBrowser
             url={`https://www.pokemon.com/us/pokedex/${
               pokemons[0] && pokemons[0].pokemon_v2_pokemonspecy.name
             }`}

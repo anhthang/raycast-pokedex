@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { showToast, ToastStyle, getPreferenceValues } from "@raycast/api";
+import { showToast, Toast, getPreferenceValues } from "@raycast/api";
 import type { PokemonV2Pokemon } from "../types";
 
 const { language } = getPreferenceValues();
@@ -98,14 +98,14 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
     const { data } = await axios(config);
 
     if (Array.isArray(data.errors) && data.errors.length) {
-      showToast(ToastStyle.Failure, data.errors[0].message);
+      showToast(Toast.Style.Failure, data.errors[0].message);
 
       return [];
     }
 
     return data.data.pokemon_v2_pokemon;
   } catch (error) {
-    showToast(ToastStyle.Failure, "Could not get results");
+    showToast(Toast.Style.Failure, "Could not get results");
 
     return [];
   }
