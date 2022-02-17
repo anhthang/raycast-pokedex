@@ -2,7 +2,7 @@ import { Action, ActionPanel, Detail } from "@raycast/api";
 import { useEffect, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
-import type { PokemonV2Pokemon, PokemonV2Pokemonspecy } from "../types";
+import { PokemonV2Pokemon, PokemonV2Pokemonspecy } from "../types";
 
 function random(lower: number, upper: number) {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
@@ -10,17 +10,19 @@ function random(lower: number, upper: number) {
 
 export default function PokemonDetail(props: { id?: number }) {
   const [loading, setLoading] = useState<boolean>(false);
-  const [pokemons, setPokemons] = useState<PokemonV2Pokemon[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     setLoading(true);
     getPokemon(props.id || random(1, 898))
       .then((data) => {
-        setPokemons(data);
+        setPokemon(data[0]);
         setLoading(false);
       })
       .catch(() => {
-        setPokemons([]);
+        setPokemon(undefined);
         setLoading(false);
       });
   }, [props.id]);
@@ -44,8 +46,10 @@ export default function PokemonDetail(props: { id?: number }) {
       })
       .join(", ");
 
-  const markdown = (pokemon: PokemonV2Pokemon): string | null => {
-    if (!pokemon) return null;
+  const dataObject = (
+    pokemon: PokemonV2Pokemon | undefined
+  ): json2md.DataObject => {
+    if (!pokemon) return [];
 
     const {
       pokemon_v2_pokemonspecy,
@@ -142,22 +146,41 @@ export default function PokemonDetail(props: { id?: number }) {
         }),
     ];
 
-    return json2md(data);
+    return data;
+  };
+
+  const bulba = (specy: PokemonV2Pokemonspecy) => {
+    return specy.pokemon_v2_pokemonspeciesnames[0].name.replace(/ /g, "_");
   };
 
   return (
     <Detail
       isLoading={loading}
-      navigationTitle={"Pokémon Details"}
-      markdown={markdown(pokemons[0])}
+      navigationTitle={
+        pokemon
+          ? `${pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames[0].name} | Pokédex`
+          : "Pokédex"
+      }
+      markdown={json2md(dataObject(pokemon))}
       actions={
-        <ActionPanel>
-          <Action.OpenInBrowser
-            url={`https://www.pokemon.com/us/pokedex/${
-              pokemons[0] && pokemons[0].pokemon_v2_pokemonspecy.name
-            }`}
-          />
-        </ActionPanel>
+        pokemon && (
+          <ActionPanel>
+            <ActionPanel.Section title="Pokémon">
+              <Action.OpenInBrowser
+                title="Open in the Official Pokémon Website"
+                icon="pokemon.ico"
+                url={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
+              />
+              <Action.OpenInBrowser
+                title="Open in Bulbapedia"
+                icon="bulbapedia.ico"
+                url={`https://bulbapedia.bulbagarden.net/wiki/${bulba(
+                  pokemon.pokemon_v2_pokemonspecy
+                )}_(Pok%C3%A9mon)`}
+              />
+            </ActionPanel.Section>
+          </ActionPanel>
+        )
       }
     />
   );

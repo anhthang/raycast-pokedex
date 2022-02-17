@@ -1,23 +1,23 @@
-export type PokeAPI = {
+export interface PokeAPI {
   data: Data;
   errors?: Error[];
-};
+}
 
-export type Data = {
+export interface Data {
   pokemon_v2_pokemon: PokemonV2Pokemon[];
-};
+}
 
-type Error = {
+export interface Error {
   extensions: Extensions;
   message: string;
-};
+}
 
-type Extensions = {
+export interface Extensions {
   path: string;
   code: string;
-};
+}
 
-export type PokemonV2Pokemon = {
+export interface PokemonV2Pokemon {
   id: number;
   name: string;
   height: number;
@@ -26,22 +26,22 @@ export type PokemonV2Pokemon = {
   pokemon_v2_pokemonstats: PokemonV2Pokemonstat[];
   pokemon_v2_pokemontypes: PokemonV2Pokemontype[];
   pokemon_v2_pokemonspecy: PokemonV2Pokemonspecy;
-};
+}
 
-type PokemonV2Pokemonability = {
+export interface PokemonV2Pokemonability {
   is_hidden: boolean;
   pokemon_v2_ability: PokemonV2Ability;
-};
+}
 
-type PokemonV2Ability = {
+export interface PokemonV2Ability {
   pokemon_v2_abilitynames: PokemonV2Name[];
-};
+}
 
-type PokemonV2Name = {
+export interface PokemonV2Name {
   name: string;
-};
+}
 
-export type PokemonV2Pokemonspecy = {
+export interface PokemonV2Pokemonspecy {
   is_mythical: boolean;
   is_legendary: boolean;
   is_baby: boolean;
@@ -49,48 +49,48 @@ export type PokemonV2Pokemonspecy = {
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
   pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
-};
+}
 
-type PokemonV2Evolutionchain = {
+export interface PokemonV2Evolutionchain {
   pokemon_v2_pokemonspecies: PokemonV2PokemonspecyElement[];
-};
+}
 
-type PokemonV2PokemonspecyElement = {
+export interface PokemonV2PokemonspecyElement {
   id: number;
   name: string;
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
-};
+}
 
-type PokemonV2Pokemonspeciesname = {
+export interface PokemonV2Pokemonspeciesname {
   genus: string;
   name: string;
-};
+}
 
-type PokemonV2Pokemonspeciesflavortext = {
+export interface PokemonV2Pokemonspeciesflavortext {
   flavor_text: string;
   pokemon_v2_version: PokemonV2Version;
-};
+}
 
-type PokemonV2Version = {
+export interface PokemonV2Version {
   id: number;
   name: string;
   pokemon_v2_versionnames: PokemonV2Name[];
-};
+}
 
-type PokemonV2Pokemonstat = {
+export interface PokemonV2Pokemonstat {
   base_stat: number;
   pokemon_v2_stat: PokemonV2Stat;
-};
+}
 
-type PokemonV2Stat = {
+export interface PokemonV2Stat {
   name: string;
   pokemon_v2_statnames: PokemonV2Name[];
-};
+}
 
-type PokemonV2Pokemontype = {
+export interface PokemonV2Pokemontype {
   pokemon_v2_type: PokemonV2Type;
-};
+}
 
-type PokemonV2Type = {
+export interface PokemonV2Type {
   pokemon_v2_typenames: PokemonV2Name[];
-};
+}
