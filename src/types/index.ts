@@ -48,6 +48,7 @@ export interface PokemonV2Pokemonspecy {
   name: string;
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
+  pokemon_v2_pokemons: PokemonV2PokemonspecyPokemonV2Pokemon[];
   pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
 }
 
@@ -64,6 +65,22 @@ export interface PokemonV2PokemonspecyElement {
 export interface PokemonV2Pokemonspeciesname {
   genus: string;
   name: string;
+}
+
+export interface PokemonV2PokemonspecyPokemonV2Pokemon {
+  name: string;
+  pokemon_v2_pokemonforms: PokemonV2Pokemonform[];
+}
+
+export interface PokemonV2Pokemonform {
+  form_name: string;
+  pokemon_v2_pokemonformnames: PokemonV2Pokemonformname[];
+}
+
+export interface PokemonV2Pokemonformname {
+  name: string;
+  pokemon_name: string;
+  pokemon_form_id: number;
 }
 
 export interface PokemonV2Pokemonspeciesflavortext {

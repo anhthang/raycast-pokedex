@@ -46,6 +46,13 @@ export default function PokemonDetail(props: { id?: number }) {
       })
       .join(", ");
 
+  const formImg = (id: number, formId: number) => {
+    const name = formId
+      ? `${id.toString().padStart(3, "0")}_f${formId + 1}`
+      : id.toString().padStart(3, "0");
+    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${name}.png`;
+  };
+
   const dataObject = (
     pokemon: PokemonV2Pokemon | undefined
   ): json2md.DataObject => {
@@ -112,6 +119,32 @@ export default function PokemonDetail(props: { id?: number }) {
         )}**`,
       },
       {
+        h2:
+          pokemon_v2_pokemonspecy.pokemon_v2_pokemons.length > 1 ? "Forms" : "",
+      },
+      ...(pokemon_v2_pokemonspecy.pokemon_v2_pokemons.length > 1
+        ? pokemon_v2_pokemonspecy.pokemon_v2_pokemons.map((p, idx) => {
+            return [
+              {
+                h3:
+                  p.pokemon_v2_pokemonforms[0].pokemon_v2_pokemonformnames[0]
+                    ?.name || pokemon_v2_pokemonspeciesnames[0].name,
+              },
+              {
+                img: [
+                  {
+                    title:
+                      p.pokemon_v2_pokemonforms[0]
+                        .pokemon_v2_pokemonformnames[0]?.name ||
+                      pokemon_v2_pokemonspeciesnames[0].name,
+                    source: formImg(pokemon.id, idx),
+                  },
+                ],
+              },
+            ];
+          })
+        : []),
+      {
         h2: "Evolutions",
       },
       {
@@ -121,16 +154,19 @@ export default function PokemonDetail(props: { id?: number }) {
             : "",
       },
       {
-        img: pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
-          (specy) => {
-            return {
-              title: specy.pokemon_v2_pokemonspeciesnames[0].name,
-              source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
-                .toString()
-                .padStart(3, "0")}.png`,
-            };
-          }
-        ),
+        img:
+          pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.length < 2
+            ? []
+            : pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
+                (specy) => {
+                  return {
+                    title: specy.pokemon_v2_pokemonspeciesnames[0].name,
+                    source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
+                      .toString()
+                      .padStart(3, "0")}.png`,
+                  };
+                }
+              ),
       },
       {
         h2: "Pokédex entries",

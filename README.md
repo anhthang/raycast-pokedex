@@ -11,9 +11,17 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
 
 ## Features
 
-- [x] 🔍 Search for a Pokémon by name or using its National Pokédex number.
-- [x] Surprise Me!
-- [x] Pokémon details by prefered language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish.
+- [x] 🔍 Pokédex
+  - Search for a Pokémon by name or using its National Pokédex number.
+    - Pokédex data
+    - Base stats
+    - Forms
+    - Evolutions
+    - Pokédex entries
+  - Surprise Me!
+  - Open in the Official Pokémon Website, Open in Bulbapedia.
+- [x] ⚙️ Preference
+  - Pokémon details by prefered language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish.
 
 ## TODO
 
