@@ -74,13 +74,13 @@ export interface PokemonV2PokemonspecyPokemonV2Pokemon {
 
 export interface PokemonV2Pokemonform {
   form_name: string;
+  pokemon_id: number;
   pokemon_v2_pokemonformnames: PokemonV2Pokemonformname[];
 }
 
 export interface PokemonV2Pokemonformname {
   name: string;
   pokemon_name: string;
-  pokemon_form_id: number;
 }
 
 export interface PokemonV2Pokemonspeciesflavortext {

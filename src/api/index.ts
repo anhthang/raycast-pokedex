@@ -63,14 +63,14 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
             genus
             name
           }
-          pokemon_v2_pokemons(order_by: {order: asc}) {
+          pokemon_v2_pokemons(order_by: {id: asc}) {
             name
             pokemon_v2_pokemonforms {
               form_name
+              pokemon_id
               pokemon_v2_pokemonformnames(where: {language_id: {_eq: $language_id}}) {
                 name
                 pokemon_name
-                pokemon_form_id
               }
             }
           }
