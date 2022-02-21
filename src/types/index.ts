@@ -65,6 +65,7 @@ export interface PokemonV2PokemonspecyElement {
 export interface PokemonV2Pokemonspeciesname {
   genus: string;
   name: string;
+  language_id: number;
 }
 
 export interface PokemonV2PokemonspecyPokemonV2Pokemon {

@@ -1,8 +1,18 @@
-import { Action, ActionPanel, Detail } from "@raycast/api";
+import { Action, ActionPanel, Detail, getPreferenceValues } from "@raycast/api";
 import { useEffect, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
-import { PokemonV2Pokemon, PokemonV2Pokemonspecy } from "../types";
+import {
+  PokemonV2Pokemon,
+  PokemonV2Pokemonspecy,
+  PokemonV2Pokemonspeciesname,
+} from "../types";
+
+const { language } = getPreferenceValues();
+
+type SpeciesNameByLanguage = {
+  [lang: string]: PokemonV2Pokemonspeciesname;
+};
 
 function random(lower: number, upper: number) {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
@@ -13,11 +23,25 @@ export default function PokemonDetail(props: { id?: number }) {
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined
   );
+  const [nameByLang, setNameByLang] = useState<SpeciesNameByLanguage>({});
 
   useEffect(() => {
     setLoading(true);
-    getPokemon(props.id || random(1, 898))
+    getPokemon(props.id || random(1, 898), Number(language))
       .then((data) => {
+        if (data[0]) {
+          const nameMap =
+            data[0].pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames.reduce(
+              (prev, curr) => {
+                prev[curr.language_id] = curr;
+
+                return prev;
+              },
+              nameByLang
+            );
+
+          setNameByLang(nameMap);
+        }
         setPokemon(data[0]);
         setLoading(false);
       })
@@ -64,17 +88,14 @@ export default function PokemonDetail(props: { id?: number }) {
       pokemon_v2_pokemonstats,
     } = pokemon;
 
-    const {
-      pokemon_v2_evolutionchain,
-      pokemon_v2_pokemonspeciesnames,
-      pokemon_v2_pokemonspeciesflavortexts,
-    } = pokemon_v2_pokemonspecy;
+    const { pokemon_v2_evolutionchain, pokemon_v2_pokemonspeciesflavortexts } =
+      pokemon_v2_pokemonspecy;
 
     const pkmNumber = pokemon.id.toString().padStart(3, "0");
 
     const data = [
       {
-        h1: pokemon_v2_pokemonspeciesnames[0].name,
+        h1: nameByLang[language].name,
       },
       {
         blockquote: accessoryTitle(pokemon_v2_pokemonspecy),
@@ -82,7 +103,7 @@ export default function PokemonDetail(props: { id?: number }) {
       {
         img: [
           {
-            title: pokemon_v2_pokemonspeciesnames[0].name,
+            title: nameByLang[language].name,
             source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pkmNumber}.png`,
           },
         ],
@@ -100,7 +121,7 @@ export default function PokemonDetail(props: { id?: number }) {
             .map((n) => n.pokemon_v2_type.pokemon_v2_typenames[0].name)
             .join(", "),
       },
-      { p: `_Species:_ ${pokemon_v2_pokemonspeciesnames[0].genus}` },
+      { p: `_Species:_ ${nameByLang[language].genus}` },
       { p: `_Height:_ ${pokemon.height / 10}m` },
       { p: `_Weight:_ ${pokemon.weight / 10}kg` },
       { p: `_Abilities:_ ${abilities(pokemon)}` },
@@ -128,7 +149,7 @@ export default function PokemonDetail(props: { id?: number }) {
               {
                 h3:
                   p.pokemon_v2_pokemonforms[0].pokemon_v2_pokemonformnames[0]
-                    ?.name || pokemon_v2_pokemonspeciesnames[0].name,
+                    ?.name || nameByLang[language].name,
               },
               {
                 img: [
@@ -136,7 +157,7 @@ export default function PokemonDetail(props: { id?: number }) {
                     title:
                       p.pokemon_v2_pokemonforms[0]
                         .pokemon_v2_pokemonformnames[0]?.name ||
-                      pokemon_v2_pokemonspeciesnames[0].name,
+                      nameByLang[language].name,
                     source: formImg(pokemon.id, idx),
                   },
                 ],
@@ -185,17 +206,16 @@ export default function PokemonDetail(props: { id?: number }) {
     return data;
   };
 
-  const bulba = (specy: PokemonV2Pokemonspecy) => {
-    return specy.pokemon_v2_pokemonspeciesnames[0].name.replace(/ /g, "_");
+  const englishName = () => {
+    // 9 is language_id for English
+    return nameByLang["9"].name.replace(/ /g, "_");
   };
 
   return (
     <Detail
       isLoading={loading}
       navigationTitle={
-        pokemon
-          ? `${pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames[0].name} | Pokédex`
-          : "Pokédex"
+        pokemon ? `${nameByLang[language].name} | Pokédex` : "Pokédex"
       }
       markdown={json2md(dataObject(pokemon))}
       actions={
@@ -210,9 +230,7 @@ export default function PokemonDetail(props: { id?: number }) {
               <Action.OpenInBrowser
                 title="Open in Bulbapedia"
                 icon="bulbapedia.ico"
-                url={`https://bulbapedia.bulbagarden.net/wiki/${bulba(
-                  pokemon.pokemon_v2_pokemonspecy
-                )}_(Pok%C3%A9mon)`}
+                url={`https://bulbapedia.bulbagarden.net/wiki/${englishName()}_(Pok%C3%A9mon)`}
               />
             </ActionPanel.Section>
           </ActionPanel>

@@ -1,8 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { showToast, Toast, getPreferenceValues } from "@raycast/api";
-import { PokemonV2Pokemon } from "../types";
-
-const { language } = getPreferenceValues();
+import { showToast, Toast } from "@raycast/api";
+import { PokeAPI, PokemonV2Pokemon } from "../types";
 
 function showFailureToast() {
   showToast(
@@ -12,7 +10,10 @@ function showFailureToast() {
   );
 }
 
-export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
+export const getPokemon = async (
+  id: number,
+  language: number
+): Promise<PokemonV2Pokemon[]> => {
   const query = JSON.stringify({
     query: `query pokemon($language_id: Int, $pokemon_id: Int) {
       pokemon_v2_pokemon(where: {id: {_eq: $pokemon_id}}) {
@@ -59,9 +60,10 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
               }
             }
           }
-          pokemon_v2_pokemonspeciesnames(where: {language_id: {_eq: $language_id}}) {
+          pokemon_v2_pokemonspeciesnames {
             genus
             name
+            language_id
           }
           pokemon_v2_pokemons(order_by: {id: asc}) {
             name
@@ -88,7 +90,7 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
       }
     }`,
     variables: {
-      language_id: Number(language),
+      language_id: language,
       pokemon_id: id,
     },
   });
@@ -104,7 +106,7 @@ export const getPokemon = async (id: number): Promise<PokemonV2Pokemon[]> => {
   };
 
   try {
-    const { data } = await axios(config);
+    const { data }: { data: PokeAPI } = await axios(config);
 
     if (Array.isArray(data.errors) && data.errors.length) {
       showFailureToast();
