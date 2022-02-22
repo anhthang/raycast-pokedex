@@ -81,6 +81,7 @@ export default function SearchPokemon() {
                 title={`#${pokemon.id.toString().padStart(3, "0")}`}
                 subtitle={pokemon.name}
                 accessoryTitle={pokemon.types.join(", ")}
+                accessoryIcon={`types/${pokemon.types[0]}.png`}
                 icon={{
                   source: pokemon.artwork,
                   fallback: "icon.png",
