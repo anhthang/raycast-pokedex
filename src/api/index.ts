@@ -17,6 +17,7 @@ export const getPokemon = async (
   const query = JSON.stringify({
     query: `query pokemon($language_id: Int, $pokemon_id: Int) {
       pokemon_v2_pokemon(where: {id: {_eq: $pokemon_id}}) {
+        base_experience
         id
         name
         height
@@ -46,9 +47,14 @@ export const getPokemon = async (
           }
         }
         pokemon_v2_pokemonspecy {
-          is_mythical
-          is_legendary
+          base_happiness
+          capture_rate
+          gender_rate
+          growth_rate_id
+          hatch_counter
           is_baby
+          is_legendary
+          is_mythical
           name
           pokemon_v2_evolutionchain {
             pokemon_v2_pokemonspecies(order_by: {order: asc}) {
@@ -60,10 +66,13 @@ export const getPokemon = async (
               }
             }
           }
-          pokemon_v2_pokemonspeciesnames {
-            genus
-            name
-            language_id
+          pokemon_v2_pokemonegggroups {
+            pokemon_v2_egggroup {
+              pokemon_v2_egggroupnames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+              name
+            }
           }
           pokemon_v2_pokemons(order_by: {id: asc}) {
             name
@@ -85,6 +94,11 @@ export const getPokemon = async (
                 name
               }
             }
+          }
+          pokemon_v2_pokemonspeciesnames {
+            genus
+            name
+            language_id
           }
         }
       }

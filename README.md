@@ -17,6 +17,8 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
   - Search for a Pokémon by name or using its National Pokédex number.
     - Pokédex data
     - Base stats
+    - Training
+    - Breeding
     - Forms
     - Evolutions
     - Pokédex entries

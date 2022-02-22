@@ -14,6 +14,15 @@ type SpeciesNameByLanguage = {
   [lang: string]: PokemonV2Pokemonspeciesname;
 };
 
+const GrowthRate: { [id: string]: string } = {
+  "1": "slow",
+  "2": "medium",
+  "3": "fast",
+  "4": "medium slow",
+  "5": "slow then very fast",
+  "6": "fast then very slow",
+};
+
 function random(lower: number, upper: number) {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
 }
@@ -88,8 +97,11 @@ export default function PokemonDetail(props: { id?: number }) {
       pokemon_v2_pokemonstats,
     } = pokemon;
 
-    const { pokemon_v2_evolutionchain, pokemon_v2_pokemonspeciesflavortexts } =
-      pokemon_v2_pokemonspecy;
+    const {
+      pokemon_v2_evolutionchain,
+      pokemon_v2_pokemonegggroups,
+      pokemon_v2_pokemonspeciesflavortexts,
+    } = pokemon_v2_pokemonspecy;
 
     const pkmNumber = pokemon.id.toString().padStart(3, "0");
 
@@ -138,6 +150,40 @@ export default function PokemonDetail(props: { id?: number }) {
           (prev, cur) => prev + cur.base_stat,
           0
         )}**`,
+      },
+      {
+        h2: "Training",
+      },
+      // {
+      //   p: `_EV yield:_ `
+      // },
+      {
+        p: `_Catch rate:_ ${pokemon_v2_pokemonspecy.capture_rate}`,
+      },
+      {
+        p: `_Base Friendship:_ ${pokemon_v2_pokemonspecy.base_happiness}`,
+      },
+      {
+        p: `_Base Exp.:_ ${pokemon.base_experience}`,
+      },
+      {
+        p: `_Growth Rate:_ ${
+          GrowthRate[pokemon_v2_pokemonspecy.growth_rate_id]
+        }`,
+      },
+      {
+        h2: "Breeding",
+      },
+      {
+        p: `_Egg groups:_ ${pokemon_v2_pokemonegggroups
+          .map((g) => g.pokemon_v2_egggroup.pokemon_v2_egggroupnames[0].name)
+          .join(", ")}`,
+      },
+      // {
+      //   p: `_Gender:_ `
+      // },
+      {
+        p: `_Egg cycles:_ ${pokemon_v2_pokemonspecy.hatch_counter}`,
       },
       {
         h2:

@@ -18,6 +18,7 @@ export interface Extensions {
 }
 
 export interface PokemonV2Pokemon {
+  base_experience: number;
   id: number;
   name: string;
   height: number;
@@ -42,14 +43,20 @@ export interface PokemonV2Name {
 }
 
 export interface PokemonV2Pokemonspecy {
-  is_mythical: boolean;
-  is_legendary: boolean;
+  base_happiness: number;
+  capture_rate: number;
+  gender_rate: number;
+  growth_rate_id: number;
+  hatch_counter: number;
   is_baby: boolean;
+  is_legendary: boolean;
+  is_mythical: boolean;
   name: string;
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
-  pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
+  pokemon_v2_pokemonegggroups: PokemonV2Pokemonegggroup[];
   pokemon_v2_pokemons: PokemonV2PokemonspecyPokemonV2Pokemon[];
   pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
+  pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
 }
 
 export interface PokemonV2Evolutionchain {
@@ -62,10 +69,17 @@ export interface PokemonV2PokemonspecyElement {
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
 }
 
-export interface PokemonV2Pokemonspeciesname {
+export interface PokemonV2Pokemonspeciesname extends PokemonV2Name {
   genus: string;
+}
+
+export interface PokemonV2Pokemonegggroup {
+  pokemon_v2_egggroup: PokemonV2Egggroup;
+}
+
+export interface PokemonV2Egggroup {
+  pokemon_v2_egggroupnames: PokemonV2Name[];
   name: string;
-  language_id: number;
 }
 
 export interface PokemonV2PokemonspecyPokemonV2Pokemon {
@@ -93,6 +107,11 @@ export interface PokemonV2Version {
   id: number;
   name: string;
   pokemon_v2_versionnames: PokemonV2Name[];
+}
+
+export interface PokemonV2Pokemonspeciesname extends PokemonV2Name {
+  genus: string;
+  language_id: number;
 }
 
 export interface PokemonV2Pokemonstat {
