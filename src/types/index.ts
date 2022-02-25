@@ -71,6 +71,7 @@ export interface PokemonV2PokemonspecyElement {
 
 export interface PokemonV2Pokemonspeciesname extends PokemonV2Name {
   genus: string;
+  language_id: number;
 }
 
 export interface PokemonV2Pokemonegggroup {
@@ -107,11 +108,6 @@ export interface PokemonV2Version {
   id: number;
   name: string;
   pokemon_v2_versionnames: PokemonV2Name[];
-}
-
-export interface PokemonV2Pokemonspeciesname extends PokemonV2Name {
-  genus: string;
-  language_id: number;
 }
 
 export interface PokemonV2Pokemonstat {
