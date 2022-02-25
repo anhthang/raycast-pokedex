@@ -87,10 +87,12 @@ export default function PokemonDetail(props: { id?: number }) {
         h3: nameByLang[language].genus,
       },
       {
-        p: pokemon_v2_pokemonspeciesflavortexts
-          .reverse()[0]
-          .flavor_text.split("\n")
-          .join(" "),
+        p: pokemon_v2_pokemonspeciesflavortexts.length
+          ? pokemon_v2_pokemonspeciesflavortexts
+              .reverse()[0]
+              .flavor_text.split("\n")
+              .join(" ")
+          : "",
       },
       {
         img: [
@@ -182,6 +184,13 @@ export default function PokemonDetail(props: { id?: number }) {
                 h3:
                   p.pokemon_v2_pokemonforms[0].pokemon_v2_pokemonformnames[0]
                     ?.name || nameByLang[language].name,
+              },
+              {
+                p:
+                  "_Type:_ " +
+                  p.pokemon_v2_pokemontypes
+                    .map((n) => n.pokemon_v2_type.pokemon_v2_typenames[0].name)
+                    .join(", "),
               },
               {
                 img: [
