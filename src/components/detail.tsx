@@ -149,13 +149,13 @@ export default function PokemonDetail(props: { id?: number }) {
         p: `_Catch rate:_ ${pokemon_v2_pokemonspecy.capture_rate}`,
       },
       {
-        p: `_Base Friendship:_ ${pokemon_v2_pokemonspecy.base_happiness}`,
+        p: `_Base friendship:_ ${pokemon_v2_pokemonspecy.base_happiness}`,
       },
       {
-        p: `_Base Exp.:_ ${pokemon.base_experience}`,
+        p: `_Base exp.:_ ${pokemon.base_experience}`,
       },
       {
-        p: `_Growth Rate:_ ${
+        p: `_Growth rate:_ ${
           GrowthRate[pokemon_v2_pokemonspecy.growth_rate_id]
         }`,
       },
@@ -216,19 +216,15 @@ export default function PokemonDetail(props: { id?: number }) {
             : "",
       },
       {
-        img:
-          pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.length < 2
-            ? []
-            : pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
-                (specy) => {
-                  return {
-                    title: specy.pokemon_v2_pokemonspeciesnames[0].name,
-                    source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
-                      .toString()
-                      .padStart(3, "0")}.png`,
-                  };
-                }
-              ),
+        p: pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies
+          .map((specy) => {
+            return `![${
+              specy.pokemon_v2_pokemonspeciesnames[0].name
+            }](https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
+              .toString()
+              .padStart(3, "0")}.png)`;
+          })
+          .join(" "),
       },
       {
         h2: "Pokédex entries",

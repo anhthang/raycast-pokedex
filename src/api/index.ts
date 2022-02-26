@@ -75,7 +75,7 @@ export const getPokemon = async (
               name
             }
           }
-          pokemon_v2_pokemons(order_by: {id: asc}) {
+          pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["totem", "starter"]}}}) {
             name
             pokemon_v2_pokemonforms {
               form_name
