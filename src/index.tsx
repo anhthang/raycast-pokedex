@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List, Icon } from "@raycast/api";
+import { Action, ActionPanel, List } from "@raycast/api";
 import { useEffect, useState } from "react";
 import groupBy from "lodash.groupby";
 import PokemonDetail from "./components/detail";
@@ -48,12 +48,12 @@ export default function SearchPokemon() {
             key="surprise"
             title="Surprise Me!"
             accessoryTitle="Random Pokémon selector"
-            icon={Icon.MagnifyingGlass}
+            icon="icon_random.png"
             actions={
               <ActionPanel>
                 <Action.Push
                   title="Surprise Me!"
-                  icon={Icon.MagnifyingGlass}
+                  icon="icon_random.png"
                   target={<PokemonDetail />}
                 />
               </ActionPanel>
@@ -83,7 +83,7 @@ export default function SearchPokemon() {
                   <ActionPanel>
                     <Action.Push
                       title="Show Details"
-                      icon={Icon.MagnifyingGlass}
+                      icon="icon_random.png"
                       target={<PokemonDetail id={pokemon.id} />}
                     />
                   </ActionPanel>

@@ -286,12 +286,12 @@ export default function PokemonDetail(props: { id?: number }) {
             <ActionPanel.Section title="Pokémon">
               <Action.OpenInBrowser
                 title="Open in the Official Pokémon Website"
-                icon="pokemon.ico"
+                icon="icon.png"
                 url={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
               />
               <Action.OpenInBrowser
                 title="Open in Bulbapedia"
-                icon="bulbapedia.ico"
+                icon="bulbapedia.png"
                 url={`https://bulbapedia.bulbagarden.net/wiki/${englishName()}_(Pok%C3%A9mon)`}
               />
             </ActionPanel.Section>
