@@ -2,7 +2,11 @@ import { Action, ActionPanel, Detail, getPreferenceValues } from "@raycast/api";
 import { useEffect, useMemo, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
-import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "../types";
+import {
+  PokemonV2Pokemon,
+  PokemonV2Pokemonspeciesname,
+  PokemonV2PokemonspecyElement,
+} from "../types";
 
 const { language } = getPreferenceValues();
 
@@ -59,6 +63,23 @@ export default function PokemonDetail(props: { id?: number }) {
       ? `${id.toString().padStart(3, "0")}_f${formId + 1}`
       : id.toString().padStart(3, "0");
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${name}.png`;
+  };
+
+  const evolutions = (species: PokemonV2PokemonspecyElement[]) => {
+    const first = species.find((s) => !s.evolves_from_species_id);
+    if (!first) return [];
+
+    const seconds = species.filter(
+      (s) => s.evolves_from_species_id === first?.id
+    );
+
+    return seconds.map((second) => {
+      const third = species.find(
+        (s) => s.evolves_from_species_id === second.id
+      );
+
+      return third ? [first, second, third] : [first, second];
+    });
   };
 
   const dataObject: json2md.DataObject = useMemo(() => {
@@ -236,17 +257,19 @@ export default function PokemonDetail(props: { id?: number }) {
             ? "_This Pokémon does not evolve._"
             : "",
       },
-      {
-        p: pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies
-          .map((specy) => {
-            return `![${
-              specy.pokemon_v2_pokemonspeciesnames[0].name
-            }](https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
-              .toString()
-              .padStart(3, "0")}.png)`;
-          })
-          .join(" "),
-      },
+      ...evolutions(pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies).map(
+        (evolution) => ({
+          p: evolution
+            .map((specy) => {
+              return `![${
+                specy.pokemon_v2_pokemonspeciesnames[0].name
+              }](https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
+                .toString()
+                .padStart(3, "0")}.png)`;
+            })
+            .join(" "),
+        })
+      ),
       {
         h2: "Pokédex entries",
       },
