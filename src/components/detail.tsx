@@ -102,19 +102,40 @@ export default function PokemonDetail(props: { id?: number }) {
 
     // excluding forms that unavailable in pokemon.com
     let forms = pokemon_v2_pokemonspecy.pokemon_v2_pokemons;
+    let formNames: string[] = [];
     switch (pokemon.id) {
-      case 25: {
-        const formNames = ["pikachu", "pikachu-gmax"];
-        forms = forms.filter((f) => formNames.includes(f.name));
+      case 25:
+        formNames = ["pikachu", "pikachu-gmax"];
         break;
-      }
-      case 774: {
-        const formNames = ["minior-red-meteor", "minior-red"];
-        forms = forms.filter((f) => formNames.includes(f.name));
+      case 555:
+        formNames = ["darmanitan-standard", "darmanitan-galar-standard"];
         break;
-      }
+      case 744:
+        formNames = ["rockruff"];
+        break;
+      case 774:
+        formNames = ["minior-red-meteor", "minior-red"];
+        break;
+      case 778:
+        formNames = ["mimikyu-disguised"];
+        break;
+      case 849:
+        formNames = [
+          "toxtricity-amped",
+          "toxtricity-low-key",
+          "toxtricity-amped-gmax",
+        ];
+        break;
+      case 875:
+        // eiscue-noice available in Zukan, but not in pokemon.com at the moment
+        formNames = ["eiscue-ice"];
+        break;
       default:
         break;
+    }
+
+    if (formNames.length) {
+      forms = forms.filter((f) => formNames.includes(f.name));
     }
 
     const data = [
