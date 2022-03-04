@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import groupBy from "lodash.groupby";
 import PokemonDetail from "./components/detail";
 
-import pokemon from "./pokemon.json";
+import pokemons from "./statics/pokemons.json";
 
-const listing = groupBy(pokemon, "generation");
+const listing = groupBy(pokemons, "generation");
 
 type Generation = {
   [geneartion: string]: Pokemon[];
@@ -24,9 +24,9 @@ export default function SearchPokemon() {
   const [generation, setGeneration] = useState<Generation>(listing);
 
   useEffect(() => {
-    let filtered = pokemon;
+    let filtered = pokemons;
     if (nameOrId.length > 0) {
-      filtered = pokemon.filter(
+      filtered = pokemons.filter(
         (p: Pokemon) =>
           p.name.toLowerCase().includes(nameOrId.toLowerCase()) ||
           p.id === Number(nameOrId)
