@@ -1,39 +1,23 @@
 import { Action, ActionPanel, List } from "@raycast/api";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import groupBy from "lodash.groupby";
 import PokemonDetail from "./components/detail";
 
 import pokemons from "./statics/pokemons.json";
 
-const listing = groupBy(pokemons, "generation");
-
-type Generation = {
-  [geneartion: string]: Pokemon[];
-};
-
-type Pokemon = {
-  id: number;
-  name: string;
-  types: string[];
-  artwork: string;
-  generation: string;
-};
-
 export default function SearchPokemon() {
   const [nameOrId, setNameOrId] = useState<string>("");
-  const [generation, setGeneration] = useState<Generation>(listing);
 
-  useEffect(() => {
-    let filtered = pokemons;
-    if (nameOrId.length > 0) {
-      filtered = pokemons.filter(
-        (p: Pokemon) =>
-          p.name.toLowerCase().includes(nameOrId.toLowerCase()) ||
-          p.id === Number(nameOrId)
-      );
-    }
-    const grouped = groupBy(filtered, "generation");
-    setGeneration(grouped);
+  const generations = useMemo(() => {
+    const listing = nameOrId
+      ? pokemons.filter(
+          (p) =>
+            p.name.toLowerCase().includes(nameOrId.toLowerCase()) ||
+            p.id === Number(nameOrId)
+        )
+      : pokemons;
+
+    return groupBy(listing, "generation");
   }, [nameOrId]);
 
   return (
@@ -61,14 +45,14 @@ export default function SearchPokemon() {
           />
         </List.Section>
       )}
-      {Object.entries(generation).map(([generation, pokemons]) => {
+      {Object.entries(generations).map(([generation, pokemonList]) => {
         return (
           <List.Section
             key={generation}
             title={generation}
-            subtitle={pokemons.length.toString()}
+            subtitle={pokemonList.length.toString()}
           >
-            {pokemons.map((pokemon) => (
+            {pokemonList.map((pokemon) => (
               <List.Item
                 key={pokemon.id}
                 title={`#${pokemon.id.toString().padStart(3, "0")}`}

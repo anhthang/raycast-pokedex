@@ -1,20 +1,34 @@
-import abilities from "./statics/abilities.json";
-import groupBy from "lodash.groupby";
+import { useMemo, useState } from "react";
 import { List } from "@raycast/api";
+import groupBy from "lodash.groupby";
 
-const geneartions = groupBy(abilities, "generation");
+import abilities from "./statics/abilities.json";
 
 export default function Ability() {
+  const [searchText, setSearchText] = useState<string>("");
+
+  const generations = useMemo(() => {
+    const listing = searchText
+      ? abilities.filter(
+          (a) =>
+            a.name.toLowerCase().includes(searchText.toLowerCase()) ||
+            a.short_effect.toLowerCase().includes(searchText.toLowerCase())
+        )
+      : abilities;
+
+    return groupBy(listing, "generation");
+  }, [searchText]);
+
   return (
-    <List throttle>
-      {Object.entries(geneartions).map(([generation, abilities]) => {
+    <List throttle onSearchTextChange={setSearchText}>
+      {Object.entries(generations).map(([generation, abilities]) => {
         return (
           <List.Section key={generation} title={generation}>
             {abilities.map((ability) => {
               return (
                 <List.Item
-                  key={ability.ability_name}
-                  title={ability.ability_name}
+                  key={ability.name}
+                  title={ability.name}
                   subtitle={ability.short_effect}
                 />
               );
