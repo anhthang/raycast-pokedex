@@ -138,13 +138,13 @@ export default function PokemonDetail(props: { id?: number }) {
       forms = forms.filter((f) => formNames.includes(f.name));
     }
 
-    let gender
+    let gender;
     if (pokemon_v2_pokemonspecy.gender_rate === -1) {
-      gender = "Unknown"
+      gender = "Unknown";
     } else {
-      const male = (8 - pokemon_v2_pokemonspecy.gender_rate) / 8 * 100
-      const female = pokemon_v2_pokemonspecy.gender_rate / 8 * 100
-      gender = `${male}% male, ${female}% female`
+      const male = ((8 - pokemon_v2_pokemonspecy.gender_rate) / 8) * 100;
+      const female = (pokemon_v2_pokemonspecy.gender_rate / 8) * 100;
+      gender = `${male}% male, ${female}% female`;
     }
 
     const ev: string[] = [];
@@ -249,7 +249,7 @@ export default function PokemonDetail(props: { id?: number }) {
           .join(", ")}`,
       },
       {
-        p: `_Gender:_ ${gender}`
+        p: `_Gender:_ ${gender}`,
       },
       {
         p: `_Egg cycles:_ ${pokemon_v2_pokemonspecy.hatch_counter}`,

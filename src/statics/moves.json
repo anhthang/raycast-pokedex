@@ -15,7 +15,7 @@
     "power": 40,
     "pp": 30,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -25,7 +25,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Defense by two stages."
   },
@@ -35,7 +35,7 @@
     "power": null,
     "pp": 30,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Speed by two stages."
   },
@@ -45,7 +45,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Special Defense by two stages."
   },
@@ -75,7 +75,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Defense by two stages."
   },
@@ -105,7 +105,7 @@
     "power": 60,
     "pp": 25,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -175,7 +175,7 @@
     "power": 35,
     "pp": 15,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Prevents the target from fleeing and inflicts damage for 2-5 turns."
   },
@@ -195,7 +195,7 @@
     "power": null,
     "pp": 10,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Confuses the target."
   },
@@ -225,7 +225,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "User's type changes to the type of one of its moves at random."
   },
@@ -245,7 +245,7 @@
     "power": 100,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -265,7 +265,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises user's Defense by one stage."
   },
@@ -285,7 +285,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Disables the target's last used move for 1-8 turns."
   },
@@ -335,7 +335,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's evasion by one stage."
   },
@@ -425,7 +425,7 @@
     "power": 75,
     "pp": 15,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to burn the target."
   },
@@ -465,7 +465,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's accuracy by one stage."
   },
@@ -485,7 +485,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Increases the user's chance to score a critical hit."
   },
@@ -515,7 +515,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Paralyzes the target."
   },
@@ -525,7 +525,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's Attack by one stage."
   },
@@ -535,7 +535,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Attack and Special Attack by one stage."
   },
@@ -555,7 +555,7 @@
     "power": 40,
     "pp": 35,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Inflicts regular damage and can hit Pokémon in the air."
   },
@@ -565,7 +565,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Defense by one stage."
   },
@@ -575,7 +575,7 @@
     "power": null,
     "pp": 30,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Resets all Pokémon's stats, accuracy, and evasion."
   },
@@ -635,7 +635,7 @@
     "power": 150,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "User foregoes its next turn to recharge."
   },
@@ -655,7 +655,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Puts the target to sleep."
   },
@@ -675,7 +675,7 @@
     "power": 75,
     "pp": 15,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to freeze the target."
   },
@@ -705,7 +705,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's accuracy by one stage."
   },
@@ -725,7 +725,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Seeds the target, stealing HP from it every turn."
   },
@@ -735,7 +735,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's Defense by one stage."
   },
@@ -755,7 +755,7 @@
     "power": null,
     "pp": 30,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Reduces damage from special attacks by 50% for five turns."
   },
@@ -765,7 +765,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Puts the target to sleep."
   },
@@ -785,7 +785,7 @@
     "power": null,
     "pp": 40,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Attack by one stage."
   },
@@ -825,7 +825,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Randomly selects and uses any move in the game."
   },
@@ -835,7 +835,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Copies the target's last used move."
   },
@@ -845,7 +845,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's evasion by two stages."
   },
@@ -855,7 +855,7 @@
     "power": null,
     "pp": 20,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Uses the target's last used move."
   },
@@ -865,7 +865,7 @@
     "power": null,
     "pp": 30,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Protects the user's stats from being changed by enemy moves."
   },
@@ -875,7 +875,7 @@
     "power": null,
     "pp": 15,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Inflicts damage equal to the user's level."
   },
@@ -925,7 +925,7 @@
     "power": null,
     "pp": 40,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Poisons the target."
   },
@@ -935,7 +935,7 @@
     "power": null,
     "pp": 35,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Poisons the target."
   },
@@ -1015,7 +1015,7 @@
     "power": 55,
     "pp": 25,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -1025,7 +1025,7 @@
     "power": 80,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Requires a turn to charge before attacking."
   },
@@ -1035,7 +1035,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -1045,7 +1045,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Reduces damage from physical attacks by half."
   },
@@ -1055,7 +1055,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "User sleeps for two turns, completely healing itself."
   },
@@ -1065,7 +1065,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Immediately ends wild battles.  Forces trainers to switch Pokémon."
   },
@@ -1105,7 +1105,7 @@
     "power": null,
     "pp": 15,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's accuracy by one stage."
   },
@@ -1125,7 +1125,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's Defense by two stages."
   },
@@ -1155,7 +1155,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Attack by one stage."
   },
@@ -1165,7 +1165,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Puts the target to sleep."
   },
@@ -1215,7 +1215,7 @@
     "power": null,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Puts the target to sleep."
   },
@@ -1225,7 +1225,7 @@
     "power": 65,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to poison the target."
   },
@@ -1235,7 +1235,7 @@
     "power": 30,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to poison the target."
   },
@@ -1245,7 +1245,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's accuracy by one stage."
   },
@@ -1255,7 +1255,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -1275,7 +1275,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Inflicts 20 points of damage."
   },
@@ -1295,7 +1295,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Does nothing."
   },
@@ -1305,7 +1305,7 @@
     "power": null,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Puts the target to sleep."
   },
@@ -1335,7 +1335,7 @@
     "power": null,
     "pp": 40,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's Speed by two stages."
   },
@@ -1355,7 +1355,7 @@
     "power": null,
     "pp": 30,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Paralyzes the target."
   },
@@ -1375,7 +1375,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Transfers 1/4 of the user's max HP into a doll, protecting the user from further damage or status changes until it breaks."
   },
@@ -1395,7 +1395,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Confuses the target."
   },
@@ -1415,7 +1415,7 @@
     "power": 60,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Never misses."
   },
@@ -1425,7 +1425,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Attack by two stages."
   },
@@ -1445,7 +1445,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Lowers the target's Defense by one stage."
   },
@@ -1465,7 +1465,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Immediately ends wild battles.  No effect otherwise."
   },
@@ -1505,7 +1505,7 @@
     "power": 75,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to paralyze the target."
   },
@@ -1525,7 +1525,7 @@
     "power": null,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Paralyzes the target."
   },
@@ -1535,7 +1535,7 @@
     "power": null,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Badly poisons the target, inflicting more damage every turn."
   },
@@ -1545,7 +1545,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "User becomes a copy of the target until it leaves battle."
   },
@@ -1555,7 +1555,7 @@
     "power": 80,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to burn, freeze, or paralyze the target."
   },
@@ -1585,7 +1585,7 @@
     "power": 45,
     "pp": 25,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -1595,7 +1595,7 @@
     "power": 80,
     "pp": 15,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation I",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -1615,7 +1615,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Immediately ends wild battles.  Forces trainers to switch Pokémon."
   },
@@ -1635,7 +1635,7 @@
     "power": null,
     "pp": 40,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation I",
     "short_effect": "Raises the user's Defense by one stage."
   },
@@ -1655,7 +1655,7 @@
     "power": 100,
     "pp": 5,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -1665,7 +1665,7 @@
     "power": 60,
     "pp": 5,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to raise all of the user's stats by one stage."
   },
@@ -1675,7 +1675,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Target falls in love if it has the opposite gender, and has a 50% chance to refuse attacking the user."
   },
@@ -1685,7 +1685,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Allows the trainer to switch out the user and pass effects along to its replacement."
   },
@@ -1695,7 +1695,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Hits once for every conscious Pokémon the trainer has."
   },
@@ -1705,7 +1705,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "User pays half its max HP to max out its Attack."
   },
@@ -1725,7 +1725,7 @@
     "power": null,
     "pp": 20,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Lowers the target's Attack by two stages."
   },
@@ -1735,7 +1735,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Changes the user's type to a random type either resistant or immune to the last move used against it."
   },
@@ -1745,7 +1745,7 @@
     "power": null,
     "pp": 40,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Lowers the target's Speed by two stages."
   },
@@ -1765,7 +1765,7 @@
     "power": 80,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to lower the target's Defense by one stage."
   },
@@ -1775,7 +1775,7 @@
     "power": null,
     "pp": 10,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Ghosts pay half their max HP to hurt the target every turn.  Others decrease Speed but raise Attack and Defense."
   },
@@ -1785,7 +1785,7 @@
     "power": null,
     "pp": 5,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "If the user faints this turn, the target automatically will, too."
   },
@@ -1795,7 +1795,7 @@
     "power": null,
     "pp": 5,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Prevents any moves from hitting the user this turn."
   },
@@ -1825,7 +1825,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Forces the target to repeat its last used move every turn for 2 to 6 turns."
   },
@@ -1835,7 +1835,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Prevents the user's HP from lowering below 1 this turn."
   },
@@ -1865,7 +1865,7 @@
     "power": 60,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Never misses."
   },
@@ -1885,7 +1885,7 @@
     "power": 60,
     "pp": 25,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to burn the target.  Lets frozen Pokémon thaw themselves."
   },
@@ -1895,7 +1895,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Forces the target to have no Evade, and allows it to be hit by Normal and Fighting moves even if it's a Ghost."
   },
@@ -1945,7 +1945,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Cures the entire party of major status effects."
   },
@@ -1955,7 +1955,7 @@
     "power": 60,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Power and type depend upon user's IVs.  Power can range from 30 to 70."
   },
@@ -1985,7 +1985,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Ensures that the user's next move will hit the target."
   },
@@ -2015,7 +2015,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Prevents the target from leaving battle."
   },
@@ -2045,7 +2045,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -2055,7 +2055,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Ensures that the user's next move will hit the target."
   },
@@ -2075,7 +2075,7 @@
     "power": null,
     "pp": 5,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Heals the user by half its max HP.  Affected by weather."
   },
@@ -2085,7 +2085,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Heals the user by half its max HP.  Affected by weather."
   },
@@ -2095,7 +2095,7 @@
     "power": 20,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to lower the target's accuracy by one stage."
   },
@@ -2105,7 +2105,7 @@
     "power": null,
     "pp": 15,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Target loses 1/4 its max HP every turn as long as it's asleep."
   },
@@ -2125,7 +2125,7 @@
     "power": 120,
     "pp": 10,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Hits every turn for 2-3 turns, then confuses the user."
   },
@@ -2135,7 +2135,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Sets the user's and targets's HP to the average of their current HP."
   },
@@ -2145,7 +2145,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "User and target both faint after three turns."
   },
@@ -2175,7 +2175,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Prevents any moves from hitting the user this turn."
   },
@@ -2185,7 +2185,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Discards the user's stat changes and copies the target's."
   },
@@ -2195,7 +2195,7 @@
     "power": 40,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Has double power against, and can hit, Pokémon attempting to switch out."
   },
@@ -2205,7 +2205,7 @@
     "power": null,
     "pp": 5,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Changes the weather to rain for five turns."
   },
@@ -2265,7 +2265,7 @@
     "power": 100,
     "pp": 5,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to burn the target.  Lets frozen Pokémon thaw themselves."
   },
@@ -2275,7 +2275,7 @@
     "power": null,
     "pp": 25,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Protects the user's field from major status ailments and confusion for five turns."
   },
@@ -2285,7 +2285,7 @@
     "power": null,
     "pp": 10,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Changes the weather to a sandstorm for five turns."
   },
@@ -2295,7 +2295,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Lowers the target's Speed by two stages."
   },
@@ -2305,7 +2305,7 @@
     "power": 80,
     "pp": 15,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -2315,7 +2315,7 @@
     "power": null,
     "pp": 1,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Permanently becomes the target's last used move."
   },
@@ -2325,7 +2325,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Randomly uses one of the user's other three moves.  Only works if the user is sleeping."
   },
@@ -2335,7 +2335,7 @@
     "power": 90,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to poison the target."
   },
@@ -2345,7 +2345,7 @@
     "power": 50,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to make the target flinch.  Only works if the user is sleeping."
   },
@@ -2355,7 +2355,7 @@
     "power": 65,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Has a $effect_chance% chance to paralyze the target."
   },
@@ -2365,7 +2365,7 @@
     "power": null,
     "pp": 10,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Prevents the target from leaving battle."
   },
@@ -2375,7 +2375,7 @@
     "power": null,
     "pp": 20,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Scatters Spikes, hurting opposing Pokémon that switch in."
   },
@@ -2385,7 +2385,7 @@
     "power": null,
     "pp": 10,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Lowers the PP of the target's last used move by 4."
   },
@@ -2405,7 +2405,7 @@
     "power": null,
     "pp": 5,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Changes the weather to sunny for five turns."
   },
@@ -2415,7 +2415,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Raises the target's Attack by two stages and confuses the target."
   },
@@ -2425,7 +2425,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Confuses the target."
   },
@@ -2435,7 +2435,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Lowers the target's evasion by one stage."
   },
@@ -2445,7 +2445,7 @@
     "power": null,
     "pp": 5,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation II",
     "short_effect": "Heals the user by half its max HP.  Affected by weather."
   },
@@ -2455,7 +2455,7 @@
     "power": 60,
     "pp": 25,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation II",
     "short_effect": "Takes the target's item."
   },
@@ -2525,7 +2525,7 @@
     "power": 60,
     "pp": 25,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -2545,7 +2545,7 @@
     "power": null,
     "pp": 5,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Cures the entire party of major status effects."
   },
@@ -2555,7 +2555,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Randomly selects and uses one of the trainer's other Pokémon's moves."
   },
@@ -2585,7 +2585,7 @@
     "power": 85,
     "pp": 10,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Has an increased chance for a critical hit and a $effect_chance% chance to burn the target."
   },
@@ -2595,7 +2595,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Prevents the target from leaving battle."
   },
@@ -2625,7 +2625,7 @@
     "power": null,
     "pp": 20,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Attack and Defense by one stage."
   },
@@ -2635,7 +2635,7 @@
     "power": 25,
     "pp": 30,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Hits 2-5 times in one turn."
   },
@@ -2645,7 +2645,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Special Attack and Special Defense by one stage."
   },
@@ -2655,7 +2655,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "User's type changes to match the terrain."
   },
@@ -2665,7 +2665,7 @@
     "power": null,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Special Defense by one stage.  User's Electric moves have doubled power next turn."
   },
@@ -2675,7 +2675,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Defense and Special Defense by one stage."
   },
@@ -2705,7 +2705,7 @@
     "power": 80,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "User dives underwater, dodging all attacks, and hits next turn."
   },
@@ -2715,7 +2715,7 @@
     "power": 140,
     "pp": 5,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Hits the target two turns later."
   },
@@ -2725,7 +2725,7 @@
     "power": 80,
     "pp": 15,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -2735,7 +2735,7 @@
     "power": null,
     "pp": 20,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Attack and Speed by one stage."
   },
@@ -2795,7 +2795,7 @@
     "power": null,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Lowers the target's Special Defense by two stages."
   },
@@ -2805,7 +2805,7 @@
     "power": null,
     "pp": 15,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Lowers the target's Attack by two stages."
   },
@@ -2815,7 +2815,7 @@
     "power": null,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the target's Special Attack by one stage and confuses the target."
   },
@@ -2835,7 +2835,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Redirects the target's single-target effects to the user for this turn."
   },
@@ -2855,7 +2855,7 @@
     "power": null,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Puts the target to sleep."
   },
@@ -2865,7 +2865,7 @@
     "power": null,
     "pp": 5,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "If the user faints this turn, the PP of the move that fainted it drops to 0."
   },
@@ -2875,7 +2875,7 @@
     "power": null,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Changes the weather to a hailstorm for five turns."
   },
@@ -2895,7 +2895,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Ally's next move inflicts half more damage."
   },
@@ -2905,7 +2905,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Attack by one stage."
   },
@@ -2925,7 +2925,7 @@
     "power": 90,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -2935,7 +2935,7 @@
     "power": 30,
     "pp": 20,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Power doubles every turn this move is used in succession after the first, resetting after five turns."
   },
@@ -2945,7 +2945,7 @@
     "power": 25,
     "pp": 30,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Hits 2-5 times in one turn."
   },
@@ -2955,7 +2955,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Prevents the target from using any moves that the user also knows."
   },
@@ -2965,7 +2965,7 @@
     "power": null,
     "pp": 20,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Prevents the user from leaving battle.  User regains 1/16 of its max HP every turn."
   },
@@ -2975,7 +2975,7 @@
     "power": null,
     "pp": 15,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Defense by two stages."
   },
@@ -2985,7 +2985,7 @@
     "power": 65,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Target drops its held item."
   },
@@ -2995,7 +2995,7 @@
     "power": 90,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -3025,7 +3025,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Reflects back the first effect move used on the user this turn."
   },
@@ -3035,7 +3035,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Lowers the target's Attack and Special Attack by two stages.  User faints."
   },
@@ -3045,7 +3045,7 @@
     "power": null,
     "pp": 40,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Lowers the target's Special Defense by two stages."
   },
@@ -3085,7 +3085,7 @@
     "power": 55,
     "pp": 15,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Has a $effect_chance% chance to lower the target's Speed by one stage."
   },
@@ -3095,7 +3095,7 @@
     "power": null,
     "pp": 15,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Halves all Electric-type damage."
   },
@@ -3105,7 +3105,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Uses a move which depends upon the terrain."
   },
@@ -3115,7 +3115,7 @@
     "power": 60,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -3125,7 +3125,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Forces the target to have no Evade, and allows it to be hit by Normal and Fighting moves even if it's a Ghost."
   },
@@ -3175,7 +3175,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "User recovers the item it last used up."
   },
@@ -3185,7 +3185,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Cleanses the user of a burn, paralysis, or poison."
   },
@@ -3225,7 +3225,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Copies the target's ability."
   },
@@ -3250,6 +3250,126 @@
     "short_effect": "Has a $effect_chance% chance to inflict a status effect which depends upon the terrain."
   },
   {
+    "name": "Shadow Blast",
+    "accuracy": 100,
+    "power": 80,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "physical",
+    "generation": "Generation III",
+    "short_effect": "Has an increased chance for a critical hit."
+  },
+  {
+    "name": "Shadow Blitz",
+    "accuracy": 100,
+    "power": 40,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "physical",
+    "generation": "Generation III",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Shadow Bolt",
+    "accuracy": 100,
+    "power": 75,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Has a $effect_chance% chance to paralyze the target."
+  },
+  {
+    "name": "Shadow Break",
+    "accuracy": 100,
+    "power": 75,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "physical",
+    "generation": "Generation III",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Shadow Chill",
+    "accuracy": 100,
+    "power": 75,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Has a $effect_chance% chance to freeze the target."
+  },
+  {
+    "name": "Shadow Down",
+    "accuracy": 100,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Lowers the target's Defense by two stages."
+  },
+  {
+    "name": "Shadow End",
+    "accuracy": 60,
+    "power": 120,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "physical",
+    "generation": "Generation III",
+    "short_effect": "User receives 1/2 its HP in recoil."
+  },
+  {
+    "name": "Shadow Fire",
+    "accuracy": 100,
+    "power": 75,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Has a $effect_chance% chance to burn the target."
+  },
+  {
+    "name": "Shadow Half",
+    "accuracy": 100,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Halves HP of all Pokémon on the field.  Must recharge"
+  },
+  {
+    "name": "Shadow Hold",
+    "accuracy": null,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Prevents the target from leaving battle."
+  },
+  {
+    "name": "Shadow Mist",
+    "accuracy": 100,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Lowers the target's evasion by two stages."
+  },
+  {
+    "name": "Shadow Panic",
+    "accuracy": 90,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Confuses the target."
+  },
+  {
     "name": "Shadow Punch",
     "accuracy": null,
     "power": 60,
@@ -3258,6 +3378,66 @@
     "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "Never misses."
+  },
+  {
+    "name": "Shadow Rave",
+    "accuracy": 100,
+    "power": 70,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Shadow Rush",
+    "accuracy": 100,
+    "power": 55,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "physical",
+    "generation": "Generation III",
+    "short_effect": "Has an increased chance for a critical hit in Hyper Mode."
+  },
+  {
+    "name": "Shadow Shed",
+    "accuracy": null,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Removes Light Screen, Reflect, and Safeguard."
+  },
+  {
+    "name": "Shadow Sky",
+    "accuracy": null,
+    "power": null,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "status",
+    "generation": "Generation III",
+    "short_effect": "Changes the weather to Shadow Sky for five turns."
+  },
+  {
+    "name": "Shadow Storm",
+    "accuracy": 100,
+    "power": 95,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Shadow Wave",
+    "accuracy": 100,
+    "power": 50,
+    "pp": null,
+    "type": "Shadow",
+    "damage_class": "special",
+    "generation": "Generation III",
+    "short_effect": "Inflicts regular damage with no additional effect."
   },
   {
     "name": "Sheer Cold",
@@ -3285,7 +3465,7 @@
     "power": 75,
     "pp": 15,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Has a $effect_chance% chance to confuse the target."
   },
@@ -3295,7 +3475,7 @@
     "power": 60,
     "pp": 5,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Has a $effect_chance% chance to raise all of the user's stats by one stage."
   },
@@ -3305,7 +3485,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "User and target swap abilities."
   },
@@ -3325,7 +3505,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -3345,7 +3525,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Steals the target's move, if it's self-targeted."
   },
@@ -3355,7 +3535,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Power is 100 times the amount of energy Stockpiled."
   },
@@ -3365,7 +3545,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Stores energy up to three times for use with Spit Up and Swallow."
   },
@@ -3385,7 +3565,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Recovers 1/4 HP after one Stockpile, 1/2 HP after two Stockpiles, or full HP after three Stockpiles."
   },
@@ -3395,7 +3575,7 @@
     "power": null,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Raises the user's Special Attack by three stages."
   },
@@ -3405,7 +3585,7 @@
     "power": null,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "For the next few turns, the target can only use damaging moves."
   },
@@ -3415,7 +3595,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Confuses the target."
   },
@@ -3425,7 +3605,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Lowers the target's Attack and Defense by one stage."
   },
@@ -3435,7 +3615,7 @@
     "power": null,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Prevents the target from using the same move twice in a row."
   },
@@ -3445,7 +3625,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "User and target swap items."
   },
@@ -3455,7 +3635,7 @@
     "power": 90,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "Forced to use this move for several turns.  Pokémon cannot fall asleep in that time."
   },
@@ -3465,7 +3645,7 @@
     "power": 120,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation III",
     "short_effect": "User takes 1/3 the damage inflicted in recoil.  Has a $effect_chance% chance to paralyze the target."
   },
@@ -3485,7 +3665,7 @@
     "power": null,
     "pp": 15,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Halves all Fire-type damage."
   },
@@ -3505,7 +3685,7 @@
     "power": 50,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation III",
     "short_effect": "If there be weather, this move has doubled power and the weather's type."
   },
@@ -3515,7 +3695,7 @@
     "power": null,
     "pp": 15,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Burns the target."
   },
@@ -3525,7 +3705,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "User will recover half its max HP at the end of the next turn."
   },
@@ -3535,7 +3715,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation III",
     "short_effect": "Target sleeps at the end of the next turn."
   },
@@ -3545,7 +3725,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Raises one of a friendly Pokémon's stats at random by two stages."
   },
@@ -3555,7 +3735,7 @@
     "power": 75,
     "pp": 15,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -3565,7 +3745,7 @@
     "power": 40,
     "pp": 20,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -3575,7 +3755,7 @@
     "power": null,
     "pp": 20,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Restores 1/16 of the user's max HP each turn."
   },
@@ -3585,7 +3765,7 @@
     "power": 90,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -3595,7 +3775,7 @@
     "power": 60,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Power is doubled if the target has already received damage this turn."
   },
@@ -3615,7 +3795,7 @@
     "power": 80,
     "pp": 20,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Never misses."
   },
@@ -3625,7 +3805,7 @@
     "power": 60,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts double damage if the user takes damage before attacking this turn."
   },
@@ -3665,7 +3845,7 @@
     "power": 90,
     "pp": 10,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -3685,7 +3865,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Lowers the target's Special Attack by two stages if it's the opposite gender."
   },
@@ -3705,7 +3885,7 @@
     "power": 65,
     "pp": 20,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a higher chance to confuse the target when the recorded sound is louder."
   },
@@ -3725,7 +3905,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Uses the target's last used move."
   },
@@ -3765,7 +3945,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Puts the target to sleep."
   },
@@ -3775,7 +3955,7 @@
     "power": null,
     "pp": 10,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Raises the user's Defense and Special Defense by one stage."
   },
@@ -3785,7 +3965,7 @@
     "power": null,
     "pp": 15,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Lowers the target's evasion by one stage.  Removes field effects from the enemy field."
   },
@@ -3835,7 +4015,7 @@
     "power": 100,
     "pp": 10,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -3855,7 +4035,7 @@
     "power": 90,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -3865,7 +4045,7 @@
     "power": null,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Target cannot use held items."
   },
@@ -3895,7 +4075,7 @@
     "power": 65,
     "pp": 15,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to burn the target and a $effect_chance% chance to make the target flinch."
   },
@@ -3905,7 +4085,7 @@
     "power": 120,
     "pp": 15,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "User takes 1/3 the damage inflicted in recoil.  Has a $effect_chance% chance to burn the target."
   },
@@ -3915,7 +4095,7 @@
     "power": 80,
     "pp": 10,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -3925,7 +4105,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Throws held item at the target; power depends on the item."
   },
@@ -3935,7 +4115,7 @@
     "power": 120,
     "pp": 5,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Defense by one stage."
   },
@@ -3955,7 +4135,7 @@
     "power": null,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Nullifies target's ability until it leaves battle."
   },
@@ -3985,7 +4165,7 @@
     "power": null,
     "pp": 5,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Disables moves and immunities that involve flying or levitating for five turns."
   },
@@ -3995,7 +4175,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User swaps Defense and Special Defense changes with the target."
   },
@@ -4045,7 +4225,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Prevents target from restoring its HP for five turns."
   },
@@ -4055,7 +4235,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User faints.  Its replacement has its HP fully restored and any major status effect removed."
   },
@@ -4065,7 +4245,7 @@
     "power": null,
     "pp": 10,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -4075,7 +4255,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User and target swap stat changes."
   },
@@ -4085,7 +4265,7 @@
     "power": 65,
     "pp": 15,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to freeze the target and a $effect_chance% chance to make the target flinch."
   },
@@ -4095,7 +4275,7 @@
     "power": 40,
     "pp": 30,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -4115,7 +4295,7 @@
     "power": 100,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "If the user is holding a appropriate plate or drive, the damage inflicted will match it."
   },
@@ -4155,7 +4335,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Prevents the target from scoring critical hits for five turns."
   },
@@ -4165,7 +4345,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User faints, and its replacement is fully healed."
   },
@@ -4195,7 +4375,7 @@
     "power": null,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User is immune to Ground moves and effects for five turns."
   },
@@ -4205,7 +4385,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Uses the target's move against it before it attacks, with power increased by half."
   },
@@ -4225,7 +4405,7 @@
     "power": null,
     "pp": 40,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Forces the target to have no evasion, and allows it to be hit by Psychic moves even if it's Dark."
   },
@@ -4235,7 +4415,7 @@
     "power": 65,
     "pp": 10,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's accuracy by one stage."
   },
@@ -4245,7 +4425,7 @@
     "power": 65,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to lower the target's accuracy by one stage."
   },
@@ -4255,7 +4435,7 @@
     "power": null,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Raises the user's Special Attack by two stages."
   },
@@ -4275,7 +4455,7 @@
     "power": 70,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -4285,7 +4465,7 @@
     "power": 60,
     "pp": 5,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to raise all of the user's stats by one stage."
   },
@@ -4295,7 +4475,7 @@
     "power": 50,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Power is doubled if the target has already moved this turn."
   },
@@ -4325,7 +4505,7 @@
     "power": 80,
     "pp": 20,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -4335,7 +4515,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User swaps Attack and Special Attack changes with the target."
   },
@@ -4345,7 +4525,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User swaps Attack and Defense."
   },
@@ -4355,7 +4535,7 @@
     "power": 120,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -4365,7 +4545,7 @@
     "power": 70,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has an increased chance for a critical hit."
   },
@@ -4375,7 +4555,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Transfers the user's major status effect to the target."
   },
@@ -4385,7 +4565,7 @@
     "power": null,
     "pp": 5,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Power increases against targets with more raised stats, up to a maximum of 200."
   },
@@ -4415,7 +4595,7 @@
     "power": null,
     "pp": 20,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Raises the user's Speed by two stages."
   },
@@ -4435,7 +4615,7 @@
     "power": null,
     "pp": 10,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Heals the user by half its max HP."
   },
@@ -4445,7 +4625,7 @@
     "power": 80,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -4505,7 +4685,7 @@
     "power": null,
     "pp": 20,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Causes damage when opposing Pokémon switch in."
   },
@@ -4525,7 +4705,7 @@
     "power": 70,
     "pp": 5,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Only works if the target is about to use a damaging move."
   },
@@ -4535,7 +4715,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "User and target swap items."
   },
@@ -4545,7 +4725,7 @@
     "power": null,
     "pp": 15,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "For three turns, friendly Pokémon have doubled Speed."
   },
@@ -4555,7 +4735,7 @@
     "power": 65,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to paralyze the target and a $effect_chance% chance to make the target flinch."
   },
@@ -4565,7 +4745,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Scatters poisoned spikes, poisoning opposing Pokémon that switch in."
   },
@@ -4575,7 +4755,7 @@
     "power": null,
     "pp": 5,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "For five turns, slower Pokémon will act before faster Pokémon."
   },
@@ -4585,7 +4765,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Power increases when this move has less PP, up to a maximum of 200."
   },
@@ -4605,7 +4785,7 @@
     "power": 40,
     "pp": 30,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -4625,7 +4805,7 @@
     "power": 120,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "User receives 1/3 the damage inflicted in recoil."
   },
@@ -4635,7 +4815,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation IV",
     "short_effect": "Changes the target's ability to Insomnia."
   },
@@ -4645,7 +4825,7 @@
     "power": null,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation IV",
     "short_effect": "Power increases against targets with more HP remaining, up to a maximum of 121 power."
   },
@@ -4665,7 +4845,7 @@
     "power": 80,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation IV",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -4675,7 +4855,7 @@
     "power": 40,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Lowers the target's Special Defense by two stages."
   },
@@ -4695,7 +4875,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Makes the target act next this turn."
   },
@@ -4705,7 +4885,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "User switches places with the friendly Pokémon opposite it."
   },
@@ -4715,7 +4895,7 @@
     "power": null,
     "pp": 15,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Speed by two stages and halves the user's weight."
   },
@@ -4725,7 +4905,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Gives the user's held item to the target."
   },
@@ -4745,7 +4925,7 @@
     "power": 130,
     "pp": 5,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to paralyze the target."
   },
@@ -4785,7 +4965,7 @@
     "power": 50,
     "pp": 15,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Removes all of the target's stat modifiers."
   },
@@ -4795,7 +4975,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Attack, Defense, and accuracy by one stage each."
   },
@@ -4805,7 +4985,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Defense by three stages."
   },
@@ -4815,7 +4995,7 @@
     "power": 60,
     "pp": 10,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Ends wild battles.  Forces trainers to switch Pokémon."
   },
@@ -4835,7 +5015,7 @@
     "power": 40,
     "pp": 15,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Hits twice in one turn."
   },
@@ -4845,7 +5025,7 @@
     "power": 40,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Power increases by 100% for each consecutive use by any friendly Pokémon, to a maximum of 200."
   },
@@ -4875,7 +5055,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Copies the user's ability onto the target."
   },
@@ -4895,7 +5075,7 @@
     "power": null,
     "pp": 5,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Inflicts damage equal to the user's remaining HP.  User faints."
   },
@@ -4925,7 +5105,7 @@
     "power": 50,
     "pp": 20,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Inflicts regular damage.  Raises the user's Speed by one stage."
   },
@@ -4935,7 +5115,7 @@
     "power": 95,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Calculates damage with the target's attacking stat."
   },
@@ -4945,7 +5125,7 @@
     "power": 140,
     "pp": 5,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Requires a turn to charge before attacking.  Has a $effect_chance% chance to paralyze the target."
   },
@@ -4965,7 +5145,7 @@
     "power": 100,
     "pp": 5,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "With Fusion Flare, inflicts double damage."
   },
@@ -5015,7 +5195,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Averages Defense and Special Defense with the target."
   },
@@ -5035,7 +5215,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Heals the target for half its max HP."
   },
@@ -5045,7 +5225,7 @@
     "power": 60,
     "pp": 25,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -5055,7 +5235,7 @@
     "power": null,
     "pp": 10,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Power is higher when the user weighs more than the target, up to a maximum of 120."
   },
@@ -5075,7 +5255,7 @@
     "power": 65,
     "pp": 10,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has double power if the target has a major status ailment."
   },
@@ -5085,7 +5265,7 @@
     "power": null,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Attack and accuracy by one stage."
   },
@@ -5095,7 +5275,7 @@
     "power": 75,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Drains half the damage inflicted to heal the user."
   },
@@ -5105,7 +5285,7 @@
     "power": 110,
     "pp": 10,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to confuse the target."
   },
@@ -5125,7 +5305,7 @@
     "power": 85,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -5175,7 +5355,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Negates held items for five turns."
   },
@@ -5195,7 +5375,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Averages Attack and Special Attack with the target."
   },
@@ -5225,7 +5405,7 @@
     "power": null,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Makes the target act last this turn."
   },
@@ -5235,7 +5415,7 @@
     "power": null,
     "pp": 15,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Prevents any priority moves from hitting friendly Pokémon this turn."
   },
@@ -5245,7 +5425,7 @@
     "power": null,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Special Attack, Special Defense, and Speed by one stage each."
   },
@@ -5255,7 +5435,7 @@
     "power": null,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Redirects the target's single-target effects to the user for this turn."
   },
@@ -5265,7 +5445,7 @@
     "power": 75,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to lower the target's Defense by one stage."
   },
@@ -5275,7 +5455,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "User becomes the target's type."
   },
@@ -5285,7 +5465,7 @@
     "power": 75,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to put the target to sleep."
   },
@@ -5305,7 +5485,7 @@
     "power": 60,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has double power if it's used more than once per turn."
   },
@@ -5345,7 +5525,7 @@
     "power": 85,
     "pp": 10,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Inflicts damage based on the target's Defense, not Special Defense."
   },
@@ -5355,7 +5535,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises user's Attack, Special Attack, and Speed by two stages.  Lower user's Defense and Special Defense by one stage."
   },
@@ -5365,7 +5545,7 @@
     "power": null,
     "pp": 10,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Attack by one stage and its Speed by two stages."
   },
@@ -5375,7 +5555,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Changes the target's ability to Simple."
   },
@@ -5395,7 +5575,7 @@
     "power": 95,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to poison the target."
   },
@@ -5425,7 +5605,7 @@
     "power": null,
     "pp": 20,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Changes the target's type to Water."
   },
@@ -5465,7 +5645,7 @@
     "power": 50,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Attack by one stage."
   },
@@ -5495,7 +5675,7 @@
     "power": 120,
     "pp": 5,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "If the user is holding a appropriate plate or drive, the damage inflicted will match it."
   },
@@ -5505,7 +5685,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Moves have 100% accuracy against the target for three turns."
   },
@@ -5515,7 +5695,7 @@
     "power": 180,
     "pp": 5,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "Lowers the user's Defense, Special Defense, and Speed by one stage each."
   },
@@ -5525,7 +5705,7 @@
     "power": 65,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation V",
     "short_effect": "Inflicts double damage if the target is Poisoned."
   },
@@ -5555,7 +5735,7 @@
     "power": null,
     "pp": 10,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Prevents any multi-target moves from hitting friendly Pokémon this turn."
   },
@@ -5565,7 +5745,7 @@
     "power": 90,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation V",
     "short_effect": "User receives 1/4 the damage it inflicts in recoil."
   },
@@ -5575,7 +5755,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "All Pokémon's Defense and Special Defense are swapped for 5 turns."
   },
@@ -5585,7 +5765,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation V",
     "short_effect": "Raises the user's Attack and Special Attack by one stage each."
   },
@@ -5595,7 +5775,7 @@
     "power": null,
     "pp": 20,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Raises a selected ally's Special Defense by one stage."
   },
@@ -5605,7 +5785,7 @@
     "power": null,
     "pp": 30,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Attack by one stage."
   },
@@ -5615,7 +5795,7 @@
     "power": 120,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Can only be used after the user has eaten a berry."
   },
@@ -5625,7 +5805,7 @@
     "power": 140,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Inflicts regular damage."
   },
@@ -5635,7 +5815,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Does nothing."
   },
@@ -5645,7 +5825,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Special Attack by one stage."
   },
@@ -5655,7 +5835,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Protects all friendly Pokémon from non-damaging moves."
   },
@@ -5665,7 +5845,7 @@
     "power": 80,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -5685,7 +5865,7 @@
     "power": 40,
     "pp": 15,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Never misses."
   },
@@ -5705,7 +5885,7 @@
     "power": 50,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Drains 75% of the damage inflicted to heal the user."
   },
@@ -5715,7 +5895,7 @@
     "power": null,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Special Attack by two stages."
   },
@@ -5725,7 +5905,7 @@
     "power": null,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "For five turns, prevents all Pokémon on the ground from sleeping and strengthens their electric moves to 1.5× their power."
   },
@@ -5735,7 +5915,7 @@
     "power": null,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Changes the target's move's type to electric if it hasn't moved yet this turn."
   },
@@ -5745,7 +5925,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Prevents all Pokémon from fleeing or switching out during the next turn."
   },
@@ -5755,7 +5935,7 @@
     "power": 40,
     "pp": 30,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -5775,7 +5955,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Raises the Defense of all grass Pokémon in battle."
   },
@@ -5795,7 +5975,7 @@
     "power": null,
     "pp": 20,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Adds grass to the target's types."
   },
@@ -5815,7 +5995,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Takes one turn to charge, then raises the user's Special Attack, Special Defense, and Speed by two stages."
   },
@@ -5825,7 +6005,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "For five turns, heals all Pokémon on the ground for 1/16 max HP each turn and strengthens their grass moves to 1.5× their power."
   },
@@ -5835,7 +6015,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Doubles prize money."
   },
@@ -5855,7 +6035,7 @@
     "power": null,
     "pp": 40,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Does nothing."
   },
@@ -5865,7 +6045,7 @@
     "power": 100,
     "pp": 5,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VI",
     "short_effect": "Ignores and destroys protection effects."
   },
@@ -5885,7 +6065,7 @@
     "power": 20,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Prevents the target from fleeing and inflicts damage for 2-5 turns."
   },
@@ -5895,7 +6075,7 @@
     "power": null,
     "pp": 25,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Changes all normal moves to electric moves for the rest of the turn."
   },
@@ -5905,7 +6085,7 @@
     "power": null,
     "pp": 10,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Blocks damaging attacks and lowers attacking Pokémon's Attack by two stages on contact.  Switches Aegislash to Shield Forme."
   },
@@ -5925,7 +6105,7 @@
     "power": 140,
     "pp": 5,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "User receives 1/2 the damage inflicted in recoil."
   },
@@ -5935,7 +6115,7 @@
     "power": null,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Raises the Defense and Special Defense of all friendly Pokémon with plus or minus by one stage."
   },
@@ -5945,7 +6125,7 @@
     "power": null,
     "pp": 10,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Protects all friendly Pokémon from damaging moves.  Only works on the first turn after the user is sent out."
   },
@@ -5955,7 +6135,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "For five turns, protects all Pokémon on the ground from major status ailments and confusion, and halves the power of incoming dragon moves."
   },
@@ -5965,7 +6145,7 @@
     "power": 95,
     "pp": 15,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Attack by one stage."
   },
@@ -5985,7 +6165,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Attack and Special Attack by one stage."
   },
@@ -5995,7 +6175,7 @@
     "power": 20,
     "pp": 20,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VI",
     "short_effect": "Has a $effect_chance% chance to paralyze the target."
   },
@@ -6005,7 +6185,7 @@
     "power": 80,
     "pp": 10,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VI",
     "short_effect": "Drains 75% of the damage inflicted to heal the user."
   },
@@ -6035,7 +6215,7 @@
     "power": null,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers all targets' Attack and Special Attack by one stage.  Makes the user switch out."
   },
@@ -6045,7 +6225,7 @@
     "power": 90,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VI",
     "short_effect": "Inflicts regular damage."
   },
@@ -6065,7 +6245,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Attack by one stage."
   },
@@ -6075,7 +6255,7 @@
     "power": 90,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "physical",
     "generation": "Generation VI",
     "short_effect": "Has a $effect_chance% chance to lower the target's Attack by one stage."
   },
@@ -6085,7 +6265,7 @@
     "power": null,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Explodes if the target uses a fire move this turn, damaging it for 1/4 its max HP and preventing the move."
   },
@@ -6115,7 +6295,7 @@
     "power": null,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Raises the Attack and Special Attack of all grass Pokémon in battle."
   },
@@ -6125,7 +6305,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Blocks damaging attacks and damages attacking Pokémon for 1/8 their max HP."
   },
@@ -6145,7 +6325,7 @@
     "power": null,
     "pp": 20,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Covers the opposing field, lowering opponents' Speed by one stage upon switching in."
   },
@@ -6175,7 +6355,7 @@
     "power": null,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Inverts the target's stat modifiers."
   },
@@ -6185,7 +6365,7 @@
     "power": null,
     "pp": 20,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Adds ghost to the target's types."
   },
@@ -6195,7 +6375,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VI",
     "short_effect": "Lowers the target's Attack, Special Attack, and Speed by one stage if it is poisoned."
   },
@@ -6245,7 +6425,7 @@
     "power": null,
     "pp": 1,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6265,7 +6445,7 @@
     "power": null,
     "pp": 1,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6285,7 +6465,7 @@
     "power": null,
     "pp": 20,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Reduces damage five turns, but must be used during hail."
   },
@@ -6305,7 +6485,7 @@
     "power": null,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Grants the user protection for the rest of the turn and poisons any Pokémon that tries to use a contact move on it."
   },
@@ -6325,7 +6505,7 @@
     "power": null,
     "pp": 1,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6345,7 +6525,7 @@
     "power": null,
     "pp": 1,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6385,7 +6565,7 @@
     "power": null,
     "pp": 1,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6395,7 +6575,7 @@
     "power": 60,
     "pp": 20,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6425,7 +6605,7 @@
     "power": 210,
     "pp": 1,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6465,7 +6645,7 @@
     "power": null,
     "pp": 1,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6495,7 +6675,7 @@
     "power": null,
     "pp": 1,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6505,7 +6685,7 @@
     "power": 85,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Ignores the target's stat modifiers."
   },
@@ -6515,7 +6695,7 @@
     "power": null,
     "pp": 1,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6545,7 +6725,7 @@
     "power": 90,
     "pp": 15,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6555,7 +6735,7 @@
     "power": null,
     "pp": 1,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Raises all of the user's stats by two stages."
   },
@@ -6565,7 +6745,7 @@
     "power": 80,
     "pp": 15,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Lowers the target's Defense by one stage after inflicting damage."
   },
@@ -6585,7 +6765,7 @@
     "power": 130,
     "pp": 5,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Lowers the user's Special Attack by two stages after inflicting damage."
   },
@@ -6605,7 +6785,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Heals the target for ½ its max HP, or ⅔ on Grassy Terrain."
   },
@@ -6625,7 +6805,7 @@
     "power": null,
     "pp": 20,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Raises the Attack and Special Attack of all friendly Pokémon with plus or minus by one stage."
   },
@@ -6645,7 +6825,7 @@
     "power": null,
     "pp": 1,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6675,7 +6855,7 @@
     "power": null,
     "pp": 1,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Damages the target for 75% of its remaining HP."
   },
@@ -6695,7 +6875,7 @@
     "power": null,
     "pp": 1,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6715,7 +6895,7 @@
     "power": 100,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Lowers user's Speed by one stage."
   },
@@ -6725,7 +6905,7 @@
     "power": null,
     "pp": 1,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6745,7 +6925,7 @@
     "power": null,
     "pp": 15,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Forces the target to repeat its last used move."
   },
@@ -6755,7 +6935,7 @@
     "power": null,
     "pp": 30,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Guarantees a critical hit with the user's next move."
   },
@@ -6765,7 +6945,7 @@
     "power": 40,
     "pp": 40,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6775,7 +6955,7 @@
     "power": 190,
     "pp": 1,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "After inflicting damage, causes all Normal-type moves to become Electric-type for the remainder of the turn."
   },
@@ -6795,7 +6975,7 @@
     "power": 85,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Has a $effect_chance% chance to lower the target's Defense by one stage."
   },
@@ -6815,7 +6995,7 @@
     "power": 180,
     "pp": 1,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6825,7 +7005,7 @@
     "power": 200,
     "pp": 1,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Cannot be disrupted by abilities."
   },
@@ -6845,7 +7025,7 @@
     "power": 100,
     "pp": 5,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Cannot be disrupted by abilities."
   },
@@ -6865,7 +7045,7 @@
     "power": null,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts damage equal to half the target's HP."
   },
@@ -6885,7 +7065,7 @@
     "power": null,
     "pp": 1,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6925,7 +7105,7 @@
     "power": 100,
     "pp": 15,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -6935,7 +7115,7 @@
     "power": 90,
     "pp": 15,
     "type": "Bug",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Damages opponents, but heals allies for 50% of their max HP."
   },
@@ -6945,7 +7125,7 @@
     "power": 20,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Power is higher the more the user's stats have been raised, to a maximum of 31×."
   },
@@ -6965,7 +7145,7 @@
     "power": 85,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Destroys Reflect and Light Screen."
   },
@@ -6975,7 +7155,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Protects Pokémon on the ground from priority moves and increases the power of their  Psychic moves by 50%."
   },
@@ -6995,7 +7175,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Cures the target of a major status ailment and heals the user for 50% of its max HP."
   },
@@ -7005,7 +7185,7 @@
     "power": 90,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Has the same type as the user."
   },
@@ -7015,27 +7195,27 @@
     "power": 100,
     "pp": 10,
     "type": "Grass",
+    "damage_class": "physical",
+    "generation": "Generation VII",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Savage Spin-Out",
+    "accuracy": null,
+    "power": null,
+    "pp": 1,
+    "type": "Bug",
+    "damage_class": "physical",
+    "generation": "Generation VII",
+    "short_effect": "Inflicts regular damage with no additional effect."
+  },
+  {
+    "name": "Savage Spin-Out",
+    "accuracy": null,
+    "power": null,
+    "pp": 1,
+    "type": "Bug",
     "damage_class": "special",
-    "generation": "Generation VII",
-    "short_effect": "Inflicts regular damage with no additional effect."
-  },
-  {
-    "name": "Savage Spin-Out",
-    "accuracy": null,
-    "power": null,
-    "pp": 1,
-    "type": "Bug",
-    "damage_class": "physical",
-    "generation": "Generation VII",
-    "short_effect": "Inflicts regular damage with no additional effect."
-  },
-  {
-    "name": "Savage Spin-Out",
-    "accuracy": null,
-    "power": null,
-    "pp": 1,
-    "type": "Bug",
-    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7065,7 +7245,7 @@
     "power": null,
     "pp": 1,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7095,7 +7275,7 @@
     "power": null,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Heals the user for ½ its max HP, or ⅔ during a sandstorm."
   },
@@ -7115,7 +7295,7 @@
     "power": 60,
     "pp": 20,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7135,7 +7315,7 @@
     "power": 125,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Requires a turn to charge before attacking."
   },
@@ -7165,7 +7345,7 @@
     "power": 120,
     "pp": 5,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7185,7 +7365,7 @@
     "power": null,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Exchanges the user's Speed with the target's."
   },
@@ -7225,7 +7405,7 @@
     "power": null,
     "pp": 15,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Forces the target's opponents to aim at the target for the rest of the turn."
   },
@@ -7255,7 +7435,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Heals the user by the target's current Attack stat and lowers the target's Attack by one stage."
   },
@@ -7265,7 +7445,7 @@
     "power": null,
     "pp": 1,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7305,7 +7485,7 @@
     "power": null,
     "pp": 1,
     "type": "Flying",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7315,7 +7495,7 @@
     "power": null,
     "pp": 20,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Lowers the target's Attack and Special Attack by one stage."
   },
@@ -7335,7 +7515,7 @@
     "power": null,
     "pp": 1,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7345,7 +7525,7 @@
     "power": 80,
     "pp": 15,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Prevents the target from using sound-based moves for two turns."
   },
@@ -7355,7 +7535,7 @@
     "power": null,
     "pp": 20,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VII",
     "short_effect": "Poisons the target and lowers its Speed by one stage."
   },
@@ -7365,7 +7545,7 @@
     "power": 70,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Lowers the target's Attack by one stage after inflicting damage."
   },
@@ -7375,7 +7555,7 @@
     "power": null,
     "pp": 1,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7385,7 +7565,7 @@
     "power": null,
     "pp": 1,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7405,7 +7585,7 @@
     "power": 80,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Has a $effect_chance% chance to make the target flinch."
   },
@@ -7415,7 +7595,7 @@
     "power": 80,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7435,7 +7615,7 @@
     "power": 120,
     "pp": 5,
     "type": "Ghost",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7445,7 +7625,7 @@
     "power": 110,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7485,7 +7665,7 @@
     "power": 85,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7495,7 +7675,7 @@
     "power": 40,
     "pp": 40,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7505,7 +7685,7 @@
     "power": 60,
     "pp": 15,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Lowers the target's Attack by one stage after inflicting damage."
   },
@@ -7525,7 +7705,7 @@
     "power": null,
     "pp": 5,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7535,7 +7715,7 @@
     "power": null,
     "pp": 10,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7545,7 +7725,7 @@
     "power": null,
     "pp": 40,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7555,7 +7735,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7565,7 +7745,7 @@
     "power": null,
     "pp": 15,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7575,7 +7755,7 @@
     "power": 50,
     "pp": 10,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7595,7 +7775,7 @@
     "power": 80,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Has a $effect_chance% chance to lower the target's Speed by one stage."
   },
@@ -7655,7 +7835,7 @@
     "power": 80,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Never misses."
   },
@@ -7675,7 +7855,7 @@
     "power": 85,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7685,7 +7865,7 @@
     "power": 60,
     "pp": 20,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7705,7 +7885,7 @@
     "power": 130,
     "pp": 5,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7715,7 +7895,7 @@
     "power": 70,
     "pp": 20,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7725,7 +7905,7 @@
     "power": 80,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Lowers the target's Defense by one stage after inflicting damage."
   },
@@ -7735,7 +7915,7 @@
     "power": 80,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Seeds the target after inflicting damage."
   },
@@ -7745,7 +7925,7 @@
     "power": null,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7755,7 +7935,7 @@
     "power": 75,
     "pp": 5,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7765,7 +7945,7 @@
     "power": null,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7775,7 +7955,7 @@
     "power": null,
     "pp": 20,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -7795,7 +7975,7 @@
     "power": 10,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7805,7 +7985,7 @@
     "power": 100,
     "pp": 10,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7825,7 +8005,7 @@
     "power": 10,
     "pp": 10,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7835,7 +8015,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Prevents any moves from hitting the user this turn."
   },
@@ -7845,7 +8025,7 @@
     "power": 10,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7865,7 +8045,7 @@
     "power": 10,
     "pp": 10,
     "type": "Electric",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7875,7 +8055,7 @@
     "power": 10,
     "pp": 10,
     "type": "Psychic",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7895,7 +8075,7 @@
     "power": 10,
     "pp": 10,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7935,7 +8115,7 @@
     "power": 10,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7965,7 +8145,7 @@
     "power": 10,
     "pp": 10,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7985,7 +8165,7 @@
     "power": 120,
     "pp": 10,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -7995,7 +8175,7 @@
     "power": 100,
     "pp": 5,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8005,7 +8185,7 @@
     "power": null,
     "pp": 5,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Hits twice in one turn"
   },
@@ -8015,7 +8195,7 @@
     "power": null,
     "pp": 10,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -8025,7 +8205,7 @@
     "power": null,
     "pp": 15,
     "type": "Fighting",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -8055,7 +8235,7 @@
     "power": 120,
     "pp": 5,
     "type": "Fire",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Has a $effect_chance% chance to burn the target."
   },
@@ -8075,7 +8255,7 @@
     "power": 25,
     "pp": 20,
     "type": "Dragon",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8085,7 +8265,7 @@
     "power": 70,
     "pp": 10,
     "type": "Ground",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8095,7 +8275,7 @@
     "power": 90,
     "pp": 10,
     "type": "Poison",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8115,7 +8295,7 @@
     "power": 35,
     "pp": 15,
     "type": "Grass",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Prevents the target from fleeing and inflicts damage for 2-5 turns."
   },
@@ -8135,7 +8315,7 @@
     "power": 75,
     "pp": 15,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Has a $effect_chance% chance to lower the target's Special Attack by one stage."
   },
@@ -8145,7 +8325,7 @@
     "power": 140,
     "pp": 5,
     "type": "Steel",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts damage, and the user takes damage equal to half of its max HP, rounded up."
   },
@@ -8165,7 +8345,7 @@
     "power": 90,
     "pp": 10,
     "type": "Fairy",
-    "damage_class": "",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Has a $effect_chance% chance to confuse the target."
   },
@@ -8175,7 +8355,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": "Cures the entire party of major status effects after inflicting damage."
   },
@@ -8185,7 +8365,7 @@
     "power": 25,
     "pp": 5,
     "type": "Water",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8195,7 +8375,7 @@
     "power": null,
     "pp": 15,
     "type": "Rock",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -8205,7 +8385,7 @@
     "power": null,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "status",
     "generation": "Generation VIII",
     "short_effect": ""
   },
@@ -8215,7 +8395,7 @@
     "power": 50,
     "pp": 10,
     "type": "Normal",
-    "damage_class": "physical",
+    "damage_class": "special",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8245,7 +8425,7 @@
     "power": 20,
     "pp": 10,
     "type": "Ice",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   },
@@ -8255,7 +8435,7 @@
     "power": 80,
     "pp": 5,
     "type": "Dark",
-    "damage_class": "special",
+    "damage_class": "physical",
     "generation": "Generation VIII",
     "short_effect": "Inflicts regular damage with no additional effect."
   }
