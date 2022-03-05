@@ -14,16 +14,19 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
 898 Pokémon Species with all alternate forms including Regional forms (Alolan, Galarian), Mega Evolution, Gigantamax
 
 - [x] 🔍 Pokédex
-  - Search for a Pokémon by name or using its National Pokédex number.
-    - Pokédex data
-    - Base stats
-    - Training
-    - Breeding
-    - Forms
-    - Evolutions
-    - Pokédex entries
-  - Surprise Me!
-  - Open in the Official Pokémon Website, Open in Bulbapedia.
+  - Pokémon
+    - Search for a Pokémon by name or using its National Pokédex number.
+      - Pokédex data
+      - Base stats
+      - Training
+      - Breeding
+      - Forms
+      - Evolutions
+      - Pokédex entries
+    - Surprise Me!
+    - Open in the Official Pokémon Website, Open in Bulbapedia.
+  - Moves
+  - Abilities
 - [x] ⚙️ Preference
   - Pokémon details by prefered language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish.
 

@@ -14,14 +14,14 @@ type SpeciesNameByLanguage = {
   [lang: string]: PokemonV2Pokemonspeciesname;
 };
 
-const GrowthRate: { [id: string]: string } = {
-  "1": "Slow",
-  "2": "Medium",
-  "3": "Fast",
-  "4": "Medium Slow",
-  "5": "Erratic",
-  "6": "Fluctuating",
-};
+enum GrowthRate {
+  "Slow" = 1,
+  "Medium" = 2,
+  "Fast" = 3,
+  "Medium Slow" = 4,
+  "Erratic" = 5,
+  "Fluctuating" = 6,
+}
 
 function random(lower: number, upper: number) {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
@@ -35,7 +35,7 @@ export default function PokemonDetail(props: { id?: number }) {
 
   useEffect(() => {
     setLoading(true);
-    getPokemon(props.id || random(1, 898), Number(language))
+    getPokemon(props.id || random(1, 905), Number(language))
       .then((data) => {
         setPokemon(data[0]);
         setLoading(false);
@@ -70,7 +70,7 @@ export default function PokemonDetail(props: { id?: number }) {
     if (!first) return [];
 
     const seconds = species.filter(
-      (s) => s.evolves_from_species_id === first?.id
+      (s) => s.evolves_from_species_id === first.id
     );
 
     return seconds.map((second) => {
@@ -138,6 +138,17 @@ export default function PokemonDetail(props: { id?: number }) {
       forms = forms.filter((f) => formNames.includes(f.name));
     }
 
+    let gender
+    if (pokemon_v2_pokemonspecy.gender_rate === -1) {
+      gender = "Unknown"
+    } else {
+      const male = (8 - pokemon_v2_pokemonspecy.gender_rate) / 8 * 100
+      const female = pokemon_v2_pokemonspecy.gender_rate / 8 * 100
+      gender = `${male}% male, ${female}% female`
+    }
+
+    const ev: string[] = [];
+
     const data = [
       {
         h1: `#${pkmNumber} ${nameByLang[language].name}`,
@@ -193,6 +204,12 @@ export default function PokemonDetail(props: { id?: number }) {
         h2: "Base stats",
       },
       ...pokemon_v2_pokemonstats.map((n) => {
+        if (n.effort) {
+          ev.push(
+            `${n.effort} ${n.pokemon_v2_stat.pokemon_v2_statnames[0].name}`
+          );
+        }
+
         return {
           p: `_${n.pokemon_v2_stat.pokemon_v2_statnames[0].name}_: ${n.base_stat}`,
         };
@@ -206,9 +223,9 @@ export default function PokemonDetail(props: { id?: number }) {
       {
         h2: "Training",
       },
-      // {
-      //   p: `_EV yield:_ `
-      // },
+      {
+        p: `_EV yield:_ ${ev.join(", ")}`,
+      },
       {
         p: `_Catch rate:_ ${pokemon_v2_pokemonspecy.capture_rate}`,
       },
@@ -231,9 +248,9 @@ export default function PokemonDetail(props: { id?: number }) {
           .map((g) => g.pokemon_v2_egggroup.pokemon_v2_egggroupnames[0].name)
           .join(", ")}`,
       },
-      // {
-      //   p: `_Gender:_ `
-      // },
+      {
+        p: `_Gender:_ ${gender}`
+      },
       {
         p: `_Egg cycles:_ ${pokemon_v2_pokemonspecy.hatch_counter}`,
       },
