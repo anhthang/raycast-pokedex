@@ -1,10 +1,18 @@
-import { Action, ActionPanel, List, Icon } from "@raycast/api";
+import {
+  Action,
+  ActionPanel,
+  List,
+  Icon,
+  getPreferenceValues,
+} from "@raycast/api";
 import { useMemo, useState } from "react";
 import groupBy from "lodash.groupby";
+import json2md from "json2md";
 import PokemonDetail from "./components/detail";
 
 import pokemons from "./statics/pokemons.json";
-import json2md from "json2md";
+
+const preference = getPreferenceValues();
 
 const types = [
   "Normal",
@@ -55,7 +63,9 @@ function TypeDropdown(props: {
 export default function SearchPokemon() {
   const [nameOrId, setNameOrId] = useState<string>("");
   const [type, setType] = useState<string>("");
-  const [showPreview, setShowPreview] = useState<boolean>(false);
+  const [showPreview, setShowPreview] = useState<boolean>(
+    preference.showPreview
+  );
 
   const generations = useMemo(() => {
     let listing = nameOrId
@@ -150,7 +160,7 @@ export default function SearchPokemon() {
                       target={<PokemonDetail id={pokemon.id} />}
                     />
                     <Action
-                      title="Show Preview"
+                      title={showPreview ? "Hide Preview" : "Show Preview"}
                       icon={Icon.Sidebar}
                       onAction={() => setShowPreview(!showPreview)}
                     />

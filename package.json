@@ -67,6 +67,15 @@
           "value": "7"
         }
       ]
+    },
+    {
+      "name": "showPreview",
+      "title": "Preview",
+      "description": "Show preview in the right side of the Pokémon list",
+      "label": "Show preview",
+      "required": false,
+      "type": "checkbox",
+      "default": false
     }
   ],
   "dependencies": {
