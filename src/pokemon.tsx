@@ -1,15 +1,64 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, List, Icon } from "@raycast/api";
 import { useMemo, useState } from "react";
 import groupBy from "lodash.groupby";
 import PokemonDetail from "./components/detail";
 
 import pokemons from "./statics/pokemons.json";
+import json2md from "json2md";
+
+const types = [
+  "Normal",
+  "Fire",
+  "Fighting",
+  "Water",
+  "Flying",
+  "Grass",
+  "Poison",
+  "Electric",
+  "Ground",
+  "Psychic",
+  "Rock",
+  "Ice",
+  "Bug",
+  "Dragon",
+  "Ghost",
+  "Dark",
+  "Steel",
+  "Fairy",
+];
+
+function TypeDropdown(props: {
+  onSelectType: React.Dispatch<React.SetStateAction<string>>;
+}) {
+  return (
+    <List.Dropdown tooltip="Select Pokémon type" onChange={props.onSelectType}>
+      <List.Dropdown.Item
+        key="all"
+        value="all"
+        title="All Pokémon types"
+        icon="icon.png"
+      />
+      {types.map((type) => {
+        return (
+          <List.Dropdown.Item
+            key={type}
+            value={type}
+            title={type}
+            icon={`types/${type}.png`}
+          />
+        );
+      })}
+    </List.Dropdown>
+  );
+}
 
 export default function SearchPokemon() {
   const [nameOrId, setNameOrId] = useState<string>("");
+  const [type, setType] = useState<string>("");
+  const [showPreview, setShowPreview] = useState<boolean>(false);
 
   const generations = useMemo(() => {
-    const listing = nameOrId
+    let listing = nameOrId
       ? pokemons.filter(
           (p) =>
             p.name.toLowerCase().includes(nameOrId.toLowerCase()) ||
@@ -17,21 +66,27 @@ export default function SearchPokemon() {
         )
       : pokemons;
 
+    if (type != "all") {
+      listing = listing.filter((p) => p.types.includes(type));
+    }
+
     return groupBy(listing, "generation");
-  }, [nameOrId]);
+  }, [nameOrId, type]);
 
   return (
     <List
       throttle
       onSearchTextChange={(text) => setNameOrId(text)}
       searchBarPlaceholder="Search Pokémon by name or number..."
+      searchBarAccessory={<TypeDropdown onSelectType={setType} />}
+      isShowingDetail={showPreview}
     >
       {!nameOrId && (
         <List.Section>
           <List.Item
             key="surprise"
             title="Surprise Me!"
-            accessoryTitle="Random Pokémon selector"
+            accessoryTitle={showPreview ? undefined : "Random Pokémon selector"}
             icon="icon_random.png"
             actions={
               <ActionPanel>
@@ -57,18 +112,47 @@ export default function SearchPokemon() {
                 key={pokemon.id}
                 title={`#${pokemon.id.toString().padStart(3, "0")}`}
                 subtitle={pokemon.name}
-                accessoryTitle={pokemon.types.join(", ")}
-                accessoryIcon={`types/${pokemon.types[0]}.png`}
-                icon={{
-                  source: pokemon.artwork,
-                  fallback: "icon.png",
-                }}
+                accessoryTitle={
+                  showPreview ? undefined : pokemon.types.join(", ")
+                }
+                accessoryIcon={
+                  showPreview ? undefined : `types/${pokemon.types[0]}.png`
+                }
+                detail={
+                  <List.Item.Detail
+                    markdown={json2md([
+                      {
+                        h1: pokemon.name,
+                      },
+                      { p: pokemon.types.join(", ") },
+                      {
+                        img: {
+                          title: pokemon.name,
+                          source: pokemon.artwork,
+                        },
+                      },
+                    ])}
+                  />
+                }
+                icon={
+                  showPreview
+                    ? undefined
+                    : {
+                        source: pokemon.artwork,
+                        fallback: "icon.png",
+                      }
+                }
                 actions={
                   <ActionPanel>
                     <Action.Push
                       title="Show Details"
                       icon="icon_random.png"
                       target={<PokemonDetail id={pokemon.id} />}
+                    />
+                    <Action
+                      title="Show Preview"
+                      icon={Icon.Sidebar}
+                      onAction={() => setShowPreview(!showPreview)}
                     />
                   </ActionPanel>
                 }
