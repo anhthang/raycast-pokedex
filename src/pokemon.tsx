@@ -9,7 +9,7 @@ import { useMemo, useState } from "react";
 import groupBy from "lodash.groupby";
 import json2md from "json2md";
 import PokemonDetail from "./components/detail";
-import TypeDropdown from "./components/type";
+import TypeDropdown from "./components/type_dropdown";
 
 import pokemons from "./statics/pokemons.json";
 
@@ -43,7 +43,9 @@ export default function SearchPokemon() {
       throttle
       onSearchTextChange={(text) => setNameOrId(text)}
       searchBarPlaceholder="Search Pokémon by name or number..."
-      searchBarAccessory={<TypeDropdown onSelectType={setType} />}
+      searchBarAccessory={
+        <TypeDropdown command="Pokémon" onSelectType={setType} />
+      }
       isShowingDetail={showPreview}
     >
       {!nameOrId && type === "all" && (

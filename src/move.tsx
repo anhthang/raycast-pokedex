@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { List, getPreferenceValues } from "@raycast/api";
 import json2md from "json2md";
 import groupBy from "lodash.groupby";
-import TypeDropdown from "./components/type";
+import TypeDropdown from "./components/type_dropdown";
 
 import moves from "./statics/moves.json";
 
@@ -33,7 +33,9 @@ export default function Move() {
       throttle
       onSearchTextChange={setSearchText}
       isShowingDetail={preference.showPreview}
-      searchBarAccessory={<TypeDropdown onSelectType={setType} />}
+      searchBarAccessory={
+        <TypeDropdown command="Move" onSelectType={setType} />
+      }
     >
       {Object.entries(generations).map(([generation, moves]) => {
         return (
