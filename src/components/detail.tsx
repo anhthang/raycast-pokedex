@@ -352,7 +352,7 @@ export default function PokemonDetail(props: { id?: number }) {
               />
               <Action.OpenInBrowser
                 title="Open in Bulbapedia"
-                icon="bulbapedia.png"
+                icon="bulbapedia.svg"
                 url={`https://bulbapedia.bulbagarden.net/wiki/${englishName()}_(Pok%C3%A9mon)`}
               />
             </ActionPanel.Section>
