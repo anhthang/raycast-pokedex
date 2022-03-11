@@ -48,7 +48,7 @@ export default function Move() {
                   }
                   icon={`moves/${move.damage_class || "status"}.png`}
                   accessoryTitle={move.type}
-                  accessoryIcon={`types/${move.type}.png`}
+                  accessoryIcon={`types/${move.type.toLowerCase()}.svg`}
                   detail={
                     preference.showPreview ? (
                       <List.Item.Detail

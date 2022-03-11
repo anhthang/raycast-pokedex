@@ -46,18 +46,18 @@ export default function SearchPokemon() {
       searchBarAccessory={<TypeDropdown onSelectType={setType} />}
       isShowingDetail={showPreview}
     >
-      {(!nameOrId && type === "all") && (
+      {!nameOrId && type === "all" && (
         <List.Section>
           <List.Item
             key="surprise"
             title="Surprise Me!"
             accessoryTitle={showPreview ? undefined : "Random Pokémon selector"}
-            icon="icon_random.png"
+            icon="icon_sort.svg"
             actions={
               <ActionPanel>
                 <Action.Push
                   title="Surprise Me!"
-                  icon="icon_random.png"
+                  icon="icon_sort.svg"
                   target={<PokemonDetail />}
                 />
               </ActionPanel>
@@ -94,7 +94,7 @@ export default function SearchPokemon() {
                   }
                 : {
                     accessoryTitle: pokemon.types.join(", "),
-                    accessoryIcon: `types/${pokemon.types[0]}.png`,
+                    accessoryIcon: `types/${pokemon.types[0].toLowerCase()}.svg`,
                     icon: {
                       source: pokemon.artwork,
                       fallback: "icon.png",
@@ -111,7 +111,7 @@ export default function SearchPokemon() {
                     <ActionPanel>
                       <Action.Push
                         title="Show Details"
-                        icon="icon_random.png"
+                        icon="icon_sort.svg"
                         target={<PokemonDetail id={pokemon.id} />}
                       />
                       <Action

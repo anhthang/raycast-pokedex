@@ -347,7 +347,7 @@ export default function PokemonDetail(props: { id?: number }) {
             <ActionPanel.Section title="Pokémon">
               <Action.OpenInBrowser
                 title="Open in the Official Pokémon Website"
-                icon="icon.png"
+                icon="pokeball.svg"
                 url={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
               />
               <Action.OpenInBrowser

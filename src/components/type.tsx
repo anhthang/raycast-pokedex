@@ -30,7 +30,7 @@ export default function TypeDropdown(props: {
         key="all"
         value="all"
         title="All Pokémon types"
-        icon="icon.png"
+        icon="pokeball.svg"
       />
       {types.map((type) => {
         return (
@@ -38,7 +38,7 @@ export default function TypeDropdown(props: {
             key={type}
             value={type}
             title={type}
-            icon={`types/${type}.png`}
+            icon={`types/${type.toLowerCase()}.svg`}
           />
         );
       })}
