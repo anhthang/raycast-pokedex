@@ -1,10 +1,4 @@
-import {
-  Action,
-  ActionPanel,
-  Color,
-  Detail,
-  getPreferenceValues,
-} from "@raycast/api";
+import { Color, Detail, getPreferenceValues } from "@raycast/api";
 import { useEffect, useMemo, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
@@ -308,10 +302,7 @@ export default function PokemonDetail(props: { id?: number }) {
     return data;
   }, [pokemon]);
 
-  const englishName = () => {
-    // 9 is language_id for English
-    return nameByLang["9"].name.replace(/ /g, "_");
-  };
+  const englishName = nameByLang["9"]?.name.replace(/ /g, "_");
 
   return (
     <Detail
@@ -323,6 +314,17 @@ export default function PokemonDetail(props: { id?: number }) {
       metadata={
         pokemon && (
           <Detail.Metadata>
+            <Detail.Metadata.Link
+              title="Official Pokémon Website"
+              text={nameByLang[language].name}
+              target={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
+            />
+            <Detail.Metadata.Link
+              title="Bulbapedia"
+              text={englishName}
+              target={`https://bulbapedia.bulbagarden.net/wiki/${englishName}_(Pok%C3%A9mon)}`}
+            />
+            <Detail.Metadata.Separator />
             <Detail.Metadata.Label
               title="Height"
               text={`${pokemon.height / 10}m`}
@@ -366,24 +368,6 @@ export default function PokemonDetail(props: { id?: number }) {
               );
             })}
           </Detail.Metadata>
-        )
-      }
-      actions={
-        pokemon && (
-          <ActionPanel>
-            <ActionPanel.Section title="Pokémon">
-              <Action.OpenInBrowser
-                title="Open in the Official Pokémon Website"
-                icon="pokeball.svg"
-                url={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
-              />
-              <Action.OpenInBrowser
-                title="Open in Bulbapedia"
-                icon="bulbapedia.svg"
-                url={`https://bulbapedia.bulbagarden.net/wiki/${englishName()}_(Pok%C3%A9mon)`}
-              />
-            </ActionPanel.Section>
-          </ActionPanel>
         )
       }
     />
