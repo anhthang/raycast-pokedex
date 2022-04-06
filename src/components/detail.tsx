@@ -352,7 +352,7 @@ export default function PokemonDetail(props: { id?: number }) {
                   <Detail.Metadata.TagList.Item
                     key={t.pokemon_v2_ability.pokemon_v2_abilitynames[0].name}
                     text={t.pokemon_v2_ability.pokemon_v2_abilitynames[0].name}
-                    color={t.is_hidden ? Color.Brown : Color.Blue}
+                    color={t.is_hidden ? Color.SecondaryText : Color.PrimaryText}
                   />
                 );
               })}
