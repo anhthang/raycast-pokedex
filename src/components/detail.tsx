@@ -354,7 +354,7 @@ export default function PokemonDetail(props: { id?: number }) {
             <Detail.Metadata.Link
               title="Bulbapedia"
               text={englishName}
-              target={`https://bulbapedia.bulbagarden.net/wiki/${englishName}_(Pok%C3%A9mon)}`}
+              target={`https://bulbapedia.bulbagarden.net/wiki/${englishName}_(Pok%C3%A9mon)`}
             />
             <Detail.Metadata.Separator />
             <Detail.Metadata.Label
