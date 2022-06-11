@@ -2,29 +2,9 @@ import { Action, ActionPanel, Grid, Icon } from "@raycast/api";
 import { useMemo, useState } from "react";
 import groupBy from "lodash.groupby";
 import PokemonDetail from "./components/detail";
+import TypeDropdown from "./components/type_dropdown";
 
 import pokemons from "./statics/pokemons.json";
-
-const types = [
-  "Normal",
-  "Fire",
-  "Water",
-  "Grass",
-  "Electric",
-  "Ice",
-  "Fighting",
-  "Poison",
-  "Ground",
-  "Flying",
-  "Psychic",
-  "Bug",
-  "Rock",
-  "Ghost",
-  "Dragon",
-  "Dark",
-  "Steel",
-  "Fairy",
-];
 
 export default function SearchPokemon() {
   const [type, setType] = useState<string>("all");
@@ -40,30 +20,7 @@ export default function SearchPokemon() {
       throttle
       searchBarPlaceholder="Search Pokémon by name or number..."
       searchBarAccessory={
-        <Grid.Dropdown
-          tooltip="Pokémon Type Filter"
-          storeValue={true}
-          onChange={(val) => setType(val)}
-        >
-          <Grid.Dropdown.Item
-            key="all"
-            value="all"
-            title="All Types"
-            icon="pokeball.svg"
-          />
-          <Grid.Dropdown.Section>
-            {types.map((type) => {
-              return (
-                <Grid.Dropdown.Item
-                  key={type}
-                  value={type}
-                  title={type}
-                  icon={`types/${type.toLowerCase()}.svg`}
-                />
-              );
-            })}
-          </Grid.Dropdown.Section>
-        </Grid.Dropdown>
+        <TypeDropdown type="grid" command="Pokémon" onSelectType={setType} />
       }
     >
       {Object.entries(groupBy(listing, "generation")).map(
