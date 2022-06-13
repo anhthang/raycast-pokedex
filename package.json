@@ -36,7 +36,7 @@
     {
       "name": "language",
       "title": "Language",
-      "description": "Your prefered language",
+      "description": "Your prefered language. Supporting Pokémon command only.",
       "required": false,
       "type": "dropdown",
       "default": "9",
@@ -78,15 +78,6 @@
           "value": "7"
         }
       ]
-    },
-    {
-      "name": "showPreview",
-      "title": "Preview",
-      "description": "Show preview in the right side of the Pokémon list",
-      "label": "Show preview",
-      "required": false,
-      "type": "checkbox",
-      "default": false
     }
   ],
   "dependencies": {
