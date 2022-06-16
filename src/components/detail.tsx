@@ -263,7 +263,11 @@ export default function PokemonDetail(props: { id?: number }) {
       },
       {
         p: `_Egg groups:_ ${pokemon_v2_pokemonegggroups
-          .map((g) => g.pokemon_v2_egggroup.pokemon_v2_egggroupnames[0].name)
+          .map(
+            (g) =>
+              g.pokemon_v2_egggroup.pokemon_v2_egggroupnames[0]?.name ||
+              g.pokemon_v2_egggroup.name
+          )
           .join(", ")}`,
       },
       {
@@ -316,19 +320,14 @@ export default function PokemonDetail(props: { id?: number }) {
       {
         h2: "Pokédex entries",
       },
-      ...pokemon_v2_pokemonspeciesflavortexts
-        .filter((f) => f.pokemon_v2_version.pokemon_v2_versionnames.length)
-        .map((flavor) => {
-          return {
-            p: `**${
-              flavor.pokemon_v2_version.pokemon_v2_versionnames[0].name
-            }:** ${flavor.flavor_text
-              .split("\n")
-              .join(" ")
-              .split("")
-              .join(" ")}`,
-          };
-        }),
+      ...pokemon_v2_pokemonspeciesflavortexts.map((flavor) => {
+        return {
+          p: `**${
+            flavor.pokemon_v2_version.pokemon_v2_versionnames[0]?.name ||
+            flavor.pokemon_v2_version.name
+          }:** ${flavor.flavor_text.split("\n").join(" ").split("").join(" ")}`,
+        };
+      }),
     ];
 
     return data;
