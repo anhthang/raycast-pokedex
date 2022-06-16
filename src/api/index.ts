@@ -42,6 +42,7 @@ export const getPokemon = async (
         }
         pokemon_v2_pokemontypes {
           pokemon_v2_type {
+            name
             pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
               name
             }
