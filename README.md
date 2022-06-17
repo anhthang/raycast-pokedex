@@ -23,15 +23,12 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
       - Forms
       - Evolutions
       - Pokédex entries
-    - Surprise Me!
     - Open in the Official Pokémon Website, Open in Bulbapedia.
     - Filter by Pokémon type
-    - Show/Hide preview pane
   - Moves
   - Abilities
 - [x] ⚙️ Preference
-  - Pokémon details by prefered language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish.
-  - Show/Hide preview pane
+  - Pokémon details by preferred language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish, Chinese.
 
 ## TODO
 
