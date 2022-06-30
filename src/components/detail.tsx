@@ -1,4 +1,10 @@
-import { Color, Detail, getPreferenceValues } from "@raycast/api";
+import {
+  Action,
+  ActionPanel,
+  Color,
+  Detail,
+  getPreferenceValues,
+} from "@raycast/api";
 import { useEffect, useMemo, useState } from "react";
 import json2md from "json2md";
 import { getPokemon } from "../api";
@@ -7,6 +13,7 @@ import {
   PokemonV2Pokemonspeciesname,
   PokemonV2PokemonspecyElement,
 } from "../types";
+import PokemonMoves from "./move";
 
 const { language } = getPreferenceValues();
 
@@ -399,6 +406,21 @@ export default function PokemonDetail(props: { id?: number }) {
               );
             })}
           </Detail.Metadata>
+        )
+      }
+      actions={
+        pokemon && (
+          <ActionPanel>
+            <Action.Push
+              title="Moves Learned"
+              target={
+                <PokemonMoves
+                  name={nameByLang[language].name}
+                  moves={pokemon.pokemon_v2_pokemonmoves}
+                />
+              }
+            />
+          </ActionPanel>
         )
       }
     />

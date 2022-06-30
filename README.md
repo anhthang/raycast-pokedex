@@ -25,16 +25,15 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
       - Pokédex entries
     - Open in the Official Pokémon Website, Open in Bulbapedia.
     - Filter by Pokémon type
+    - Moves learned
   - Moves
   - Abilities
 - [x] ⚙️ Preference
-  - Pokémon details by preferred language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish, Chinese.
+  - Pokémon details by preferred language. Supported: English (default), French, German, Italian, Japanese, Korean, Spanish, Chinese (Simplified & Traditional).
 
 ## TODO
 
 - [ ] Egg moves
-- [ ] Moves learnt by level up
-- [ ] Moves learnt by TM
 - [ ] Sprites
 - [ ] Where to find
 

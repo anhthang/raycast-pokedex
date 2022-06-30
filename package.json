@@ -36,7 +36,7 @@
     {
       "name": "language",
       "title": "Language",
-      "description": "Your prefered language. Supporting Pokémon command only.",
+      "description": "Your preferred language. Supporting Pokémon command only.",
       "required": false,
       "type": "dropdown",
       "default": "9",

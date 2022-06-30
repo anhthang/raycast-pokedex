@@ -30,6 +30,59 @@ export const getPokemon = async (
             }
           }
         }
+        pokemon_v2_pokemonmoves(where: {move_learn_method_id: {_in: [1, 4]}}) {
+          level
+          move_id
+          move_learn_method_id
+          order
+          pokemon_v2_move {
+            accuracy
+            name
+            move_effect_chance
+            power
+            pp
+            pokemon_v2_machines {
+              machine_number
+              version_group_id
+            }
+            pokemon_v2_movedamageclass {
+              pokemon_v2_movedamageclassnames(where: {language_id: {_eq: 9}}) {
+                name
+              }
+            }
+            pokemon_v2_moveeffect {
+              pokemon_v2_moveeffecteffecttexts(where: {language_id: {_eq: $language_id}}) {
+                short_effect
+              }
+            }
+            pokemon_v2_movenames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+            pokemon_v2_type {
+              name
+              pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+            }
+          }
+          pokemon_v2_movelearnmethod {
+            name
+            pokemon_v2_movelearnmethodnames(where: {language_id: {_eq: 9}}) {
+              name
+            }
+          }
+          pokemon_v2_versiongroup {
+            id
+            generation_id
+            name
+            pokemon_v2_versions {
+              name
+              pokemon_v2_versionnames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+            }
+          }
+        }
         pokemon_v2_pokemonstats {
           base_stat
           effort
