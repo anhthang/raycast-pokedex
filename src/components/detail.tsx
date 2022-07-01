@@ -4,6 +4,7 @@ import {
   Color,
   Detail,
   getPreferenceValues,
+  Icon,
 } from "@raycast/api";
 import { useEffect, useMemo, useState } from "react";
 import json2md from "json2md";
@@ -413,6 +414,7 @@ export default function PokemonDetail(props: { id?: number }) {
           <ActionPanel>
             <Action.Push
               title="Moves Learned"
+              icon={Icon.List}
               target={
                 <PokemonMoves
                   name={nameByLang[language].name}

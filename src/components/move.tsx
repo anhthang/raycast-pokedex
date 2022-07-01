@@ -8,11 +8,19 @@ export default function PokemonMoves(props: {
   name: string;
   moves: PokemonV2Pokemonmove[];
 }) {
-  const groups = props.moves.reduce((out: { [name: string]: string }, cur) => {
-    out[cur.pokemon_v2_versiongroup.name] =
+  const moves = props.moves.map((m) => {
+    m.pokemon_v2_move.pokemon_v2_machines =
+      m.pokemon_v2_move.pokemon_v2_machines.filter(
+        (tm) => tm.version_group_id === m.pokemon_v2_versiongroup.id
+      );
+    return m;
+  });
+
+  const versionGroups = moves.reduce((out: { [name: string]: string }, cur) => {
+    out[cur.pokemon_v2_versiongroup.id] =
       cur.pokemon_v2_versiongroup.pokemon_v2_versions
         .map((v) => v.pokemon_v2_versionnames[0]?.name || v.name)
-        .join(" - ");
+        .join("/");
     return out;
   }, {});
 
@@ -21,9 +29,10 @@ export default function PokemonMoves(props: {
   const pokemonMoves = useMemo(() => {
     const moves = versionGroup
       ? props.moves.filter(
-          (m) => m.pokemon_v2_versiongroup.name === versionGroup
+          (m) => m.pokemon_v2_versiongroup.id.toString() === versionGroup
         )
       : props.moves;
+
     return groupBy(
       moves,
       (m) =>
@@ -41,19 +50,27 @@ export default function PokemonMoves(props: {
           tooltip="Change Version Group"
           onChange={setVersionGroup}
         >
-          {Object.entries(groups).map(([key, value]) => (
-            <List.Dropdown.Item key={key} value={key} title={value} />
-          ))}
+          {Object.entries(versionGroups)
+            .sort((a, b) => Number(b[0]) - Number(a[0]))
+            .map(([key, value]) => (
+              <List.Dropdown.Item key={key} value={key} title={value} />
+            ))}
         </List.Dropdown>
       }
     >
       {Object.entries(pokemonMoves).map(([method, methodMoves]) => {
+        const moves =
+          method === "Machine"
+            ? methodMoves.sort(
+                (a, b) =>
+                  a.pokemon_v2_move.pokemon_v2_machines[0].machine_number -
+                  b.pokemon_v2_move.pokemon_v2_machines[0].machine_number
+              )
+            : methodMoves;
+
         return (
           <List.Section title={method} key={method}>
-            {methodMoves.map((move) => {
-              const machine = move.pokemon_v2_move.pokemon_v2_machines.find(
-                (m) => m.version_group_id === move.pokemon_v2_versiongroup.id
-              );
+            {moves.map((move) => {
               return (
                 <List.Item
                   key={`${move.pokemon_v2_versiongroup.name}-${move.move_learn_method_id}-${move.level}-${move.move_id}`}
@@ -65,7 +82,7 @@ export default function PokemonMoves(props: {
                       text:
                         move.move_learn_method_id === 1
                           ? move.level.toString()
-                          : `TM${machine?.machine_number
+                          : `TM${move.pokemon_v2_move.pokemon_v2_machines[0].machine_number
                               .toString()
                               .padStart(2, "0")}`,
                     },

@@ -30,7 +30,7 @@ export const getPokemon = async (
             }
           }
         }
-        pokemon_v2_pokemonmoves(where: {move_learn_method_id: {_in: [1, 4]}}) {
+        pokemon_v2_pokemonmoves(where: {move_learn_method_id: {_in: [1, 4]}}, order_by: {level: asc}) {
           level
           move_id
           move_learn_method_id
