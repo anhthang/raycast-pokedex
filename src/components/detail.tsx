@@ -15,6 +15,7 @@ import {
   PokemonV2PokemonspecyElement,
 } from "../types";
 import PokemonMoves from "./move";
+import PokedexEntries from "./dex";
 
 const { language } = getPreferenceValues();
 
@@ -303,40 +304,34 @@ export default function PokemonDetail(props: { id?: number }) {
             ];
           })
         : []),
-      {
-        h2: "Evolutions",
-      },
-      {
-        p:
-          pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.length < 2
-            ? "_This Pokémon does not evolve._"
-            : "",
-      },
-      ...evolutions(pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies).map(
-        (evolution) => ({
-          p: evolution
-            .map((specy) => {
-              return `![${
-                specy.pokemon_v2_pokemonspeciesnames[0].name
-              }](https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
-                .toString()
-                .padStart(3, "0")}.png)`;
-            })
-            .join(" "),
-        })
-      ),
-      {
-        h2: "Pokédex entries",
-      },
-      ...pokemon_v2_pokemonspeciesflavortexts.map((flavor) => {
-        return {
-          p: `**${
-            flavor.pokemon_v2_version.pokemon_v2_versionnames[0]?.name ||
-            flavor.pokemon_v2_version.name
-          }:** ${flavor.flavor_text.split("\n").join(" ").split("").join(" ")}`,
-        };
-      }),
     ];
+
+    if (pokemon_v2_evolutionchain?.pokemon_v2_pokemonspecies.length) {
+      data.push(
+        {
+          h2: "Evolutions",
+        },
+        {
+          p:
+            pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.length < 2
+              ? "_This Pokémon does not evolve._"
+              : "",
+        },
+        ...evolutions(pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies).map(
+          (evolution) => ({
+            p: evolution
+              .map((specy) => {
+                return `![${
+                  specy.pokemon_v2_pokemonspeciesnames[0].name
+                }](https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${specy.id
+                  .toString()
+                  .padStart(3, "0")}.png)`;
+              })
+              .join(" "),
+          })
+        )
+      );
+    }
 
     return data;
   }, [pokemon]);
@@ -412,6 +407,19 @@ export default function PokemonDetail(props: { id?: number }) {
       actions={
         pokemon && (
           <ActionPanel>
+            <Action.Push
+              title="Pokédex Entries"
+              icon={Icon.List}
+              target={
+                <PokedexEntries
+                  name={nameByLang[language].name}
+                  entries={
+                    pokemon.pokemon_v2_pokemonspecy
+                      .pokemon_v2_pokemonspeciesflavortexts
+                  }
+                />
+              }
+            />
             <Action.Push
               title="Moves Learned"
               icon={Icon.List}

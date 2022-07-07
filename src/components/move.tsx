@@ -44,7 +44,7 @@ export default function PokemonMoves(props: {
     <List
       throttle
       navigationTitle={`${props.name} | Moves`}
-      isShowingDetail={true}
+      isShowingDetail={Boolean(props.moves.length)}
       searchBarAccessory={
         <List.Dropdown
           tooltip="Change Version Group"
