@@ -111,6 +111,24 @@ export const getPokemon = async (
           is_legendary
           is_mythical
           name
+          pokemon_v2_pokemondexnumbers {
+            pokedex_number
+            pokemon_v2_pokedex {
+              pokemon_v2_pokedexversiongroups {
+                version_group_id
+                pokemon_v2_versiongroup {
+                  name
+                  pokemon_v2_versions {
+                    id
+                    name
+                    pokemon_v2_versionnames(where: {language_id: {_eq: $language_id}}) {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
           pokemon_v2_evolutionchain {
             pokemon_v2_pokemonspecies(order_by: {order: asc}) {
               id
@@ -155,6 +173,15 @@ export const getPokemon = async (
             pokemon_v2_version {
               id
               name
+              pokemon_v2_versiongroup {
+                name
+                pokemon_v2_generation {
+                  name
+                  pokemon_v2_generationnames(where: {language_id: {_eq: 9}}) {
+                    name
+                  }
+                }
+              }
               pokemon_v2_versionnames(where: {language_id: {_eq: $language_id}}) {
                 name
               }

@@ -84,7 +84,13 @@ export interface PokemonV2Versiongroup {
   id: number;
   generation_id: number;
   name: string;
+  pokemon_v2_generation: PokemonV2Generation;
   pokemon_v2_versions: PokemonV2Version[];
+}
+
+export interface PokemonV2Generation {
+  name: string;
+  pokemon_v2_generationnames: PokemonV2Name[];
 }
 
 export interface PokemonV2Ability {
@@ -105,11 +111,26 @@ export interface PokemonV2Pokemonspecy {
   is_legendary: boolean;
   is_mythical: boolean;
   name: string;
+  pokemon_v2_pokemondexnumbers: PokemonV2Pokemondexnumber[];
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
   pokemon_v2_pokemonegggroups: PokemonV2Pokemonegggroup[];
   pokemon_v2_pokemons: PokemonV2PokemonspecyPokemonV2Pokemon[];
   pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
+}
+
+export interface PokemonV2Pokemondexnumber {
+  pokedex_number: number;
+  pokemon_v2_pokedex: PokemonV2Pokedex;
+}
+
+export interface PokemonV2Pokedex {
+  pokemon_v2_pokedexversiongroups: PokemonV2Pokedexversiongroup[];
+}
+
+export interface PokemonV2Pokedexversiongroup {
+  version_group_id: number;
+  pokemon_v2_versiongroup: PokemonV2Versiongroup;
 }
 
 export interface PokemonV2Evolutionchain {
@@ -162,6 +183,7 @@ export interface PokemonV2Pokemonspeciesflavortext {
 export interface PokemonV2Version {
   id: number;
   name: string;
+  pokemon_v2_versiongroup: PokemonV2Versiongroup;
   pokemon_v2_versionnames: PokemonV2Name[];
 }
 

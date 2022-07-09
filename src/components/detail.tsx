@@ -413,6 +413,9 @@ export default function PokemonDetail(props: { id?: number }) {
               target={
                 <PokedexEntries
                   name={nameByLang[language].name}
+                  dex_numbers={
+                    pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemondexnumbers
+                  }
                   entries={
                     pokemon.pokemon_v2_pokemonspecy
                       .pokemon_v2_pokemonspeciesflavortexts
