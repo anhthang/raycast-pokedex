@@ -424,7 +424,7 @@ export default function PokemonDetail(props: { id?: number }) {
               }
             />
             <Action.Push
-              title="Moves Learned"
+              title="Learnset"
               icon={Icon.List}
               target={
                 <PokemonMoves

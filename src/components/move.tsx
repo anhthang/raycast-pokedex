@@ -43,7 +43,7 @@ export default function PokemonMoves(props: {
   return (
     <List
       throttle
-      navigationTitle={`${props.name} | Moves`}
+      navigationTitle={`${props.name} | Learnset`}
       isShowingDetail={Boolean(props.moves.length)}
       searchBarAccessory={
         <List.Dropdown
@@ -71,6 +71,20 @@ export default function PokemonMoves(props: {
         return (
           <List.Section title={method} key={method}>
             {moves.map((move) => {
+              let text
+              switch (move.move_learn_method_id) {
+                case 1:
+                  text = move.level.toString();
+                  break;
+                case 4:
+                  text = `TM${move.pokemon_v2_move.pokemon_v2_machines[0].machine_number
+                    .toString()
+                    .padStart(2, "0")}`
+                // eslint-disable-next-line no-fallthrough
+                default:
+                  break;
+              }
+
               return (
                 <List.Item
                   key={`${move.pokemon_v2_versiongroup.name}-${move.move_learn_method_id}-${move.level}-${move.move_id}`}
@@ -79,12 +93,7 @@ export default function PokemonMoves(props: {
                   icon={`moves/${move.pokemon_v2_move.pokemon_v2_movedamageclass.pokemon_v2_movedamageclassnames[0].name}.svg`}
                   accessories={[
                     {
-                      text:
-                        move.move_learn_method_id === 1
-                          ? move.level.toString()
-                          : `TM${move.pokemon_v2_move.pokemon_v2_machines[0].machine_number
-                              .toString()
-                              .padStart(2, "0")}`,
+                      text
                     },
                     {
                       tooltip:
