@@ -11,7 +11,7 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
 
 ## Features
 
-898 Pokémon Species with all alternate forms including Regional forms (Alolan, Galarian), Mega Evolution, Gigantamax
+905 Pokémon Species with all alternate forms including Regional forms (Alolan, Galarian, Hisuian), Mega Evolution, Gigantamax
 
 - [x] 🔍 Pokédex
   - Pokémon
@@ -23,9 +23,9 @@ This extension is made by [Anh Thang Bui](https://github.com/anhthang) and uses 
       - Forms
       - Evolutions
       - Pokédex entries
+      - Learnset
     - Open in the Official Pokémon Website, Open in Bulbapedia.
     - Filter by Pokémon type
-    - Moves learned
   - Moves
   - Abilities
 - [x] ⚙️ Preference

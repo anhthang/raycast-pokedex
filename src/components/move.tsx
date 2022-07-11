@@ -71,7 +71,7 @@ export default function PokemonMoves(props: {
         return (
           <List.Section title={method} key={method}>
             {moves.map((move) => {
-              let text
+              let text;
               switch (move.move_learn_method_id) {
                 case 1:
                   text = move.level.toString();
@@ -79,7 +79,7 @@ export default function PokemonMoves(props: {
                 case 4:
                   text = `TM${move.pokemon_v2_move.pokemon_v2_machines[0].machine_number
                     .toString()
-                    .padStart(2, "0")}`
+                    .padStart(2, "0")}`;
                 // eslint-disable-next-line no-fallthrough
                 default:
                   break;
@@ -93,7 +93,7 @@ export default function PokemonMoves(props: {
                   icon={`moves/${move.pokemon_v2_move.pokemon_v2_movedamageclass.pokemon_v2_movedamageclassnames[0].name}.svg`}
                   accessories={[
                     {
-                      text
+                      text,
                     },
                     {
                       tooltip:
