@@ -1,5 +1,8 @@
 # Pokédex Changelog
 
+## [Improvements] - 2023-02-03
+- Added Gen 9 Pokémons
+
 ## [Improvements] - 2022-06-16
 
 - Using new Grid layout

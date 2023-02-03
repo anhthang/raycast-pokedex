@@ -240,12 +240,10 @@ export default function PokemonDetail(props: { id?: number }) {
           : "",
       },
       {
-        img: [
-          {
-            title: nameByLang[language].name,
-            source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pkmNumber}.png`,
-          },
-        ],
+        img: {
+          title: nameByLang[language].name,
+          source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pkmNumber}.png`,
+        },
       },
       {
         h2: "Training",
