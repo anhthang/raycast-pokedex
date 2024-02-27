@@ -33,12 +33,3 @@ declare namespace Arguments {
   export type Move = {}
 }
 
-
-declare module "swift:*" {
-  function run<T = unknown, U = any>(command: string, input?: U): Promise<T>;
-  export default run;
-	export class SwiftError extends Error {
-    stderr: string;
-    stdout: string;
-  }
-}

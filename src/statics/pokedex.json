@@ -11108,5 +11108,170 @@
     "jp_types": ["くさ", "エスパー"],
     "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/1c48303d92e9b0edc3c780af0df20b7ff9a81fbc.png",
     "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/9375cf44f67cee9287e8ba3ebf303c3c5fd60280.png"
+  },
+  {
+    "id": 1011,
+    "name": "Dipplin",
+    "types": ["Grass", "Dragon"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1011.png",
+    "generation": "Generation IX",
+    "jp_name": "カミッチュ",
+    "jp_types": ["くさ", "ドラゴンドラゴン"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/f926c19795e64db3331d454079af3467.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/027d195a27bd3e1a64acf9665a8182e8.png"
+  },
+  {
+    "id": 1012,
+    "name": "Poltchageist",
+    "types": ["Grass", "Ghost"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1012.png",
+    "generation": "Generation IX",
+    "jp_name": "チャデス",
+    "jp_types": ["くさ", "ゴーストゴースト"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/2c7f8ba547c28b4da9c1f1844e7e60fa.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/0ac7df7dd96e8a4e6626880354e8f49d.png"
+  },
+  {
+    "id": 1013,
+    "name": "Sinistcha",
+    "types": ["Grass", "Ghost"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1013.png",
+    "generation": "Generation IX",
+    "jp_name": "ヤバソチャ",
+    "jp_types": ["くさ", "ゴーストゴースト"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/3401a1a7b49408f93c0e72f729f8fad1.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/700c15d2ffb37d9c3b21f648e94dbada.png"
+  },
+  {
+    "id": 1014,
+    "name": "Okidogi",
+    "types": ["Poison", "Fighting"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1014.png",
+    "generation": "Generation IX",
+    "jp_name": "イイネイヌ",
+    "jp_types": ["どく", "かくとうかくとう"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/094eef7ed4584f451967055302959c40.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/f90ef955a61629bc6b2006a6ef111691.png"
+  },
+  {
+    "id": 1015,
+    "name": "Munkidori",
+    "types": ["Poison", "Psychic"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1015.png",
+    "generation": "Generation IX",
+    "jp_name": "マシマシラ",
+    "jp_types": ["どく", "エスパーエスパー"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/a6e06dc7dfe5c928fbd4db9f4bff7dde.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/1f75563f6c87cc003e9231d066ab6c65.png"
+  },
+  {
+    "id": 1016,
+    "name": "Fezandipiti",
+    "types": ["Poison", "Fairy"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1016.png",
+    "generation": "Generation IX",
+    "jp_name": "キチキギス",
+    "jp_types": ["どく", "フェアリーフェアリー"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/00be05589dfbbffb298137f3432fc268.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/b3df117df780c7a13e51299d69de05e0.png"
+  },
+  {
+    "id": 1017,
+    "name": "Ogerpon",
+    "types": ["Grass"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1017.png",
+    "generation": "Generation IX",
+    "jp_name": "オーガポン",
+    "jp_types": ["くさくさ"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/76c3b00457ef26e70ebb05f44e9eb008.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/9bc889ab82eeb27f86d8390dafc841b3.png"
+  },
+  {
+    "id": 1018,
+    "name": "Archaludon",
+    "types": ["Steel", "Dragon"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1018.png",
+    "generation": "Generation IX",
+    "jp_name": "ブリジュラス",
+    "jp_types": ["はがねはがね", "ドラゴンドラゴン"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/2dbefa4d9890af50d8939754da01f217.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/3b4a0437b46dc827835ace6bbcf6acf6.png"
+  },
+  {
+    "id": 1019,
+    "name": "Hydrapple",
+    "types": ["Grass", "Dragon"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1019.png",
+    "generation": "Generation IX",
+    "jp_name": "カミツオロチ",
+    "jp_types": ["くさ", "ドラゴンドラゴン"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/42acc0ecf6d73e965d8672cd02c39094.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/ca60aea73f13caa5d5c97654880c0c0a.png"
+  },
+  {
+    "id": 1020,
+    "name": "Gouging Fire",
+    "types": ["Fire", "Dragon"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1020.png",
+    "generation": "Generation IX",
+    "jp_name": "ウガツホムラ",
+    "jp_types": ["ほのお", "ドラゴンドラゴン"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/5adbf6247677c32743e3be255186aab1.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/7afeb6d7dc0792521f8a21196945c018.png"
+  },
+  {
+    "id": 1021,
+    "name": "Raging Bolt",
+    "types": ["Electric", "Dragon"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1021.png",
+    "generation": "Generation IX",
+    "jp_name": "タケルライコ",
+    "jp_types": ["でんき", "ドラゴンドラゴン"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/fdb62382ab24810cccf9184bcc1871ca.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/74d5d62a96caa158ad47ed8354df484a.png"
+  },
+  {
+    "id": 1022,
+    "name": "Iron Boulder",
+    "types": ["Rock", "Psychic"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1022.png",
+    "generation": "Generation IX",
+    "jp_name": "テツノイワオ",
+    "jp_types": ["いわ", "エスパーエスパー"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/0a4a0919d6b60fb0f0add1d82493f133.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/b9a6f59f114acf528c30e1010172ecea.png"
+  },
+  {
+    "id": 1023,
+    "name": "Iron Crown",
+    "types": ["Steel", "Psychic"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1023.png",
+    "generation": "Generation IX",
+    "jp_name": "テツノカシラ",
+    "jp_types": ["はがね", "エスパーエスパー"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/9cbd2d77df0a209504699f4b11975a98.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/50e8ccacec5e39576927e41bb78681d0.png"
+  },
+  {
+    "id": 1024,
+    "name": "Terapagos",
+    "types": ["Normal"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1024.png",
+    "generation": "Generation IX",
+    "jp_name": "テラパゴス",
+    "jp_types": ["ノーマル"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/b07d5b45e0469852369818e344a95e42.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/3d85610458572a4f66052bab6b28efa6.png"
+  },
+  {
+    "id": 1025,
+    "name": "Pecharunt",
+    "types": ["Poison", "Ghost"],
+    "artwork": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/1025.png",
+    "generation": "Generation IX",
+    "jp_name": "モモワロウ",
+    "jp_types": ["どく", "ゴーストゴースト"],
+    "image_m": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/a8425293b6269e527d85c0d7a3c7c9c2.png",
+    "image_s": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/ceb9192fc0fc778e7bfbf1623f89e1c5.png"
   }
 ]
