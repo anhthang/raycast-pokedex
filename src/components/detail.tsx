@@ -16,6 +16,7 @@ import {
 } from "../types";
 import PokemonMoves from "./move";
 import PokedexEntries from "./dex";
+import PokemonWeaknesses from "./weaknesses";
 
 const { language } = getPreferenceValues();
 
@@ -32,7 +33,7 @@ enum GrowthRate {
   "Fluctuating" = 6,
 }
 
-const typeColor: { [key: string]: string } = {
+export const typeColor: { [key: string]: string } = {
   normal: "#a8a77a",
   fire: "#ee8130",
   water: "#6390f0",
@@ -432,6 +433,11 @@ export default function PokemonDetail(props: { id?: number }) {
                   moves={pokemon.pokemon_v2_pokemonmoves}
                 />
               }
+            />
+            <Action.Push
+              title="Weaknesses"
+              icon={Icon.Sidebar}
+              target={<PokemonWeaknesses id={pokemon.id} />}
             />
           </ActionPanel>
         )

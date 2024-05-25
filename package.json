@@ -5,6 +5,9 @@
   "description": "The Pokédex is an invaluable tool to Trainers in the Pokémon world.",
   "icon": "icon.png",
   "author": "anhthang",
+  "contributors": [
+    "miguel-felix1"
+  ],
   "license": "MIT",
   "categories": [
     "Fun"
@@ -84,10 +87,12 @@
     "@raycast/api": "^1.68.1",
     "axios": "^1.6.7",
     "json2md": "^2.0.1",
+    "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0"
   },
   "devDependencies": {
     "@types/json2md": "^1.5.4",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.groupby": "^4.6.9",
     "@types/node": "~20.11.20",
     "@types/react": "^18.2.59",

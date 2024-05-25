@@ -11,6 +11,7 @@ import PokemonDetail from "./components/detail";
 import TypeDropdown from "./components/type_dropdown";
 
 import pokemons from "./statics/pokedex.json";
+import PokemonWeaknesses from "./components/weaknesses";
 
 const { language } = getPreferenceValues();
 
@@ -49,6 +50,11 @@ export default function SearchPokemon() {
                           title="Show Details"
                           icon={Icon.Sidebar}
                           target={<PokemonDetail id={pokemon.id} />}
+                        />
+                        <Action.Push
+                          title="Weaknesses"
+                          icon={Icon.Sidebar}
+                          target={<PokemonWeaknesses id={pokemon.id} />}
                         />
                       </ActionPanel>
                     }
