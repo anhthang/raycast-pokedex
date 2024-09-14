@@ -1,5 +1,8 @@
 # Pokédex Changelog
 
+## [Improvements] - 2024-09-14
+- Added Weaknesses command
+
 ## [Improvements] - 2024-02-27
 - Added more Gen 9 Pokémons
 
