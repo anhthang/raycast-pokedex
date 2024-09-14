@@ -22,6 +22,8 @@ declare namespace Preferences {
   export type Ability = ExtensionPreferences & {}
   /** Preferences accessible in the `move` command */
   export type Move = ExtensionPreferences & {}
+  /** Preferences accessible in the `weakness` command */
+  export type Weakness = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -31,5 +33,9 @@ declare namespace Arguments {
   export type Ability = {}
   /** Arguments passed to the `move` command */
   export type Move = {}
+  /** Arguments passed to the `weakness` command */
+  export type Weakness = {}
 }
+
+
 
