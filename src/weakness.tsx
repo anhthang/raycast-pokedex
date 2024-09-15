@@ -6,18 +6,19 @@ import {
   getPreferenceValues,
 } from "@raycast/api";
 import json2md from "json2md";
-import { useEffect, useState, useCallback, useMemo } from "react";
-import { getPokemon } from "./api";
-import { PokemonV2Pokemon } from "./types";
-import PokemonDetail from "./components/detail";
-import pokedex from "./statics/pokedex.json";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
-import { calculateEffectiveness, typeColor } from "./utils";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { getPokemon } from "./api";
+import PokemonDetail from "./components/detail";
 import TypeDropdown from "./components/type_dropdown";
+import pokedex from "./statics/pokedex.json";
+import { PokemonV2Pokemon } from "./types";
+import { calculateEffectiveness, typeColor } from "./utils";
+
+const { language } = getPreferenceValues();
 
 export default function PokemonWeaknesses() {
-  const { language } = getPreferenceValues();
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined,
   );
@@ -172,7 +173,7 @@ export default function PokemonWeaknesses() {
   return (
     <List
       throttle
-      searchBarPlaceholder="Search for a Pokemon"
+      searchBarPlaceholder="Search for Pokémon by name or Pokédex number"
       searchBarAccessory={
         <TypeDropdown type="grid" command="Pokémon" onSelectType={setType} />
       }

@@ -6,18 +6,18 @@ import {
   getPreferenceValues,
   Icon,
 } from "@raycast/api";
-import { useEffect, useMemo, useState } from "react";
 import json2md from "json2md";
+import { useEffect, useMemo, useState } from "react";
 import { getPokemon } from "../api";
 import {
   PokemonV2Pokemon,
   PokemonV2Pokemonspeciesname,
   PokemonV2PokemonspecyElement,
 } from "../types";
-import PokemonMoves from "./move";
-import PokedexEntries from "./dex";
 import { calculateEffectiveness, typeColor } from "../utils";
+import PokedexEntries from "./dex";
 import PokemonEncounters from "./encounter";
+import PokemonMoves from "./move";
 
 const { language } = getPreferenceValues();
 
