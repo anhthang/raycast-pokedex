@@ -7,6 +7,7 @@ import {
   Icon,
 } from "@raycast/api";
 import json2md from "json2md";
+import uniqBy from "lodash.uniqby";
 import { useEffect, useMemo, useState } from "react";
 import { getPokemon } from "../api";
 import {
@@ -372,7 +373,10 @@ export default function PokemonDetail(props: { id?: number }) {
               })}
             </Detail.Metadata.TagList>
             <Detail.Metadata.TagList title="Abilities">
-              {pokemon.pokemon_v2_pokemonabilities.map((t) => {
+              {uniqBy(
+                pokemon.pokemon_v2_pokemonabilities,
+                (a) => a.pokemon_v2_ability.pokemon_v2_abilitynames[0].name,
+              ).map((t) => {
                 return (
                   <Detail.Metadata.TagList.Item
                     key={t.pokemon_v2_ability.pokemon_v2_abilitynames[0].name}
