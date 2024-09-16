@@ -1,8 +1,9 @@
 # Pokédex Changelog
 
 ## [Pokédex Unleashed] - 2024-09-14
-- Added Weaknesses command for quick reference.
-- Added type effectiveness and encounter locations (experimental) to Pokémon details.
+- Added Weaknesses command for easy reference.
+- Introduced Type Effectiveness and Encounter Locations (experimental) to Pokémon details for more comprehensive information.
+- Reorganized Pokémon forms into an action sub-menu to display precise type and ability information.
 
 ## [Learnset Perfection] - 2024-05-17
 - Fixed a coding issue with the Learnsets action.

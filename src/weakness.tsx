@@ -86,7 +86,12 @@ export default function PokemonWeaknesses() {
                     <List.Item.Detail
                       markdown={json2md([
                         {
-                          p: `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${String(pokemon?.id).padStart(3, "0")}.png" height="200">`,
+                          img: [
+                            {
+                              title: poke.name,
+                              source: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon?.id.toString().padStart(3, "0")}.png`,
+                            },
+                          ],
                         },
                       ])}
                       metadata={
