@@ -20,6 +20,7 @@ export default function MetadataPokemon(props: {
             key={t.pokemon_v2_type.pokemon_v2_typenames[0].name}
             text={t.pokemon_v2_type.pokemon_v2_typenames[0].name}
             color={typeColor[t.pokemon_v2_type.name]}
+            icon={`types/${t.pokemon_v2_type.name}.svg`}
           />
         );
       })}

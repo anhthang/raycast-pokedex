@@ -127,9 +127,6 @@ export default function PokemonForms(props: {
                 }
               />
             }
-            accessories={form.pokemon_v2_pokemontypes.map((type) => ({
-              icon: `types/${type.pokemon_v2_type.name}.svg`,
-            }))}
           />
         );
       })}
