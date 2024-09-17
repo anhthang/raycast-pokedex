@@ -9,7 +9,7 @@ import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { getPokemon } from "./api";
+import { fetchPokemonWithCaching } from "./api";
 import PokemonDetail from "./components/detail";
 import MetadataWeakness from "./components/metadata/weakness";
 import TypeDropdown from "./components/type_dropdown";
@@ -31,7 +31,7 @@ export default function PokemonWeaknesses() {
 
   useEffect(() => {
     setLoading(true);
-    getPokemon(selectedPokemonId, Number(language))
+    fetchPokemonWithCaching(selectedPokemonId, Number(language))
       .then((data) => {
         const fetchedPokemon = data[0];
         setPokemon(fetchedPokemon);
