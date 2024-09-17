@@ -104,7 +104,7 @@ export default function PokemonForms(props: {
             ?.name || props.name;
         return (
           <List.Item
-            key={form.pokemon_v2_pokemonforms[0].form_name}
+            key={idx}
             title={name}
             detail={
               <List.Item.Detail
