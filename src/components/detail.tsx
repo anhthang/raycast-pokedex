@@ -7,7 +7,7 @@ import {
 } from "@raycast/api";
 import json2md from "json2md";
 import { useEffect, useMemo, useState } from "react";
-import { getPokemon } from "../api";
+import { fetchPokemonWithCaching } from "../api";
 import {
   PokemonV2Pokemon,
   PokemonV2Pokemonspeciesname,
@@ -48,7 +48,7 @@ export default function PokemonDetail(props: { id?: number }) {
 
   useEffect(() => {
     setLoading(true);
-    getPokemon(props.id || random(1, 905), Number(language))
+    fetchPokemonWithCaching(props.id || random(1, 905), Number(language))
       .then((data) => {
         setPokemon(data[0]);
         setLoading(false);
