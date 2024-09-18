@@ -132,6 +132,17 @@ const getPokemon = async (
             pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
               name
             }
+            pokemonV2TypeefficaciesByTargetTypeId {
+              damage_factor
+              damage_type_id
+              target_type_id
+              pokemon_v2_type {
+                name
+                pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
+                  name
+                }
+              }
+            }
           }
         }
         pokemon_v2_pokemonspecy {
@@ -208,6 +219,17 @@ const getPokemon = async (
                 name
                 pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
                   name
+                }
+                pokemonV2TypeefficaciesByTargetTypeId {
+                  damage_factor
+                  damage_type_id
+                  target_type_id
+                  pokemon_v2_type {
+                    name
+                    pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
+                      name
+                    }
+                  }
                 }
               }
             }
