@@ -76,3 +76,12 @@ export const calculateEffectiveness = (types: PokemonV2Pokemontype[]) => {
 
   return { normal, weak, immune, resistant };
 };
+
+export const localeName = (
+  pokemon: { localization: { [x: string]: string }; name: string },
+  language: string | number,
+) => {
+  return pokemon.localization && pokemon.localization[language]
+    ? pokemon.localization[language]
+    : pokemon.name;
+};

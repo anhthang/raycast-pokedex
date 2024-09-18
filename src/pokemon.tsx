@@ -11,6 +11,7 @@ import PokemonDetail from "./components/detail";
 import TypeDropdown from "./components/type_dropdown";
 
 import pokedex from "./statics/pokedex.json";
+import { localeName } from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -40,7 +41,7 @@ export default function SearchPokemon() {
                   <Grid.Item
                     key={pokemon.id}
                     content={pokemon.artwork}
-                    title={language === "1" ? pokemon.jp_name : pokemon.name}
+                    title={localeName(pokemon, language)}
                     subtitle={`#${pokemon.id.toString().padStart(4, "0")}`}
                     keywords={[pokemon.id.toString(), pokemon.name]}
                     actions={

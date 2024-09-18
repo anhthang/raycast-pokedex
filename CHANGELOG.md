@@ -1,5 +1,9 @@
 # Pokédex Changelog
 
+## [Pokédex Optimized] - {PR_MERGED_DATE}
+- Implemented a cache system with a default expiration of 7 days to improve response times and reduce API load.
+- Provided full Pokémon names in supported languages for a more localized experience.
+
 ## [Pokédex Mastery] - 2024-09-17
 - Added Weaknesses command for easy reference.
 - Expanded Pokémon details with Shapes, Type Effectiveness, and Encounter Locations (experimental) for a more comprehensive understanding.

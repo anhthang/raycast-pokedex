@@ -22,6 +22,7 @@ This extension is created by [Anh Thang Bui](https://github.com/anhthang) and ut
 * **Actionable Links:** Open Pokémon in the Official Pokémon Website or Bulbapedia directly from the extension.
 * **Type Filtering:** Filter Pokémon by their type for a focused search.
 * **Customizable Language:** View Pokémon details in your preferred language (English, French, German, Italian, Japanese, Korean, Spanish, Chinese Simplified & Traditional).
+* **Optimized Performance:** Benefit from a cache system that speeds up data retrieval and reduces API load, providing a faster and more efficient user experience.
 
 ## TODO
 

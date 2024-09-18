@@ -15,7 +15,7 @@ import MetadataWeakness from "./components/metadata/weakness";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
-import { getImgUrl, typeColor } from "./utils";
+import { getImgUrl, localeName, typeColor } from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -74,7 +74,7 @@ export default function PokemonWeaknesses() {
                 key={poke.id}
                 id={poke.id.toString()}
                 title={`#${poke.id.toString().padStart(4, "0")}`}
-                subtitle={language === "1" ? poke.jp_name : poke.name}
+                subtitle={localeName(poke, language)}
                 keywords={[poke.id.toString(), poke.name]}
                 detail={
                   loading ? (
