@@ -1,7 +1,11 @@
 import { Detail } from "@raycast/api";
 import { PokemonV2Pokemontype } from "../types";
 
-export const getImgUrl = (id: number, formId?: number) => {
+export const getPixelArtImg = (id: number) => {
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
+};
+
+export const getOfficalArtworkImg = (id: number, formId?: number) => {
   const name = formId
     ? `${id.toString().padStart(3, "0")}_f${formId + 1}`
     : id.toString().padStart(3, "0");

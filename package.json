@@ -91,7 +91,7 @@
     },
     {
       "name": "duration",
-      "title": "Pokémon Data Cache Duration",
+      "title": "Data Cache Duration",
       "description": "Set the duration for caching Pokémon details. A value of 0 disables caching.",
       "required": false,
       "type": "dropdown",
@@ -122,6 +122,24 @@
           "value": "30"
         }
       ]
+    },
+    {
+      "name": "artwork",
+      "title": "Artwork Style",
+      "description": "Choose the preferred artwork style for Pokémon.",
+      "required": false,
+      "type": "dropdown",
+      "default": "official",
+      "data": [
+        {
+          "title": "Official Artwork",
+          "value": "official"
+        },
+        {
+          "title": "Pixel Art",
+          "value": "pixel"
+        }
+      ]
     }
   ],
   "dependencies": {
@@ -130,12 +148,14 @@
     "json2md": "^2.0.1",
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
     "lodash.uniqby": "^4.7.0"
   },
   "devDependencies": {
     "@types/json2md": "^1.5.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.groupby": "^4.6.9",
+    "@types/lodash.orderby": "^4.6.9",
     "@types/lodash.uniqby": "^4.7.9",
     "@types/node": "~22.5.5",
     "@types/react": "^18.3.5",

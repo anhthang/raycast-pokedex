@@ -1,5 +1,4 @@
 <p align="center">
-  <img src="assets/icon.png" height="128">
   <h1 align="center">Pokédex</h1>
 </p>
 
@@ -17,12 +16,22 @@ This extension is created by [Anh Thang Bui](https://github.com/anhthang) and ut
 
 ## Features
 
-* **Comprehensive Pokémon Search:** Search for all 1025 Pokémon species, including alternate forms like regional variants (Alolan, Galarian, Hisuian, Paldea), Mega Evolution, and Gigantamax.
-* **Detailed Pokédex Entries:** Access information on Pokédex data, base stats, type effectiveness, training, breeding, forms, evolutions, Pokédex entries, learnset, and locations.
-* **Actionable Links:** Open Pokémon in the Official Pokémon Website or Bulbapedia directly from the extension.
-* **Type Filtering:** Filter Pokémon by their type for a focused search.
-* **Customizable Language:** View Pokémon details in your preferred language (English, French, German, Italian, Japanese, Korean, Spanish, Chinese Simplified & Traditional).
-* **Optimized Performance:** Benefit from a cache system that speeds up data retrieval and reduces API load, providing a faster and more efficient user experience.
+### Core Functionality
+* **Comprehensive Pokémon Database:** Access information on all 1025 Pokémon species, including regional variants, Mega Evolutions, and Gigantamax forms.
+* **Detailed Pokédex Entries:** Explore in-depth details about Pokédex data, stats, types, training, breeding, evolutions, learnsets, and locations.
+* **Quick Links:** Easily access Pokémon on the Official Pokémon Website or Bulbapedia with direct links.
+
+### Customization Options
+* **Language Preferences:** Choose your preferred language for Pokémon details (English, French, German, Italian, Japanese, Korean, Spanish, Simplified & Traditional Chinese).
+* **Type Filtering**: Narrow down your search by selecting specific Pokémon types.
+* **Sorting Flexibility:** Sort the Pokédex by Pokémon name or National Pokédex number to suit your preferences.
+* **Artwork Selection:** Customize the Pokémon artwork to match your style:
+  * **Official Artwork:** View the classic, official Pokémon designs.
+  * **Pixel Art:** Experience a nostalgic touch with pixelated Pokémon sprites (**Special thanks to the Smogon community for their contributions to pixel art for Pokémon with National Dex numbers greater than 650**).
+
+### Performance Optimization
+* **Efficient Caching:** Benefit from a caching system that stores frequently accessed Pokémon data, improving load times and reducing API usage.
+
 
 ## TODO
 

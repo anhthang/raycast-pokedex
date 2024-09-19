@@ -15,7 +15,7 @@ import MetadataWeakness from "./components/metadata/weakness";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
-import { getImgUrl, localeName, typeColor } from "./utils";
+import { getOfficalArtworkImg, localeName, typeColor } from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -86,7 +86,7 @@ export default function PokemonWeaknesses() {
                           img: [
                             {
                               title: poke.name,
-                              source: getImgUrl(poke.id),
+                              source: getOfficalArtworkImg(poke.id),
                             },
                           ],
                         },
@@ -117,11 +117,13 @@ export default function PokemonWeaknesses() {
                 }
                 actions={
                   <ActionPanel>
-                    <Action.Push
-                      title="Pokémon Details"
-                      icon={Icon.Sidebar}
-                      target={<PokemonDetail id={poke.id} />}
-                    />
+                    <ActionPanel.Section title="Information">
+                      <Action.Push
+                        title="Pokémon Details"
+                        icon={Icon.Sidebar}
+                        target={<PokemonDetail id={poke.id} />}
+                      />
+                    </ActionPanel.Section>
                   </ActionPanel>
                 }
               />

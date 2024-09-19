@@ -10,8 +10,10 @@
 type ExtensionPreferences = {
   /** Preferred Language - Select your preferred language for Pokémon-related commands. */
   "language": "12" | "4" | "9" | "5" | "6" | "8" | "1" | "3" | "7",
-  /** Pokémon Data Cache Duration - Set the duration for caching Pokémon details. A value of 0 disables caching. */
-  "duration": "0" | "1" | "3" | "7" | "14" | "30"
+  /** Data Cache Duration - Set the duration for caching Pokémon details. A value of 0 disables caching. */
+  "duration": "0" | "1" | "3" | "7" | "14" | "30",
+  /** Artwork Style - Choose the preferred artwork style for Pokémon. */
+  "artwork": "official" | "pixel"
 }
 
 /** Preferences accessible in all the extension's commands */
