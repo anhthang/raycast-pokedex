@@ -10,8 +10,6 @@
 
 A Raycast extension that lets you search for Pokémon by name or National Pokédex number.
 
-This extension is created by [Anh Thang Bui](https://github.com/anhthang) and utilizes data from [PokéAPI](https://pokeapi.co/).
-
 ![Example](./metadata/pokedex-2.png)
 
 ## Features
@@ -27,7 +25,7 @@ This extension is created by [Anh Thang Bui](https://github.com/anhthang) and ut
 * **Sorting Flexibility:** Sort the Pokédex by Pokémon name or National Pokédex number to suit your preferences.
 * **Artwork Selection:** Customize the Pokémon artwork to match your style:
   * **Official Artwork:** View the classic, official Pokémon designs.
-  * **Pixel Art:** Experience a nostalgic touch with pixelated Pokémon sprites (**Special thanks to the Smogon community for their contributions to pixel art for Pokémon with National Dex numbers greater than 650**).
+  * **Pixel Art:** Experience a nostalgic touch with pixelated Pokémon sprites.
 
 ### Performance Optimization
 * **Efficient Caching:** Benefit from a caching system that stores frequently accessed Pokémon data, improving load times and reducing API usage.
@@ -35,7 +33,6 @@ This extension is created by [Anh Thang Bui](https://github.com/anhthang) and ut
 
 ## TODO
 
-* Implement support for Egg moves.
 * Integrate Pokémon sprites.
 
 ## Issues
@@ -44,6 +41,15 @@ Report bugs or suggest improvements by creating an issue [here](https://github.c
 
 ## Credits
 
-* Pokémon type and sort icons: [Zukan](https://zukan.pokemon.co.jp/)
-* Pokémon move damage class: [Smogon](https://www.smogon.com/dex/ss/moves/)
-* Bulbapedia icon: [Bulbagarden](https://bulbagarden.net/)
+**Pokémon:**
+
+* Data: [PokéAPI](https://pokeapi.co/)
+* Official Artwork & Sprites (Up to National Dex #649): © Nintendo/The Pokémon Company/GAME FREAK Inc.
+* Pixel Art Sprites (National Dex #650 and above): [Smogon community](https://www.smogon.com/forums/threads/smogon-sprite-project.3647722/) (special thanks for their contributions), [Smogon Sprite Project Spreadsheet](https://docs.google.com/spreadsheets/d/1acgzAjh0dnFRQnjZu8kSjS177rKCzpFfEHRLtwuuXRU/edit?gid=0#gid=0)
+* Generation 9 Sprites: [KingOfThe-X-Roads](https://www.deviantart.com/kingofthe-x-roads)
+
+**Icons:**
+
+* Pokémon Types and Sorting: [Zukan](https://zukan.pokemon.co.jp/)
+* Pokémon Move Damage Class: [Smogon](https://www.smogon.com/dex/ss/moves/)
+* Bulbapedia: [Bulbagarden](https://bulbagarden.net/)

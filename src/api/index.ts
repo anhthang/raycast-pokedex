@@ -109,6 +109,12 @@ const getPokemon = async (
             id
             generation_id
             name
+            pokemon_v2_generation {
+              name
+              pokemon_v2_generationnames(where: {language_id: {_eq: 9}}) {
+                name
+              }
+            }
             pokemon_v2_versions {
               name
               pokemon_v2_versionnames(where: {language_id: {_eq: $language_id}}) {
