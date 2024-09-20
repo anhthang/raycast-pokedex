@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Cache, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { PokeAPI, PokemonV2Pokemon } from "../types";
@@ -11,11 +12,11 @@ interface CachedPokemonData {
   value: PokemonV2Pokemon[];
 }
 
-function showFailureToast() {
+function showFailureToast(message: string) {
   showToast(
     Toast.Style.Failure,
     "Something went wrong",
-    "Please try again later",
+    message || "Please try again later",
   );
 }
 
@@ -281,14 +282,14 @@ const getPokemon = async (
     const { data }: AxiosResponse<PokeAPI> = await axios(config);
 
     if (Array.isArray(data.errors) && data.errors.length) {
-      showFailureToast();
+      showFailureToast(data.errors[0].message);
 
       return [];
     }
 
     return data.data.pokemon_v2_pokemon;
-  } catch (e) {
-    showFailureToast();
+  } catch (e: any) {
+    showFailureToast(e.message);
 
     return [];
   }

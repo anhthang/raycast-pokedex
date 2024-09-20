@@ -13,7 +13,7 @@ import {
   PokemonV2Pokemonspeciesname,
   PokemonV2PokemonspecyElement,
 } from "../types";
-import { getOfficalArtworkImg } from "../utils";
+import { getOfficialArtworkImg } from "../utils";
 import PokedexEntries from "./dex";
 import PokemonEncounters from "./encounter";
 import PokemonForms from "./form";
@@ -135,7 +135,7 @@ export default function PokemonDetail(props: { id?: number }) {
       {
         img: {
           title: nameByLang[language].name,
-          source: getOfficalArtworkImg(pokemon.id),
+          source: getOfficialArtworkImg(pokemon.id),
         },
       },
       {
@@ -195,7 +195,7 @@ export default function PokemonDetail(props: { id?: number }) {
               .map((specy) => {
                 return `![${
                   specy.pokemon_v2_pokemonspeciesnames[0].name
-                }](${getOfficalArtworkImg(specy.id)})`;
+                }](${getOfficialArtworkImg(specy.id)})`;
               })
               .join(" "),
           }),

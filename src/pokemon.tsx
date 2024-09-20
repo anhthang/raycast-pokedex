@@ -7,11 +7,12 @@ import {
 } from "@raycast/api";
 import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
-import { useMemo, useState } from "react";
+import shuffle from "lodash.shuffle";
+import { useEffect, useState } from "react";
 import PokemonDetail from "./components/detail";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
-import { getOfficalArtworkImg, getPixelArtImg, localeName } from "./utils";
+import { getOfficialArtworkImg, getPixelArtImg, localeName } from "./utils";
 
 const { language, artwork } = getPreferenceValues();
 let columns: number;
@@ -23,20 +24,27 @@ switch (artwork) {
     columns = 6;
     break;
   default:
-    getContent = getOfficalArtworkImg;
+    getContent = getOfficialArtworkImg;
     break;
 }
 
 export default function SearchPokemon() {
   const [type, setType] = useState<string>("all");
   const [sort, setSort] = useState<string>("lowest");
+  const [randomization, setRandomization] = useState<boolean>(false);
+  const [pokemons, setPokemons] = useState(pokedex);
 
-  const pokemons = useMemo(() => {
+  useEffect(() => {
+    const shuffled = shuffle(pokemons);
+    setPokemons(shuffled);
+  }, [randomization]);
+
+  useEffect(() => {
     const sorted = orderBy(pokedex, ...sort.split("|"));
+    const filtered =
+      type != "all" ? sorted.filter((p) => p.types.includes(type)) : sorted;
 
-    return type != "all"
-      ? sorted.filter((p) => p.types.includes(type))
-      : sorted;
+    setPokemons(filtered);
   }, [type, sort]);
 
   return (
@@ -67,6 +75,13 @@ export default function SearchPokemon() {
                             title="View Details"
                             icon={Icon.Sidebar}
                             target={<PokemonDetail id={pokemon.id} />}
+                          />
+                        </ActionPanel.Section>
+                        <ActionPanel.Section title="Randomize">
+                          <Action
+                            title="Surprise Me!"
+                            icon={Icon.Shuffle}
+                            onAction={() => setRandomization(!randomization)}
                           />
                         </ActionPanel.Section>
                         <ActionPanel.Section title="Sort By">

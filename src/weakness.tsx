@@ -15,7 +15,7 @@ import MetadataWeakness from "./components/metadata/weakness";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
-import { getOfficalArtworkImg, localeName, typeColor } from "./utils";
+import { getOfficialArtworkImg, localeName, typeColor } from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -86,7 +86,7 @@ export default function PokemonWeaknesses() {
                           img: [
                             {
                               title: poke.name,
-                              source: getOfficalArtworkImg(poke.id),
+                              source: getOfficialArtworkImg(poke.id),
                             },
                           ],
                         },

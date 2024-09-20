@@ -1,7 +1,7 @@
 import { List } from "@raycast/api";
 import json2md from "json2md";
 import { PokemonV2Pokemon } from "../types";
-import { getOfficalArtworkImg } from "../utils";
+import { getOfficialArtworkImg } from "../utils";
 import MetadataPokemon from "./metadata/pokemon";
 import MetadataWeakness from "./metadata/weakness";
 
@@ -113,7 +113,7 @@ export default function PokemonForms(props: {
                     img: [
                       {
                         title: name,
-                        source: getOfficalArtworkImg(props.id, idx),
+                        source: getOfficialArtworkImg(props.id, idx),
                       },
                     ],
                   },

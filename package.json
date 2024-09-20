@@ -143,12 +143,13 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.82.5",
+    "@raycast/api": "^1.83.1",
     "axios": "^1.7.7",
     "json2md": "^2.0.1",
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
+    "lodash.shuffle": "^4.2.0",
     "lodash.uniqby": "^4.7.0"
   },
   "devDependencies": {
@@ -156,15 +157,17 @@
     "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.groupby": "^4.6.9",
     "@types/lodash.orderby": "^4.6.9",
+    "@types/lodash.shuffle": "^4.2.9",
     "@types/lodash.uniqby": "^4.7.9",
+    "@eslint/js": "^9.10.0",
+    "@raycast/eslint-config": "^1.0.11",
     "@types/node": "~22.5.5",
-    "@types/react": "^18.3.5",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@types/react": "^18.3.8",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint": "^9.10.0",
     "prettier": "^3.3.3",
     "react-devtools": "^5.2.0",
+    "typescript-eslint": "^8.6.0",
     "typescript": "^5.6.2"
   },
   "scripts": {
