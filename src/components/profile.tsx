@@ -40,7 +40,7 @@ function random(lower: number, upper: number) {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
 }
 
-export default function PokemonDetail(props: { id?: number }) {
+export default function PokeProfile(props: { id?: number }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined,

@@ -10,8 +10,8 @@ import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchPokemonWithCaching } from "./api";
-import PokemonDetail from "./components/detail";
 import MetadataWeakness from "./components/metadata/weakness";
+import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
@@ -23,7 +23,7 @@ type SpeciesNameByLanguage = {
   [lang: string]: PokemonV2Pokemonspeciesname;
 };
 
-export default function PokemonWeaknesses() {
+export default function PokeWeaknesses() {
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined,
   );
@@ -119,9 +119,9 @@ export default function PokemonWeaknesses() {
                   <ActionPanel>
                     <ActionPanel.Section title="Information">
                       <Action.Push
-                        title="Pokémon Details"
+                        title="Pokémon Profile"
                         icon={Icon.Sidebar}
-                        target={<PokemonDetail id={poke.id} />}
+                        target={<PokeProfile id={poke.id} />}
                       />
                     </ActionPanel.Section>
                   </ActionPanel>

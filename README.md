@@ -8,7 +8,7 @@
   </a>
 </p>
 
-A Raycast extension that lets you search for Pokémon by name or National Pokédex number.
+Explore the world of Pokémon with stunning visuals and detailed information in Raycast.
 
 ![Example](./metadata/pokedex-2.png)
 

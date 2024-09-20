@@ -9,7 +9,7 @@ import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import shuffle from "lodash.shuffle";
 import { useEffect, useState } from "react";
-import PokemonDetail from "./components/detail";
+import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { getOfficialArtworkImg, getPixelArtImg, localeName } from "./utils";
@@ -28,7 +28,7 @@ switch (artwork) {
     break;
 }
 
-export default function SearchPokemon() {
+export default function NationalPokedex() {
   const [type, setType] = useState<string>("all");
   const [sort, setSort] = useState<string>("lowest");
   const [randomization, setRandomization] = useState<boolean>(false);
@@ -72,9 +72,9 @@ export default function SearchPokemon() {
                       <ActionPanel>
                         <ActionPanel.Section title="Information">
                           <Action.Push
-                            title="View Details"
+                            title="Pokémon Profile"
                             icon={Icon.Sidebar}
-                            target={<PokemonDetail id={pokemon.id} />}
+                            target={<PokeProfile id={pokemon.id} />}
                           />
                         </ActionPanel.Section>
                         <ActionPanel.Section title="Randomize">
