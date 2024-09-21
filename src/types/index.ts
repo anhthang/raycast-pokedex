@@ -1,11 +1,6 @@
-export interface PokeAPI {
-  data: Data;
+export interface PokeAPI<T> {
+  data: Record<string, T[]>;
   errors?: Error[];
-}
-
-export interface Data {
-  pokemon_v2_pokemon: PokemonV2Pokemon[];
-  pokemon_v2_move: PokemonV2Move[];
 }
 
 export interface Error {

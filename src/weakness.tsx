@@ -24,9 +24,7 @@ import {
 
 const { language } = getPreferenceValues();
 
-type SpeciesNameByLanguage = {
-  [lang: string]: PokemonV2Pokemonspeciesname;
-};
+type SpeciesNameByLanguage = Record<string, PokemonV2Pokemonspeciesname>;
 
 export default function PokeWeaknesses() {
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
@@ -39,7 +37,7 @@ export default function PokeWeaknesses() {
 
   useEffect(() => {
     setLoading(true);
-    fetchPokemonWithCaching(selectedPokemonId, Number(language))
+    fetchPokemonWithCaching(selectedPokemonId)
       .then((data) => {
         setPokemon(data);
       })
@@ -78,7 +76,7 @@ export default function PokeWeaknesses() {
               <List.Item
                 key={poke.id}
                 id={poke.id.toString()}
-                title={`#${nationalDexNumber(poke.id)}`}
+                title={nationalDexNumber(poke.id)}
                 subtitle={localeName(poke, language)}
                 keywords={[poke.id.toString(), poke.name]}
                 detail={
@@ -94,7 +92,8 @@ export default function PokeWeaknesses() {
                       },
                     ])}
                     metadata={
-                      loading && pokemon ? undefined : (
+                      !loading &&
+                      pokemon && (
                         <List.Item.Detail.Metadata>
                           <List.Item.Detail.Metadata.TagList title="Type">
                             {pokemon?.pokemon_v2_pokemontypes.map((type) => (

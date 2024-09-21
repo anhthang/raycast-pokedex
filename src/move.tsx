@@ -1,17 +1,15 @@
-import { Action, ActionPanel, getPreferenceValues, List } from "@raycast/api";
+import { Action, ActionPanel, List } from "@raycast/api";
 import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchMove } from "./api";
+import { fetchMoveWithCaching } from "./api";
 import Descriptions from "./components/description";
 import MoveMetadata from "./components/metadata/move";
 import MoveLearnset from "./components/move_learnset";
 import TypeDropdown from "./components/type_dropdown";
 import moves from "./statics/moves.json";
 import { PokemonV2Move } from "./types";
-
-const { language } = getPreferenceValues();
 
 export default function PokeMoves() {
   const [move, setMove] = useState<PokemonV2Move | undefined>(undefined);
@@ -21,7 +19,7 @@ export default function PokeMoves() {
 
   useEffect(() => {
     setLoading(true);
-    fetchMove(selectedMoveId, parseInt(language))
+    fetchMoveWithCaching(selectedMoveId)
       .then((data) => {
         setMove(data);
       })
@@ -79,48 +77,54 @@ export default function PokeMoves() {
                   icon={`moves/${m.damage_class || "status"}.svg`}
                   keywords={[m.name]}
                   detail={
-                    loading ? undefined : (
+                    !loading && (
                       <List.Item.Detail
-                        markdown={json2md([
-                          {
-                            h1: m.name,
-                          },
-                          {
-                            p:
-                              move?.pokemon_v2_moveeffect?.pokemon_v2_moveeffecteffecttexts[0].short_effect.replace(
-                                "$effect_chance",
-                                String(move.move_effect_chance),
-                              ) || "",
-                          },
-                        ])}
-                        metadata={
-                          move ? <MoveMetadata move={move} /> : undefined
+                        markdown={
+                          move &&
+                          move.pokemon_v2_moveeffect
+                            ?.pokemon_v2_moveeffecteffecttexts.length
+                            ? json2md([
+                                {
+                                  h1: m.name,
+                                },
+                                {
+                                  p: move.pokemon_v2_moveeffect.pokemon_v2_moveeffecteffecttexts[0].short_effect.replace(
+                                    "$effect_chance",
+                                    String(move.move_effect_chance),
+                                  ),
+                                },
+                              ])
+                            : undefined
                         }
+                        metadata={move && <MoveMetadata move={move} />}
                       />
                     )
                   }
                   actions={
-                    <ActionPanel>
-                      <ActionPanel.Section title="Information">
-                        <Action.Push
-                          title="Descriptions"
-                          target={
-                            <Descriptions
-                              name={m.name}
-                              entries={move?.pokemon_v2_moveflavortexts || []}
-                            />
-                          }
-                        />
-                        <Action.Push
-                          title="Learnset"
-                          target={
-                            <MoveLearnset
-                              moves={move?.pokemon_v2_pokemonmoves || []}
-                            />
-                          }
-                        />
-                      </ActionPanel.Section>
-                    </ActionPanel>
+                    move && (
+                      <ActionPanel>
+                        <ActionPanel.Section title="Information">
+                          <Action.Push
+                            title="Descriptions"
+                            target={
+                              <Descriptions
+                                name={m.name}
+                                entries={move.pokemon_v2_moveflavortexts}
+                              />
+                            }
+                          />
+                          <Action.Push
+                            title="Learnset"
+                            target={
+                              <MoveLearnset
+                                name={move.pokemon_v2_movenames[0].name}
+                                moves={move.pokemon_v2_pokemonmoves}
+                              />
+                            }
+                          />
+                        </ActionPanel.Section>
+                      </ActionPanel>
+                    )
                   }
                 />
               );

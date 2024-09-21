@@ -23,9 +23,7 @@ import PokemonLearnset from "./pokemon_learnset";
 
 const { language } = getPreferenceValues();
 
-type SpeciesNameByLanguage = {
-  [lang: string]: PokemonV2Pokemonspeciesname;
-};
+type SpeciesNameByLanguage = Record<string, PokemonV2Pokemonspeciesname>;
 
 enum GrowthRate {
   "Slow" = 1,
@@ -36,11 +34,7 @@ enum GrowthRate {
   "Fluctuating" = 6,
 }
 
-function random(lower: number, upper: number) {
-  return lower + Math.floor(Math.random() * (upper - lower + 1));
-}
-
-export default function PokeProfile(props: { id?: number }) {
+export default function PokeProfile(props: { id: number }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined,
@@ -48,7 +42,7 @@ export default function PokeProfile(props: { id?: number }) {
 
   useEffect(() => {
     setLoading(true);
-    fetchPokemonWithCaching(props.id || random(1, 905), Number(language))
+    fetchPokemonWithCaching(props.id)
       .then((data) => {
         setPokemon(data);
       })
@@ -113,7 +107,7 @@ export default function PokeProfile(props: { id?: number }) {
 
     const data = [
       {
-        h1: `#${nationalDexNumber(pokemon.id)} ${nameByLang[language].name}`,
+        h1: `${nationalDexNumber(pokemon.id)} ${nameByLang[language].name}`,
       },
       {
         p: nameByLang["2"]

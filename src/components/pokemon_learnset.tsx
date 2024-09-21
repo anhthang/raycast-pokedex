@@ -52,6 +52,14 @@ export default function PokemonLearnset(props: {
         )
       : props.moves;
 
+    // split evolution moves to another section
+    moves.forEach((move) => {
+      if (move.move_learn_method_id === 1 && move.level === 0) {
+        move.pokemon_v2_movelearnmethod.pokemon_v2_movelearnmethodnames[0].name =
+          "Evolution";
+      }
+    });
+
     return groupBy(
       moves,
       (m) =>
@@ -93,6 +101,7 @@ export default function PokemonLearnset(props: {
             );
             break;
           case "Egg":
+          case "Evolution":
           case "Tutor":
             sortedMoves = orderBy(
               moves,
@@ -113,7 +122,7 @@ export default function PokemonLearnset(props: {
               let text;
               switch (move.move_learn_method_id) {
                 case 1:
-                  text = move.level.toString();
+                  text = move.level ? move.level.toString() : undefined;
                   break;
                 case 4:
                   text = move.pokemon_v2_move.pokemon_v2_machines[0]
@@ -135,22 +144,26 @@ export default function PokemonLearnset(props: {
                   accessories={[{ text }]}
                   detail={
                     <List.Item.Detail
-                      markdown={json2md([
-                        {
-                          h1: move.pokemon_v2_move.pokemon_v2_movenames[0].name,
-                        },
-                        {
-                          p: move.pokemon_v2_move.pokemon_v2_moveeffect
-                            ?.pokemon_v2_moveeffecteffecttexts[0]
-                            ? move.pokemon_v2_move.pokemon_v2_moveeffect?.pokemon_v2_moveeffecteffecttexts[0].short_effect.replace(
-                                "$effect_chance",
-                                move.pokemon_v2_move.move_effect_chance?.toString() ??
-                                  "",
-                              )
-                            : "",
-                        },
-                      ])}
-                      metadata={<MoveMetadata move={move} />}
+                      markdown={
+                        move.pokemon_v2_move.pokemon_v2_moveeffect
+                          ?.pokemon_v2_moveeffecteffecttexts.length
+                          ? json2md([
+                              {
+                                h1: move.pokemon_v2_move.pokemon_v2_movenames[0]
+                                  .name,
+                              },
+                              {
+                                p: move.pokemon_v2_move.pokemon_v2_moveeffect.pokemon_v2_moveeffecteffecttexts[0].short_effect.replace(
+                                  "$effect_chance",
+                                  String(
+                                    move.pokemon_v2_move.move_effect_chance,
+                                  ),
+                                ),
+                              },
+                            ])
+                          : undefined
+                      }
+                      metadata={<MoveMetadata move={move.pokemon_v2_move} />}
                     />
                   }
                 />

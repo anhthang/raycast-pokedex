@@ -9,7 +9,7 @@ export default function PokedexEntries(props: {
   dex_numbers: PokemonV2Pokemondexnumber[];
   entries: PokemonV2Flavortext[];
 }) {
-  const dexNumber: { [name: string]: number } = {};
+  const dexNumber: Record<string, number> = {};
   props.dex_numbers.forEach((dex) => {
     dex.pokemon_v2_pokedex.pokemon_v2_pokedexversiongroups.forEach((vg) => {
       vg.pokemon_v2_versiongroup.pokemon_v2_versions.forEach((v) => {
@@ -45,7 +45,9 @@ export default function PokedexEntries(props: {
                   accessories={[
                     {
                       text: dexNumber[entry.pokemon_v2_version.name]
-                        ? `#${nationalDexNumber(dexNumber[entry.pokemon_v2_version.name])}`
+                        ? nationalDexNumber(
+                            dexNumber[entry.pokemon_v2_version.name],
+                          )
                         : "--",
                     },
                   ]}

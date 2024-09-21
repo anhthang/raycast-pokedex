@@ -1,11 +1,13 @@
-import { Detail } from "@raycast/api";
+import { Detail, getPreferenceValues } from "@raycast/api";
 import { PokemonV2Pokemontype } from "../types";
+
+const { artwork } = getPreferenceValues();
 
 export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
 };
 
-export const getPixelArtImg = (id: number) => {
+const getPixelArtImg = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };
 
@@ -16,7 +18,16 @@ export const getOfficialArtworkImg = (id: number, formId?: number) => {
   return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
-export const typeColor: { [key: string]: string } = {
+export const getContentImg = (id: number, formId?: number) => {
+  switch (artwork) {
+    case "pixel":
+      return getPixelArtImg(id);
+    default:
+      return getOfficialArtworkImg(id, formId);
+  }
+};
+
+export const typeColor: Record<string, string> = {
   normal: "#949495",
   fire: "#e56c3e",
   water: "#5185c5",
@@ -86,7 +97,7 @@ export const calculateEffectiveness = (types: PokemonV2Pokemontype[]) => {
 };
 
 export const localeName = (
-  pokemon: { localization: { [x: string]: string }; name: string },
+  pokemon: { localization: Record<string, string>; name: string },
   language: string | number,
 ) => {
   return pokemon.localization && pokemon.localization[language]
