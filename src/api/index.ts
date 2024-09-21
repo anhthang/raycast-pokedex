@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Cache, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { PokeAPI, PokemonV2Pokemon } from "../types";
+import { PokeAPI, PokemonV2Move, PokemonV2Pokemon } from "../types";
 
 const cache = new Cache();
 const { duration } = getPreferenceValues();
@@ -9,7 +9,7 @@ const expiration = Number(duration) * 24 * 60 * 60 * 1000; // cache expiration i
 
 interface CachedPokemonData {
   timestamp: number;
-  value: PokemonV2Pokemon[];
+  value: PokemonV2Pokemon | undefined;
 }
 
 function showFailureToast(message: string) {
@@ -23,7 +23,7 @@ function showFailureToast(message: string) {
 const getPokemon = async (
   id: number,
   language: number,
-): Promise<PokemonV2Pokemon[]> => {
+): Promise<PokemonV2Pokemon | undefined> => {
   const query = JSON.stringify({
     query: `query pokemon($language_id: Int, $pokemon_id: Int) {
       pokemon_v2_pokemon(where: {id: {_eq: $pokemon_id}}) {
@@ -290,21 +290,21 @@ const getPokemon = async (
     if (Array.isArray(data.errors) && data.errors.length) {
       showFailureToast(data.errors[0].message);
 
-      return [];
+      return undefined;
     }
 
-    return data.data.pokemon_v2_pokemon;
+    return data.data.pokemon_v2_pokemon[0];
   } catch (e: any) {
     showFailureToast(e.message);
 
-    return [];
+    return undefined;
   }
 };
 
 export const fetchPokemonWithCaching = async (
   id: number,
   language: number,
-): Promise<PokemonV2Pokemon[]> => {
+): Promise<PokemonV2Pokemon | undefined> => {
   const key = `pokemon-${id}-${language}`;
   const now = Date.now();
 
@@ -338,4 +338,99 @@ export const fetchPokemonWithCaching = async (
   cache.set(key, JSON.stringify(dataToCache));
 
   return freshData;
+};
+
+export const fetchMove = async (
+  id: number,
+  language: number,
+): Promise<PokemonV2Move | undefined> => {
+  const query = JSON.stringify({
+    query: `query move($language_id: Int, $move_id: Int) {
+      pokemon_v2_move(order_by: {name: asc, generation_id: asc}, where: {id: {_eq: $move_id}}) {
+        id
+        accuracy
+        name
+        power
+        pp
+        move_effect_chance
+        pokemon_v2_pokemonmoves(distinct_on: pokemon_id) {
+          pokemon_id
+          move_learn_method_id
+        }
+        pokemon_v2_generation {
+          pokemon_v2_generationnames(where: {language_id: {_eq: 9}}) {
+            name
+          }
+        }
+        pokemon_v2_movedamageclass {
+          pokemon_v2_movedamageclassnames(where: {language_id: {_eq: $language_id}}) {
+            name
+          }
+        }
+        pokemon_v2_type {
+          name
+          pokemon_v2_typenames(where: {language_id: {_eq: $language_id}}) {
+            name
+          }
+        }
+        pokemon_v2_moveflavortexts(where: {language_id: {_eq: $language_id}}) {
+          flavor_text
+          pokemon_v2_versiongroup {
+            name
+            pokemon_v2_generation {
+              name
+              pokemon_v2_generationnames(where: {language_id: {_eq: 9}}) {
+                name
+              }
+            }
+            pokemon_v2_versions {
+              name
+              pokemon_v2_versionnames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+            }
+          }
+        }
+        pokemon_v2_moveeffect {
+          pokemon_v2_moveeffecteffecttexts(where: {language_id: {_eq: $language_id}}) {
+            short_effect
+            effect
+          }
+        }
+        pokemon_v2_movenames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+      }
+    }`,
+    variables: {
+      language_id: language,
+      move_id: id,
+    },
+  });
+
+  const config: AxiosRequestConfig = {
+    method: "post",
+    url: "https://beta.pokeapi.co/graphql/v1beta",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: query,
+    timeout: 10000,
+  };
+
+  try {
+    const { data }: AxiosResponse<PokeAPI> = await axios(config);
+
+    if (Array.isArray(data.errors) && data.errors.length) {
+      showFailureToast(data.errors[0].message);
+
+      return undefined;
+    }
+
+    return data.data.pokemon_v2_move[0];
+  } catch (e: any) {
+    showFailureToast(e.message);
+
+    return undefined;
+  }
 };

@@ -5,6 +5,7 @@ export interface PokeAPI {
 
 export interface Data {
   pokemon_v2_pokemon: PokemonV2Pokemon[];
+  pokemon_v2_move: PokemonV2Move[];
 }
 
 export interface Error {
@@ -44,6 +45,7 @@ export interface PokemonV2Locationarea {
 
 export interface PokemonV2Pokemonability {
   is_hidden: boolean;
+  pokemon_id: number;
   pokemon_v2_ability: PokemonV2Ability;
 }
 
@@ -58,15 +60,19 @@ export interface PokemonV2Pokemonmove {
 }
 
 export interface PokemonV2Move {
+  id: number;
   accuracy: number | null;
   name: string;
   move_effect_chance: number | null;
   power: number | null;
   pp: number | null;
   pokemon_v2_machines: PokemonV2Machine[];
+  pokemon_v2_generation: PokemonV2Generation;
   pokemon_v2_movedamageclass: PokemonV2Movedamageclass;
-  pokemon_v2_moveeffect: PokemonV2Moveeffect;
+  pokemon_v2_moveeffect: PokemonV2Moveeffect | null;
+  pokemon_v2_moveflavortexts: PokemonV2Flavortext[];
   pokemon_v2_movenames: PokemonV2Name[];
+  pokemon_v2_pokemonmoves: PokemonV2Pokemonmove[];
   pokemon_v2_type: PokemonV2Type;
 }
 
@@ -80,11 +86,12 @@ export interface PokemonV2Movedamageclass {
 }
 
 export interface PokemonV2Moveeffect {
-  pokemon_v2_moveeffecteffecttexts: PokemonV2Moveeffecteffecttext[];
+  pokemon_v2_moveeffecteffecttexts: PokemonV2Effecttext[];
 }
 
-export interface PokemonV2Moveeffecteffecttext {
+export interface PokemonV2Effecttext {
   short_effect: string;
+  effect: string;
 }
 
 export interface PokemonV2Movelearnmethod {
@@ -106,7 +113,13 @@ export interface PokemonV2Generation {
 }
 
 export interface PokemonV2Ability {
+  id: number;
+  name: string;
   pokemon_v2_abilitynames: PokemonV2Name[];
+  pokemon_v2_abilityeffecttexts: PokemonV2Effecttext[];
+  pokemon_v2_abilityflavortexts: PokemonV2Flavortext[];
+  pokemon_v2_generation: PokemonV2Generation;
+  pokemon_v2_pokemonabilities: PokemonV2Pokemonability[];
 }
 
 export interface PokemonV2Name {
@@ -128,7 +141,7 @@ export interface PokemonV2Pokemonspecy {
   pokemon_v2_evolutionchain: PokemonV2Evolutionchain;
   pokemon_v2_pokemonegggroups: PokemonV2Pokemonegggroup[];
   pokemon_v2_pokemons: PokemonV2Pokemon[];
-  pokemon_v2_pokemonspeciesflavortexts: PokemonV2Pokemonspeciesflavortext[];
+  pokemon_v2_pokemonspeciesflavortexts: PokemonV2Flavortext[];
   pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
 }
 
@@ -182,9 +195,10 @@ export interface PokemonV2Pokemonformname {
   pokemon_name: string;
 }
 
-export interface PokemonV2Pokemonspeciesflavortext {
+export interface PokemonV2Flavortext {
   flavor_text: string;
   pokemon_v2_version: PokemonV2Version;
+  pokemon_v2_versiongroup: PokemonV2Versiongroup;
 }
 
 export interface PokemonV2Version {

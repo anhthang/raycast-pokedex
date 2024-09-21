@@ -2,14 +2,14 @@ import { List } from "@raycast/api";
 import json2md from "json2md";
 import groupBy from "lodash.groupby";
 import {
+  PokemonV2Flavortext,
   PokemonV2Pokemondexnumber,
-  PokemonV2Pokemonspeciesflavortext,
 } from "../types";
 
 export default function PokedexEntries(props: {
   name: string;
   dex_numbers: PokemonV2Pokemondexnumber[];
-  entries: PokemonV2Pokemonspeciesflavortext[];
+  entries: PokemonV2Flavortext[];
 }) {
   const dexNumber: { [name: string]: number } = {};
   props.dex_numbers.forEach((dex) => {

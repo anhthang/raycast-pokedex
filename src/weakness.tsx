@@ -36,12 +36,12 @@ export default function PokeWeaknesses() {
     setLoading(true);
     fetchPokemonWithCaching(selectedPokemonId, Number(language))
       .then((data) => {
-        const fetchedPokemon = data[0];
-        setPokemon(fetchedPokemon);
-        setLoading(false);
+        setPokemon(data);
       })
       .catch(() => {
         setPokemon(undefined);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [selectedPokemonId]);

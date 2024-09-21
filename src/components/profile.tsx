@@ -14,8 +14,8 @@ import {
   PokemonV2PokemonspecyElement,
 } from "../types";
 import { getOfficialArtworkImg } from "../utils";
-import PokedexEntries from "./dex";
 import PokemonEncounters from "./encounter";
+import PokedexEntries from "./entry";
 import PokemonForms from "./form";
 import MetadataPokemon from "./metadata/pokemon";
 import MetadataWeakness from "./metadata/weakness";
@@ -50,11 +50,12 @@ export default function PokeProfile(props: { id?: number }) {
     setLoading(true);
     fetchPokemonWithCaching(props.id || random(1, 905), Number(language))
       .then((data) => {
-        setPokemon(data[0]);
-        setLoading(false);
+        setPokemon(data);
       })
       .catch(() => {
         setPokemon(undefined);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [props.id]);
