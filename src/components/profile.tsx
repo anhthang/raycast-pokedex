@@ -13,13 +13,13 @@ import {
   PokemonV2Pokemonspeciesname,
   PokemonV2PokemonspecyElement,
 } from "../types";
-import { getOfficialArtworkImg } from "../utils";
+import { getOfficialArtworkImg, nationalDexNumber } from "../utils";
 import PokemonEncounters from "./encounter";
 import PokedexEntries from "./entry";
 import PokemonForms from "./form";
-import MetadataPokemon from "./metadata/pokemon";
-import MetadataWeakness from "./metadata/weakness";
-import PokemonMoves from "./move";
+import PokemonMetadata from "./metadata/pokemon";
+import WeaknessMetadata from "./metadata/weakness";
+import PokemonLearnset from "./pokemon_learnset";
 
 const { language } = getPreferenceValues();
 
@@ -113,9 +113,7 @@ export default function PokeProfile(props: { id?: number }) {
 
     const data = [
       {
-        h1: `#${pokemon.id.toString().padStart(4, "0")} ${
-          nameByLang[language].name
-        }`,
+        h1: `#${nationalDexNumber(pokemon.id)} ${nameByLang[language].name}`,
       },
       {
         p: nameByLang["2"]
@@ -230,7 +228,7 @@ export default function PokeProfile(props: { id?: number }) {
               target={`https://bulbapedia.bulbagarden.net/wiki/${englishName}_(Pok%C3%A9mon)`}
             />
             <Detail.Metadata.Separator />
-            <MetadataPokemon type="detail" pokemon={pokemon} />
+            <PokemonMetadata type="detail" pokemon={pokemon} />
             <Detail.Metadata.Label
               title="Shape"
               icon={{
@@ -238,7 +236,7 @@ export default function PokeProfile(props: { id?: number }) {
               }}
             />
             <Detail.Metadata.Separator />
-            <MetadataWeakness
+            <WeaknessMetadata
               type="detail"
               types={pokemon.pokemon_v2_pokemontypes}
             />
@@ -293,7 +291,7 @@ export default function PokeProfile(props: { id?: number }) {
                 title="Learnset"
                 icon={Icon.List}
                 target={
-                  <PokemonMoves
+                  <PokemonLearnset
                     name={nameByLang[language].name}
                     moves={pokemon.pokemon_v2_pokemonmoves}
                   />

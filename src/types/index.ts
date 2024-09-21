@@ -27,7 +27,7 @@ export interface PokemonV2Pokemon {
   pokemon_v2_encounters: PokemonV2Encounter[];
   pokemon_v2_pokemonabilities: PokemonV2Pokemonability[];
   pokemon_v2_pokemonforms: PokemonV2Pokemonform[];
-  pokemon_v2_pokemonmoves: PokemonV2Pokemonmove[];
+  pokemon_v2_pokemonmoves: PokemonV2Move[];
   pokemon_v2_pokemonstats: PokemonV2Pokemonstat[];
   pokemon_v2_pokemontypes: PokemonV2Pokemontype[];
   pokemon_v2_pokemonspecy: PokemonV2Pokemonspecy;
@@ -49,31 +49,30 @@ export interface PokemonV2Pokemonability {
   pokemon_v2_ability: PokemonV2Ability;
 }
 
-export interface PokemonV2Pokemonmove {
+export interface PokemonV2Move {
+  accuracy: number | null;
+  id: number;
   level: number;
+  move_effect_chance: number | null;
   move_id: number;
   move_learn_method_id: number;
-  order: number | null;
-  pokemon_v2_move: PokemonV2Move;
-  pokemon_v2_movelearnmethod: PokemonV2Movelearnmethod;
-  pokemon_v2_versiongroup: PokemonV2Versiongroup;
-}
-
-export interface PokemonV2Move {
-  id: number;
-  accuracy: number | null;
   name: string;
-  move_effect_chance: number | null;
+  order: number | null;
+  pokemon_id: number;
   power: number | null;
   pp: number | null;
-  pokemon_v2_machines: PokemonV2Machine[];
   pokemon_v2_generation: PokemonV2Generation;
+  pokemon_v2_machines: PokemonV2Machine[];
+  pokemon_v2_move: PokemonV2Move;
   pokemon_v2_movedamageclass: PokemonV2Movedamageclass;
-  pokemon_v2_moveeffect: PokemonV2Moveeffect | null;
+  pokemon_v2_moveeffect?: PokemonV2Moveeffect;
   pokemon_v2_moveflavortexts: PokemonV2Flavortext[];
+  pokemon_v2_movelearnmethod: PokemonV2Movelearnmethod;
   pokemon_v2_movenames: PokemonV2Name[];
-  pokemon_v2_pokemonmoves: PokemonV2Pokemonmove[];
+  pokemon_v2_pokemon: PokemonV2Pokemon;
+  pokemon_v2_pokemonmoves: PokemonV2Move[];
   pokemon_v2_type: PokemonV2Type;
+  pokemon_v2_versiongroup: PokemonV2Versiongroup;
 }
 
 export interface PokemonV2Machine {

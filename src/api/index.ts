@@ -64,7 +64,7 @@ const getPokemon = async (
             }
           }
         }
-        pokemon_v2_pokemonmoves(order_by: {level: asc}) {
+        pokemon_v2_pokemonmoves(order_by: {move_learn_method_id: asc, level: asc}) {
           level
           move_id
           move_learn_method_id
@@ -346,16 +346,30 @@ export const fetchMove = async (
 ): Promise<PokemonV2Move | undefined> => {
   const query = JSON.stringify({
     query: `query move($language_id: Int, $move_id: Int) {
-      pokemon_v2_move(order_by: {name: asc, generation_id: asc}, where: {id: {_eq: $move_id}}) {
+      pokemon_v2_move(where: {id: {_eq: $move_id}}) {
         id
         accuracy
         name
         power
         pp
         move_effect_chance
-        pokemon_v2_pokemonmoves(distinct_on: pokemon_id) {
-          pokemon_id
+        pokemon_v2_pokemonmoves(distinct_on: pokemon_id, where: {pokemon_id: {_lt: 10000}}) {
+          level
           move_learn_method_id
+          pokemon_id
+          pokemon_v2_movelearnmethod {
+            name
+            pokemon_v2_movelearnmethodnames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+          }
+          pokemon_v2_pokemon {
+            pokemon_v2_pokemonspecy {
+              pokemon_v2_pokemonspeciesnames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+            }
+          }
         }
         pokemon_v2_generation {
           pokemon_v2_generationnames(where: {language_id: {_eq: 9}}) {

@@ -12,7 +12,12 @@ import { useEffect, useState } from "react";
 import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
-import { getOfficialArtworkImg, getPixelArtImg, localeName } from "./utils";
+import {
+  getOfficialArtworkImg,
+  getPixelArtImg,
+  localeName,
+  nationalDexNumber,
+} from "./utils";
 
 const { language, artwork } = getPreferenceValues();
 let columns: number;
@@ -66,7 +71,7 @@ export default function NationalPokedex() {
                     key={pokemon.id}
                     content={getContent(pokemon.id)}
                     title={localeName(pokemon, language)}
-                    subtitle={`#${pokemon.id.toString().padStart(4, "0")}`}
+                    subtitle={nationalDexNumber(pokemon.id)}
                     keywords={[pokemon.id.toString(), pokemon.name]}
                     actions={
                       <ActionPanel>

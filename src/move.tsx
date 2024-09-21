@@ -5,10 +5,11 @@ import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchMove } from "./api";
 import Descriptions from "./components/description";
+import MoveMetadata from "./components/metadata/move";
+import MoveLearnset from "./components/move_learnset";
 import TypeDropdown from "./components/type_dropdown";
 import moves from "./statics/moves.json";
 import { PokemonV2Move } from "./types";
-import { typeColor } from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -78,9 +79,7 @@ export default function PokeMoves() {
                   icon={`moves/${m.damage_class || "status"}.svg`}
                   keywords={[m.name]}
                   detail={
-                    loading ? (
-                      ""
-                    ) : (
+                    loading ? undefined : (
                       <List.Item.Detail
                         markdown={json2md([
                           {
@@ -95,38 +94,7 @@ export default function PokeMoves() {
                           },
                         ])}
                         metadata={
-                          <List.Item.Detail.Metadata>
-                            <List.Item.Detail.Metadata.TagList title="Type">
-                              <List.Item.Detail.Metadata.TagList.Item
-                                text={
-                                  move?.pokemon_v2_type.pokemon_v2_typenames[0]
-                                    .name
-                                }
-                                icon={`types/${m.type.toLowerCase()}.svg`}
-                                color={typeColor[m.type.toLowerCase()]}
-                              />
-                            </List.Item.Detail.Metadata.TagList>
-                            <List.Item.Detail.Metadata.Label
-                              title="Category"
-                              text={
-                                m.damage_class.charAt(0).toUpperCase() +
-                                m.damage_class.slice(1)
-                              }
-                              icon={`moves/${m.damage_class || "status"}.svg`}
-                            />
-                            <List.Item.Detail.Metadata.Label
-                              title="Power"
-                              text={move?.power?.toString() || "-"}
-                            />
-                            <List.Item.Detail.Metadata.Label
-                              title="Accuracy"
-                              text={move?.accuracy ? move?.accuracy + "%" : "-"}
-                            />
-                            <List.Item.Detail.Metadata.Label
-                              title="PP"
-                              text={move?.pp?.toString() || "-"}
-                            />
-                          </List.Item.Detail.Metadata>
+                          move ? <MoveMetadata move={move} /> : undefined
                         }
                       />
                     )
@@ -140,6 +108,14 @@ export default function PokeMoves() {
                             <Descriptions
                               name={m.name}
                               entries={move?.pokemon_v2_moveflavortexts || []}
+                            />
+                          }
+                        />
+                        <Action.Push
+                          title="Learnset"
+                          target={
+                            <MoveLearnset
+                              moves={move?.pokemon_v2_pokemonmoves || []}
                             />
                           }
                         />

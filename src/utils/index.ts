@@ -1,6 +1,10 @@
 import { Detail } from "@raycast/api";
 import { PokemonV2Pokemontype } from "../types";
 
+export const nationalDexNumber = (id: number) => {
+  return `#${id.toString().padStart(4, "0")}`;
+};
+
 export const getPixelArtImg = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };

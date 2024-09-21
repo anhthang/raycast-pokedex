@@ -2,8 +2,8 @@ import { List } from "@raycast/api";
 import json2md from "json2md";
 import { PokemonV2Pokemon } from "../types";
 import { getOfficialArtworkImg } from "../utils";
-import MetadataPokemon from "./metadata/pokemon";
-import MetadataWeakness from "./metadata/weakness";
+import PokemonMetadata from "./metadata/pokemon";
+import WeaknessMetadata from "./metadata/weakness";
 
 export default function PokemonForms(props: {
   id: number;
@@ -120,9 +120,9 @@ export default function PokemonForms(props: {
                 ])}
                 metadata={
                   <List.Item.Detail.Metadata>
-                    <MetadataPokemon pokemon={form} />
+                    <PokemonMetadata pokemon={form} />
                     <List.Item.Detail.Metadata.Separator />
-                    <MetadataWeakness types={form.pokemon_v2_pokemontypes} />
+                    <WeaknessMetadata types={form.pokemon_v2_pokemontypes} />
                   </List.Item.Detail.Metadata>
                 }
               />

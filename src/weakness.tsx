@@ -10,12 +10,17 @@ import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchPokemonWithCaching } from "./api";
-import MetadataWeakness from "./components/metadata/weakness";
+import WeaknessMetadata from "./components/metadata/weakness";
 import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
-import { getOfficialArtworkImg, localeName, typeColor } from "./utils";
+import {
+  getOfficialArtworkImg,
+  localeName,
+  nationalDexNumber,
+  typeColor,
+} from "./utils";
 
 const { language } = getPreferenceValues();
 
@@ -73,25 +78,23 @@ export default function PokeWeaknesses() {
               <List.Item
                 key={poke.id}
                 id={poke.id.toString()}
-                title={`#${poke.id.toString().padStart(4, "0")}`}
+                title={`#${nationalDexNumber(poke.id)}`}
                 subtitle={localeName(poke, language)}
                 keywords={[poke.id.toString(), poke.name]}
                 detail={
-                  loading ? (
-                    ""
-                  ) : (
-                    <List.Item.Detail
-                      markdown={json2md([
-                        {
-                          img: [
-                            {
-                              title: poke.name,
-                              source: getOfficialArtworkImg(poke.id),
-                            },
-                          ],
-                        },
-                      ])}
-                      metadata={
+                  <List.Item.Detail
+                    markdown={json2md([
+                      {
+                        img: [
+                          {
+                            title: poke.name,
+                            source: getOfficialArtworkImg(poke.id),
+                          },
+                        ],
+                      },
+                    ])}
+                    metadata={
+                      loading && pokemon ? undefined : (
                         <List.Item.Detail.Metadata>
                           <List.Item.Detail.Metadata.TagList title="Type">
                             {pokemon?.pokemon_v2_pokemontypes.map((type) => (
@@ -107,13 +110,13 @@ export default function PokeWeaknesses() {
                             ))}
                           </List.Item.Detail.Metadata.TagList>
 
-                          <MetadataWeakness
+                          <WeaknessMetadata
                             types={pokemon?.pokemon_v2_pokemontypes || []}
                           />
                         </List.Item.Detail.Metadata>
-                      }
-                    />
-                  )
+                      )
+                    }
+                  />
                 }
                 actions={
                   <ActionPanel>

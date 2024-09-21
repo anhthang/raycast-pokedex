@@ -3,12 +3,12 @@ import json2md from "json2md";
 import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import { useMemo, useState } from "react";
-import { PokemonV2Pokemonmove } from "../types";
-import { typeColor } from "../utils";
+import { PokemonV2Move } from "../types";
+import MoveMetadata from "./metadata/move";
 
-export default function PokemonMoves(props: {
+export default function PokemonLearnset(props: {
   name: string;
-  moves: PokemonV2Pokemonmove[];
+  moves: PokemonV2Move[];
 }) {
   const moves = props.moves.map((m) => {
     m.pokemon_v2_move.pokemon_v2_machines =
@@ -150,41 +150,7 @@ export default function PokemonMoves(props: {
                             : "",
                         },
                       ])}
-                      metadata={
-                        <List.Item.Detail.Metadata>
-                          <List.Item.Detail.Metadata.TagList title="Type">
-                            <List.Item.Detail.Metadata.TagList.Item
-                              text={
-                                move.pokemon_v2_move.pokemon_v2_type
-                                  .pokemon_v2_typenames[0].name
-                              }
-                              icon={`types/${move.pokemon_v2_move.pokemon_v2_type.name}.svg`}
-                              color={
-                                typeColor[
-                                  move.pokemon_v2_move.pokemon_v2_type.name
-                                ]
-                              }
-                            />
-                          </List.Item.Detail.Metadata.TagList>
-
-                          <List.Item.Detail.Metadata.Label
-                            title="Power"
-                            text={move.pokemon_v2_move.power?.toString() || "-"}
-                          />
-                          <List.Item.Detail.Metadata.Label
-                            title="Accuracy"
-                            text={
-                              move.pokemon_v2_move.accuracy
-                                ? move.pokemon_v2_move.accuracy + "%"
-                                : "-"
-                            }
-                          />
-                          <List.Item.Detail.Metadata.Label
-                            title="PP"
-                            text={move.pokemon_v2_move.pp?.toString() || "-"}
-                          />
-                        </List.Item.Detail.Metadata>
-                      }
+                      metadata={<MoveMetadata move={move} />}
                     />
                   }
                 />
