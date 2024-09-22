@@ -9,7 +9,7 @@ import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import uniqBy from "lodash.uniqby";
 import { PokemonV2Move } from "../types";
-import { filterPokemonForms, getContentImg } from "../utils";
+import { filterPokemonForms, getContentImg, nationalDexNumber } from "../utils";
 import PokeProfile from "./profile";
 
 const { artwork } = getPreferenceValues();
@@ -84,7 +84,7 @@ export default function MoveLearnset(props: {
                   key={move.pokemon_id}
                   content={getContentImg(pokeId, formIdx)}
                   title={title}
-                  subtitle={move.pokemon_id.toString()}
+                  subtitle={nationalDexNumber(nationalDex)}
                   keywords={[title, nationalDex.toString()]}
                   actions={
                     <ActionPanel>

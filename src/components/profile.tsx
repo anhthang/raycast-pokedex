@@ -201,7 +201,11 @@ export default function PokeProfile(props: { id: number }) {
             <Detail.Metadata.Link
               title="Official Pokémon Website"
               text={nameByLang[language].name}
-              target={`https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`}
+              target={
+                language === "1"
+                  ? `https://zukan.pokemon.co.jp/detail/${pokemon.id}`
+                  : `https://www.pokemon.com/us/pokedex/${pokemon.pokemon_v2_pokemonspecy.name}`
+              }
             />
             <Detail.Metadata.Link
               title="Bulbapedia"
