@@ -122,8 +122,10 @@ export interface PokemonV2Name {
 }
 
 export interface PokemonV2Pokemonspecy {
+  id: number;
   base_happiness: number;
   capture_rate: number;
+  evolves_from_species_id?: number;
   gender_rate: number;
   growth_rate_id: number;
   hatch_counter: number;
@@ -146,23 +148,11 @@ export interface PokemonV2Pokemondexnumber {
 }
 
 export interface PokemonV2Pokedex {
-  pokemon_v2_pokedexversiongroups: PokemonV2Pokedexversiongroup[];
-}
-
-export interface PokemonV2Pokedexversiongroup {
-  version_group_id: number;
-  pokemon_v2_versiongroup: PokemonV2Versiongroup;
+  pokemon_v2_pokedexversiongroups: PokemonV2Version[];
 }
 
 export interface PokemonV2Evolutionchain {
-  pokemon_v2_pokemonspecies: PokemonV2PokemonspecyElement[];
-}
-
-export interface PokemonV2PokemonspecyElement {
-  id: number;
-  name: string;
-  evolves_from_species_id?: number;
-  pokemon_v2_pokemonspeciesnames: PokemonV2Pokemonspeciesname[];
+  pokemon_v2_pokemonspecies: PokemonV2Pokemonspecy[];
 }
 
 export interface PokemonV2Pokemonspeciesname extends PokemonV2Name {
@@ -199,6 +189,7 @@ export interface PokemonV2Flavortext {
 export interface PokemonV2Version {
   id: number;
   name: string;
+  version_group_id: number;
   pokemon_v2_versiongroup: PokemonV2Versiongroup;
   pokemon_v2_versionnames: PokemonV2Name[];
 }

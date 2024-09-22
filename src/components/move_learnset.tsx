@@ -92,7 +92,7 @@ export default function MoveLearnset(props: {
                         <Action.Push
                           title="Pokémon Profile"
                           icon={Icon.Sidebar}
-                          target={<PokeProfile id={move.pokemon_id} />}
+                          target={<PokeProfile id={nationalDex} />}
                         />
                       </ActionPanel.Section>
                     </ActionPanel>

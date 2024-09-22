@@ -63,6 +63,7 @@ export default function PokeMoves(props: { id?: number }) {
   return (
     <List
       throttle
+      navigationTitle="Moves"
       isShowingDetail={true}
       searchBarAccessory={
         <TypeDropdown command="Move" onSelectType={setType} />
