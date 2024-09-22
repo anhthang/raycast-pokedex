@@ -24,8 +24,6 @@ import {
 
 const { language } = getPreferenceValues();
 
-type SpeciesNameByLanguage = Record<string, PokemonV2Pokemonspeciesname>;
-
 export default function PokeWeaknesses() {
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
     undefined,
@@ -53,7 +51,7 @@ export default function PokeWeaknesses() {
     if (!pokemon) return {};
 
     return pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames.reduce(
-      (prev: SpeciesNameByLanguage, curr) => {
+      (prev: Record<string, PokemonV2Pokemonspeciesname>, curr) => {
         prev[curr.language_id] = curr;
         return prev;
       },

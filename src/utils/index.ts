@@ -1,5 +1,5 @@
 import { Detail, getPreferenceValues } from "@raycast/api";
-import { PokemonV2Pokemontype } from "../types";
+import { PokemonV2Pokemon, PokemonV2Pokemontype } from "../types";
 
 const { artwork } = getPreferenceValues();
 
@@ -103,4 +103,95 @@ export const localeName = (
   return pokemon.localization && pokemon.localization[language]
     ? pokemon.localization[language]
     : pokemon.name;
+};
+
+export const filterPokemonForms = (
+  id: number,
+  pokemons: PokemonV2Pokemon[],
+) => {
+  // removes Pokemon forms without official images on pokemon.com
+  let formNames: string[] = [];
+  let varieties: string[] = [];
+  switch (id) {
+    case 25:
+      formNames = ["pikachu", "pikachu-gmax"];
+      break;
+    case 555:
+      formNames = ["darmanitan-standard", "darmanitan-galar-standard"];
+      break;
+    case 666:
+      varieties = [
+        "meadow",
+        "continental",
+        "garden",
+        "elegant",
+        "marine",
+        "high-plains",
+        "river",
+      ];
+      break;
+    // case 668:
+    //   // male, female
+    //   break
+    case 670:
+      formNames = ["floette"];
+      varieties = ["red"];
+      break;
+    case 671:
+      varieties = ["red"];
+      break;
+    case 676:
+      varieties = ["natural", "heart", "star", "diamond"];
+      break;
+    case 744:
+      formNames = ["rockruff"];
+      break;
+    case 774:
+      formNames = ["minior-red-meteor", "minior-red"];
+      break;
+    case 778:
+      formNames = ["mimikyu-disguised"];
+      break;
+    case 845:
+      formNames = ["cramorant"];
+      break;
+    case 849:
+      formNames = [
+        "toxtricity-amped",
+        "toxtricity-low-key",
+        "toxtricity-amped-gmax",
+      ];
+      break;
+    case 875:
+      // eiscue-noice available in Zukan, but not in pokemon.com at the moment
+      formNames = ["eiscue-ice"];
+      break;
+    default:
+      break;
+  }
+
+  if (formNames.length) {
+    pokemons = pokemons.filter((p) => formNames.includes(p.name));
+  }
+
+  const forms: PokemonV2Pokemon[] = [];
+
+  pokemons.forEach((p) => {
+    if (varieties.length) {
+      varieties.forEach((variety) => {
+        const pokemonforms = p.pokemon_v2_pokemonforms.filter(
+          (f) => f.form_name === variety,
+        );
+
+        forms.push({
+          ...p,
+          pokemon_v2_pokemonforms: pokemonforms,
+        });
+      });
+    } else {
+      forms.push(p);
+    }
+  });
+
+  return forms;
 };

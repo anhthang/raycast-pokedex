@@ -1,6 +1,7 @@
 import {
   Action,
   ActionPanel,
+  Color,
   Detail,
   getPreferenceValues,
   Icon,
@@ -22,8 +23,6 @@ import WeaknessMetadata from "./metadata/weakness";
 import PokemonLearnset from "./pokemon_learnset";
 
 const { language } = getPreferenceValues();
-
-type SpeciesNameByLanguage = Record<string, PokemonV2Pokemonspeciesname>;
 
 enum GrowthRate {
   "Slow" = 1,
@@ -58,7 +57,7 @@ export default function PokeProfile(props: { id: number }) {
     if (!pokemon) return {};
 
     return pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames.reduce(
-      (prev: SpeciesNameByLanguage, curr) => {
+      (prev: Record<string, PokemonV2Pokemonspeciesname>, curr) => {
         prev[curr.language_id] = curr;
         return prev;
       },
@@ -93,15 +92,6 @@ export default function PokeProfile(props: { id: number }) {
       pokemon_v2_pokemonegggroups,
       pokemon_v2_pokemonspeciesflavortexts,
     } = pokemon_v2_pokemonspecy;
-
-    let gender;
-    if (pokemon_v2_pokemonspecy.gender_rate === -1) {
-      gender = "Unknown";
-    } else {
-      const male = ((8 - pokemon_v2_pokemonspecy.gender_rate) / 8) * 100;
-      const female = (pokemon_v2_pokemonspecy.gender_rate / 8) * 100;
-      gender = `${male}% male, ${female}% female`;
-    }
 
     const ev: string[] = [];
 
@@ -164,9 +154,6 @@ export default function PokeProfile(props: { id: number }) {
           .join(", ")}`,
       },
       {
-        p: `_Gender:_ ${gender}`,
-      },
-      {
         p: `_Egg cycles:_ ${pokemon_v2_pokemonspecy.hatch_counter}`,
       },
     ];
@@ -223,6 +210,22 @@ export default function PokeProfile(props: { id: number }) {
             />
             <Detail.Metadata.Separator />
             <PokemonMetadata type="detail" pokemon={pokemon} />
+            {pokemon.pokemon_v2_pokemonspecy.gender_rate === -1 ? (
+              <Detail.Metadata.Label title="Gender" text="Unknown" />
+            ) : (
+              <Detail.Metadata.TagList title="Gender">
+                <Detail.Metadata.TagList.Item
+                  text={`${((8 - pokemon.pokemon_v2_pokemonspecy.gender_rate) / 8) * 100}%`}
+                  icon={Icon.Male}
+                  color={Color.Blue}
+                />
+                <Detail.Metadata.TagList.Item
+                  text={`${(pokemon.pokemon_v2_pokemonspecy.gender_rate / 8) * 100}%`}
+                  icon={Icon.Female}
+                  color={Color.Magenta}
+                />
+              </Detail.Metadata.TagList>
+            )}
             <Detail.Metadata.Label
               title="Shape"
               icon={{

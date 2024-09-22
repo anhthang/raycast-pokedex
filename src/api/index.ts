@@ -347,7 +347,7 @@ export const fetchMoveWithCaching = async (
       power
       pp
       move_effect_chance
-      pokemon_v2_pokemonmoves(distinct_on: pokemon_id, where: {pokemon_id: {_lt: 10000}}) {
+      pokemon_v2_pokemonmoves(order_by: {move_learn_method_id: asc, level: asc}) {
         level
         move_learn_method_id
         pokemon_id
@@ -358,9 +358,21 @@ export const fetchMoveWithCaching = async (
           }
         }
         pokemon_v2_pokemon {
+          pokemon_species_id
           pokemon_v2_pokemonspecy {
             pokemon_v2_pokemonspeciesnames(where: {language_id: {_eq: $language_id}}) {
               name
+            }
+            pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["totem", "starter"]}}}) {
+              name
+              pokemon_v2_pokemonforms {
+                form_name
+                pokemon_id
+                pokemon_v2_pokemonformnames(where: {language_id: {_eq: $language_id}}) {
+                  name
+                  pokemon_name
+                }
+              }
             }
           }
         }

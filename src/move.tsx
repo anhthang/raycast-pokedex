@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, Icon, List } from "@raycast/api";
 import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
@@ -106,6 +106,7 @@ export default function PokeMoves() {
                         <ActionPanel.Section title="Information">
                           <Action.Push
                             title="Descriptions"
+                            icon={Icon.List}
                             target={
                               <Descriptions
                                 name={m.name}
@@ -115,6 +116,7 @@ export default function PokeMoves() {
                           />
                           <Action.Push
                             title="Learnset"
+                            icon={Icon.List}
                             target={
                               <MoveLearnset
                                 name={move.pokemon_v2_movenames[0].name}

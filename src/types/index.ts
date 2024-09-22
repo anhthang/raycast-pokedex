@@ -18,6 +18,7 @@ export interface PokemonV2Pokemon {
   id: number;
   name: string;
   height: number;
+  pokemon_species_id: number;
   weight: number;
   pokemon_v2_encounters: PokemonV2Encounter[];
   pokemon_v2_pokemonabilities: PokemonV2Pokemonability[];
