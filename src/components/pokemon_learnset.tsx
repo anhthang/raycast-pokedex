@@ -1,8 +1,9 @@
-import { List } from "@raycast/api";
+import { Action, ActionPanel, Icon, List } from "@raycast/api";
 import json2md from "json2md";
 import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import { useMemo, useState } from "react";
+import PokeMoves from "../move";
 import { PokemonV2Move } from "../types";
 import MoveMetadata from "./metadata/move";
 
@@ -165,6 +166,17 @@ export default function PokemonLearnset(props: {
                       }
                       metadata={<MoveMetadata move={move.pokemon_v2_move} />}
                     />
+                  }
+                  actions={
+                    <ActionPanel>
+                      <ActionPanel.Section title="Information">
+                        <Action.Push
+                          title="View Details"
+                          icon={Icon.Sidebar}
+                          target={<PokeMoves id={move.pokemon_v2_move.id} />}
+                        />
+                      </ActionPanel.Section>
+                    </ActionPanel>
                   }
                 />
               );

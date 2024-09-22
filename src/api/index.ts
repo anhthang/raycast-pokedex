@@ -132,6 +132,7 @@ export const fetchPokemonWithCaching = async (
         move_learn_method_id
         order
         pokemon_v2_move {
+          id
           accuracy
           name
           move_effect_chance

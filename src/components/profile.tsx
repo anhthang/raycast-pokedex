@@ -309,6 +309,23 @@ export default function PokeProfile(props: { id: number }) {
                 }
               />
             </ActionPanel.Section>
+            {pokemon.pokemon_v2_pokemonspecy.pokemon_v2_evolutionchain
+              .pokemon_v2_pokemonspecies.length >= 2 && (
+              <ActionPanel.Section title="Evolutions">
+                {pokemon.pokemon_v2_pokemonspecy.pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
+                  (specy) => {
+                    return (
+                      <Action.Push
+                        key={specy.id}
+                        title={specy.pokemon_v2_pokemonspeciesnames[0].name}
+                        icon="pokeball.svg"
+                        target={<PokeProfile id={specy.id} />}
+                      />
+                    );
+                  },
+                )}
+              </ActionPanel.Section>
+            )}
           </ActionPanel>
         )
       }

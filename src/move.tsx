@@ -11,11 +11,17 @@ import TypeDropdown from "./components/type_dropdown";
 import moves from "./statics/moves.json";
 import { PokemonV2Move } from "./types";
 
-export default function PokeMoves() {
+export default function PokeMoves(props: { id?: number }) {
   const [move, setMove] = useState<PokemonV2Move | undefined>(undefined);
   const [type, setType] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedMoveId, setSelectedMoveId] = useState<number>(71);
+
+  useEffect(() => {
+    if (props.id) {
+      setSelectedMoveId(props.id);
+    }
+  }, [props.id]);
 
   useEffect(() => {
     setLoading(true);

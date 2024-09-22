@@ -143,6 +143,13 @@ export const filterPokemonForms = (
     case 676:
       varieties = ["natural", "heart", "star", "diamond"];
       break;
+    case 718:
+      formNames = [
+        "zygarde-10-power-construct",
+        "zygarde-50-power-construct",
+        "zygarde-complete",
+      ];
+      break;
     case 744:
       formNames = ["rockruff"];
       break;
@@ -165,6 +172,15 @@ export const filterPokemonForms = (
     case 875:
       // eiscue-noice available in Zukan, but not in pokemon.com at the moment
       formNames = ["eiscue-ice"];
+      break;
+    case 893:
+      formNames = ["zarude-dada"];
+      break;
+    case 1007:
+      formNames = ["koraidon"];
+      break;
+    case 1008:
+      formNames = ["miraidon"];
       break;
     default:
       break;
