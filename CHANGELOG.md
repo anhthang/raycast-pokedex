@@ -1,10 +1,10 @@
 # Pokédex Changelog
 
-## [Attackdex] - {PR_MERGED_DATE}
+## [Attackdex] - 2024-09-28
 - Refactored and incorporated additional Move information from PokéAPI, providing more comprehensive details about Pokémon moves.
 - Refactored the caching mechanism for improved reusability and efficiency.
 
-## [Enhanced Pokédex Experience] - {PR_MERGED_DATE}
+## [Enhanced Pokédex Experience] - 2024-09-21
 - Implemented caching for faster load times and reduced API usage.
 - Added sorting options to organize the Pokédex by Pokémon name or National Pokédex number.
 - Introduced a new preference to select your preferred artwork style for Pokémon.

@@ -12,7 +12,7 @@ import { fetchPokemonWithCaching } from "../api";
 import {
   PokemonV2Pokemon,
   PokemonV2Pokemonspeciesname,
-  PokemonV2PokemonspecyElement,
+  PokemonV2Pokemonspecy,
 } from "../types";
 import { getOfficialArtworkImg, nationalDexNumber } from "../utils";
 import PokemonEncounters from "./encounter";
@@ -65,7 +65,7 @@ export default function PokeProfile(props: { id: number }) {
     );
   }, [pokemon]);
 
-  const evolutions = (species: PokemonV2PokemonspecyElement[]) => {
+  const evolutions = (species: PokemonV2Pokemonspecy[]) => {
     const first = species.find((s) => !s.evolves_from_species_id);
     if (!first) return [];
 

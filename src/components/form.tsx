@@ -21,7 +21,10 @@ export default function PokemonForms(props: {
       {forms.map((form, idx) => {
         const name =
           form.pokemon_v2_pokemonforms[0].pokemon_v2_pokemonformnames[0]
-            ?.pokemon_name || props.name;
+            ?.pokemon_name ||
+          form.pokemon_v2_pokemonforms[0].pokemon_v2_pokemonformnames[0]
+            ?.name ||
+          props.name;
         return (
           <List.Item
             key={idx}

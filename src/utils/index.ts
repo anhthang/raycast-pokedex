@@ -11,19 +11,19 @@ const getPixelArtImg = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };
 
-export const getOfficialArtworkImg = (id: number, formId?: number) => {
-  const name = formId
-    ? `${id.toString().padStart(3, "0")}_f${formId + 1}`
+export const getOfficialArtworkImg = (id: number, order?: number) => {
+  const name = order
+    ? `${id.toString().padStart(3, "0")}_f${order + 1}`
     : id.toString().padStart(3, "0");
   return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
-export const getContentImg = (id: number, formId?: number) => {
+export const getContentImg = (id: number, order?: number) => {
   switch (artwork) {
     case "pixel":
       return getPixelArtImg(id);
     default:
-      return getOfficialArtworkImg(id, formId);
+      return getOfficialArtworkImg(id, order);
   }
 };
 

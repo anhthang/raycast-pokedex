@@ -264,7 +264,7 @@ export const fetchPokemonWithCaching = async (
             }
           }
         }
-        pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["totem", "starter"]}}}) {
+        pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["starter", "totem", "totem-alola"]}}}) {
           name
           height
           weight
@@ -364,7 +364,7 @@ export const fetchMoveWithCaching = async (
             pokemon_v2_pokemonspeciesnames(where: {language_id: {_eq: $language_id}}) {
               name
             }
-            pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["totem", "starter"]}}}) {
+            pokemon_v2_pokemons(order_by: {id: asc}, where: {pokemon_v2_pokemonforms: {form_name: {_nin: ["starter", "totem", "totem-alola"]}}}) {
               name
               pokemon_v2_pokemonforms {
                 form_name
