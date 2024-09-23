@@ -10,18 +10,19 @@ import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchPokemonWithCaching } from "./api";
-import MetadataWeakness from "./components/metadata/weakness";
+import WeaknessMetadata from "./components/metadata/weakness";
 import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
-import { getOfficialArtworkImg, localeName, typeColor } from "./utils";
+import {
+  getOfficialArtworkImg,
+  localeName,
+  nationalDexNumber,
+  typeColor,
+} from "./utils";
 
 const { language } = getPreferenceValues();
-
-type SpeciesNameByLanguage = {
-  [lang: string]: PokemonV2Pokemonspeciesname;
-};
 
 export default function PokeWeaknesses() {
   const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
@@ -34,14 +35,14 @@ export default function PokeWeaknesses() {
 
   useEffect(() => {
     setLoading(true);
-    fetchPokemonWithCaching(selectedPokemonId, Number(language))
+    fetchPokemonWithCaching(selectedPokemonId)
       .then((data) => {
-        const fetchedPokemon = data[0];
-        setPokemon(fetchedPokemon);
-        setLoading(false);
+        setPokemon(data);
       })
       .catch(() => {
         setPokemon(undefined);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [selectedPokemonId]);
@@ -50,7 +51,7 @@ export default function PokeWeaknesses() {
     if (!pokemon) return {};
 
     return pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemonspeciesnames.reduce(
-      (prev: SpeciesNameByLanguage, curr) => {
+      (prev: Record<string, PokemonV2Pokemonspeciesname>, curr) => {
         prev[curr.language_id] = curr;
         return prev;
       },
@@ -73,25 +74,24 @@ export default function PokeWeaknesses() {
               <List.Item
                 key={poke.id}
                 id={poke.id.toString()}
-                title={`#${poke.id.toString().padStart(4, "0")}`}
+                title={nationalDexNumber(poke.id)}
                 subtitle={localeName(poke, language)}
                 keywords={[poke.id.toString(), poke.name]}
                 detail={
-                  loading ? (
-                    ""
-                  ) : (
-                    <List.Item.Detail
-                      markdown={json2md([
-                        {
-                          img: [
-                            {
-                              title: poke.name,
-                              source: getOfficialArtworkImg(poke.id),
-                            },
-                          ],
-                        },
-                      ])}
-                      metadata={
+                  <List.Item.Detail
+                    markdown={json2md([
+                      {
+                        img: [
+                          {
+                            title: poke.name,
+                            source: getOfficialArtworkImg(poke.id),
+                          },
+                        ],
+                      },
+                    ])}
+                    metadata={
+                      !loading &&
+                      pokemon && (
                         <List.Item.Detail.Metadata>
                           <List.Item.Detail.Metadata.TagList title="Type">
                             {pokemon?.pokemon_v2_pokemontypes.map((type) => (
@@ -107,13 +107,13 @@ export default function PokeWeaknesses() {
                             ))}
                           </List.Item.Detail.Metadata.TagList>
 
-                          <MetadataWeakness
+                          <WeaknessMetadata
                             types={pokemon?.pokemon_v2_pokemontypes || []}
                           />
                         </List.Item.Detail.Metadata>
-                      }
-                    />
-                  )
+                      )
+                    }
+                  />
                 }
                 actions={
                   <ActionPanel>
