@@ -1,4 +1,5 @@
 import { Action, ActionPanel, Icon, List } from "@raycast/api";
+import { usePromise } from "@raycast/utils";
 import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
@@ -9,12 +10,9 @@ import MoveMetadata from "./components/metadata/move";
 import MoveLearnset from "./components/move_learnset";
 import TypeDropdown from "./components/type_dropdown";
 import moves from "./statics/moves.json";
-import { PokemonV2Move } from "./types";
 
 export default function PokeMoves(props: { id?: number }) {
-  const [move, setMove] = useState<PokemonV2Move | undefined>(undefined);
   const [type, setType] = useState<string>("all");
-  const [loading, setLoading] = useState<boolean>(false);
   const [selectedMoveId, setSelectedMoveId] = useState<number>(71);
 
   useEffect(() => {
@@ -23,27 +21,14 @@ export default function PokeMoves(props: { id?: number }) {
     }
   }, [props.id]);
 
-  useEffect(() => {
-    setLoading(true);
-    fetchMoveWithCaching(selectedMoveId)
-      .then((data) => {
-        setMove(data);
-      })
-      .catch(() => {
-        setMove(undefined);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [selectedMoveId]);
+  const { data: move, isLoading } = usePromise(fetchMoveWithCaching, [
+    selectedMoveId,
+  ]);
 
   const debouncedSelectionChange = useCallback(
     debounce((index: string | null) => {
       if (index) {
         setSelectedMoveId(parseInt(index));
-        if (move) {
-          setMove(undefined);
-        }
       }
     }, 300),
     [],
@@ -70,7 +55,7 @@ export default function PokeMoves(props: { id?: number }) {
       }
       selectedItemId={String(selectedMoveId)}
       onSelectionChange={onSelectionChange}
-      isLoading={loading}
+      isLoading={isLoading}
     >
       {Object.entries(generations).map(([generation, moves]) => {
         return (
@@ -84,7 +69,7 @@ export default function PokeMoves(props: { id?: number }) {
                   icon={`moves/${m.damage_class || "status"}.svg`}
                   keywords={[m.name]}
                   detail={
-                    !loading && (
+                    !isLoading && (
                       <List.Item.Detail
                         markdown={
                           move &&

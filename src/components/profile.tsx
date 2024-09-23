@@ -6,14 +6,11 @@ import {
   getPreferenceValues,
   Icon,
 } from "@raycast/api";
+import { usePromise } from "@raycast/utils";
 import json2md from "json2md";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { fetchPokemonWithCaching } from "../api";
-import {
-  PokemonV2Pokemon,
-  PokemonV2Pokemonspeciesname,
-  PokemonV2Pokemonspecy,
-} from "../types";
+import { PokemonV2Pokemonspeciesname, PokemonV2Pokemonspecy } from "../types";
 import { getOfficialArtworkImg, nationalDexNumber } from "../utils";
 import PokemonEncounters from "./encounter";
 import PokedexEntries from "./entry";
@@ -34,24 +31,9 @@ enum GrowthRate {
 }
 
 export default function PokeProfile(props: { id: number }) {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
-    undefined,
-  );
-
-  useEffect(() => {
-    setLoading(true);
-    fetchPokemonWithCaching(props.id)
-      .then((data) => {
-        setPokemon(data);
-      })
-      .catch(() => {
-        setPokemon(undefined);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [props.id]);
+  const { data: pokemon, isLoading } = usePromise(fetchPokemonWithCaching, [
+    props.id,
+  ]);
 
   const nameByLang = useMemo(() => {
     if (!pokemon) return {};
@@ -190,7 +172,7 @@ export default function PokeProfile(props: { id: number }) {
 
   return (
     <Detail
-      isLoading={loading}
+      isLoading={isLoading}
       navigationTitle={
         pokemon ? `${nameByLang[language].name} | Pokédex` : "Pokédex"
       }

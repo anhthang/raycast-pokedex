@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Cache, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { Cache, getPreferenceValues } from "@raycast/api";
+import { showFailureToast } from "@raycast/utils";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { PokeAPI, PokemonV2Move, PokemonV2Pokemon } from "../types";
 
@@ -10,14 +11,6 @@ const expiration = Number(duration) * 24 * 60 * 60 * 1000; // cache expiration i
 interface CachedData<T> {
   timestamp: number;
   value: T | undefined;
-}
-
-function showFailureToast(message: string) {
-  showToast(
-    Toast.Style.Failure,
-    "Something went wrong",
-    message || "Please try again later",
-  );
 }
 
 async function fetchDataWithCaching<T>(

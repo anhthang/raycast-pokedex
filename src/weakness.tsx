@@ -5,16 +5,17 @@ import {
   List,
   getPreferenceValues,
 } from "@raycast/api";
+import { usePromise } from "@raycast/utils";
 import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { fetchPokemonWithCaching } from "./api";
 import WeaknessMetadata from "./components/metadata/weakness";
 import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
-import { PokemonV2Pokemon, PokemonV2Pokemonspeciesname } from "./types";
+import { PokemonV2Pokemonspeciesname } from "./types";
 import {
   getOfficialArtworkImg,
   localeName,
@@ -25,27 +26,13 @@ import {
 const { language } = getPreferenceValues();
 
 export default function PokeWeaknesses() {
-  const [pokemon, setPokemon] = useState<PokemonV2Pokemon | undefined>(
-    undefined,
-  );
-  const [loading, setLoading] = useState(false);
   const [type, setType] = useState<string>("all");
 
   const [selectedPokemonId, setSelectedPokemonId] = useState(1);
 
-  useEffect(() => {
-    setLoading(true);
-    fetchPokemonWithCaching(selectedPokemonId)
-      .then((data) => {
-        setPokemon(data);
-      })
-      .catch(() => {
-        setPokemon(undefined);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [selectedPokemonId]);
+  const { data: pokemon, isLoading } = usePromise(fetchPokemonWithCaching, [
+    selectedPokemonId,
+  ]);
 
   const nameByLang = useMemo(() => {
     if (!pokemon) return {};
@@ -90,7 +77,7 @@ export default function PokeWeaknesses() {
                       },
                     ])}
                     metadata={
-                      !loading &&
+                      !isLoading &&
                       pokemon && (
                         <List.Item.Detail.Metadata>
                           <List.Item.Detail.Metadata.TagList title="Type">
@@ -138,9 +125,6 @@ export default function PokeWeaknesses() {
     debounce((index: string | null) => {
       if (index) {
         setSelectedPokemonId(parseInt(index));
-        if (pokemon) {
-          setPokemon(undefined);
-        }
       }
     }, 300),
     [],
@@ -161,7 +145,7 @@ export default function PokeWeaknesses() {
         pokemon ? `${nameByLang[language].name} | Weaknesses` : "Weaknesses"
       }
       isShowingDetail={true}
-      isLoading={loading}
+      isLoading={isLoading}
       selectedItemId={String(selectedPokemonId)}
       onSelectionChange={onSelectionChange}
       children={displayWeaknesses}
