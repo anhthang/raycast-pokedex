@@ -41,5 +41,3 @@ declare namespace Arguments {
   export type Weakness = {}
 }
 
-
-
