@@ -15,7 +15,7 @@ export const getOfficialArtworkImg = (id: number, order?: number) => {
   const name = order
     ? `${id.toString().padStart(3, "0")}_f${order + 1}`
     : id.toString().padStart(3, "0");
-  return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${name}.png`;
+  return `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
 export const getContentImg = (id: number, order?: number) => {
@@ -128,6 +128,9 @@ export const filterPokemonForms = <
     case 555:
       formNames = ["darmanitan-standard", "darmanitan-galar-standard"];
       break;
+    case 658:
+      formNames = ["greninja", "greninja-ash", "greninja-mega"];
+      break;
     case 666:
       varieties = [
         "meadow",
@@ -142,10 +145,6 @@ export const filterPokemonForms = <
     // case 668:
     //   // male, female
     //   break
-    case 670:
-      formNames = ["floette"];
-      varieties = ["red"];
-      break;
     case 671:
       varieties = ["red"];
       break;
@@ -157,6 +156,7 @@ export const filterPokemonForms = <
         "zygarde-10-power-construct",
         "zygarde-50-power-construct",
         "zygarde-complete",
+        "zygarde-mega",
       ];
       break;
     case 744:
@@ -167,6 +167,9 @@ export const filterPokemonForms = <
       break;
     case 778:
       formNames = ["mimikyu-disguised"];
+      break;
+    case 801:
+      formNames = ["magearna", "magearna-mega"];
       break;
     case 845:
       formNames = ["cramorant"];

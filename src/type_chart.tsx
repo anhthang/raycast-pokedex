@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Color, Icon, List } from "@raycast/api";
+import { Action, ActionPanel, Grid, Icon } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { useMemo } from "react";
 import { fetchTypesWithCaching } from "./api";
@@ -17,53 +17,22 @@ export default function TypeChart(props: { arguments: { search?: string } }) {
   }, [search, types]);
 
   return (
-    <List
+    <Grid
       isLoading={isLoading}
-      throttle
+      columns={6}
+      inset={Grid.Inset.Medium}
       searchBarPlaceholder="Search Pokémon type..."
     >
       {filteredTypes?.map((type) => {
         const typeName = type.typenames[0]?.name || type.name;
 
-        // Calculate short summary for the list item
-        const strongVs: string[] = [];
-        const weakTo: string[] = [];
-
-        // Offense: What this type is super effective against
-        type.typeefficacies.forEach((eff) => {
-          if (eff.damage_factor === 200) {
-            strongVs.push(
-              eff.target_type.typenames[0]?.name || eff.target_type.name,
-            );
-          }
-        });
-
-        // Defense: What hits this type super effectively
-        (types || []).forEach((attacker) => {
-          const eff = attacker.typeefficacies.find(
-            (e) => e.target_type_id === type.id,
-          );
-          if (eff?.damage_factor === 200) {
-            weakTo.push(attacker.typenames[0]?.name || attacker.name);
-          }
-        });
-
         return (
-          <List.Item
+          <Grid.Item
             key={type.id}
             title={typeName}
-            icon={{
+            content={{
               source: `types/${type.name}.svg`,
             }}
-            subtitle={`Strong vs: ${[...new Set(strongVs)].join(", ") || "None"}`}
-            accessories={[
-              {
-                tag: {
-                  value: `Weak vs: ${[...new Set(weakTo)].join(", ") || "None"}`,
-                  color: Color.SecondaryText,
-                },
-              },
-            ]}
             actions={
               <ActionPanel>
                 <Action.Push
@@ -76,6 +45,6 @@ export default function TypeChart(props: { arguments: { search?: string } }) {
           />
         );
       })}
-    </List>
+    </Grid>
   );
 }

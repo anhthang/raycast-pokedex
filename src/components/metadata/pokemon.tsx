@@ -19,6 +19,7 @@ export default function PokemonMetadata(props: {
             key={type.type.name}
             text={type.type.typenames[0].name}
             color={typeColor[type.type.name]}
+            icon={`types/${type.type.name.toLowerCase()}.svg`}
           />
         );
       })}
@@ -28,12 +29,8 @@ export default function PokemonMetadata(props: {
         return (
           <Detail.Metadata.TagList.Item
             key={ability.ability.abilitynames[0].name}
-            text={
-              ability.is_hidden
-                ? `${ability.ability.abilitynames[0].name} (Hidden)`
-                : ability.ability.abilitynames[0].name
-            }
-            color={Color.PrimaryText}
+            text={ability.ability.abilitynames[0].name}
+            color={ability.is_hidden ? Color.SecondaryText : Color.PrimaryText}
           />
         );
       })}

@@ -215,42 +215,15 @@ export default function PokeProfile(props: { id: number }) {
             <Detail.Metadata.Separator />
             <WeaknessMetadata type="detail" types={pokemon.pokemontypes} />
             <Detail.Metadata.Separator />
-            <Detail.Metadata.TagList title="Base Stats">
-              {pokemon.pokemonstats.map((stat, idx) => {
-                return (
-                  <Detail.Metadata.TagList.Item
-                    key={idx}
-                    text={`${stat.stat.statnames[0].name}: ${stat.base_stat}`}
-                    icon={{
-                      source:
-                        stat.stat.name === "hp"
-                          ? Icon.Heart
-                          : stat.stat.name === "attack"
-                            ? Icon.Hammer
-                            : stat.stat.name === "defense"
-                              ? Icon.Shield
-                              : stat.stat.name === "special-attack"
-                                ? Icon.Wand
-                                : stat.stat.name === "special-defense"
-                                  ? Icon.Stars
-                                  : Icon.Stopwatch,
-                      tintColor:
-                        stat.stat.name === "hp"
-                          ? Color.Red
-                          : stat.stat.name === "attack"
-                            ? Color.Orange
-                            : stat.stat.name === "defense"
-                              ? Color.Blue
-                              : stat.stat.name === "special-attack"
-                                ? Color.Magenta
-                                : stat.stat.name === "special-defense"
-                                  ? Color.Purple
-                                  : Color.Yellow,
-                    }}
-                  />
-                );
-              })}
-            </Detail.Metadata.TagList>
+            {pokemon.pokemonstats.map((stat, idx) => {
+              return (
+                <Detail.Metadata.Label
+                  key={idx}
+                  title={stat.stat.statnames[0].name}
+                  text={stat.base_stat.toString()}
+                />
+              );
+            })}
           </Detail.Metadata>
         )
       }
