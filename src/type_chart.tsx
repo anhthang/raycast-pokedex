@@ -19,8 +19,7 @@ export default function TypeChart(props: { arguments: { search?: string } }) {
   return (
     <Grid
       isLoading={isLoading}
-      columns={6}
-      inset={Grid.Inset.Medium}
+      columns={8}
       searchBarPlaceholder="Search Pokémon type..."
     >
       {filteredTypes?.map((type) => {

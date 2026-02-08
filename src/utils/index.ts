@@ -125,6 +125,9 @@ export const filterPokemonForms = <
     case 25:
       formNames = ["pikachu", "pikachu-gmax"];
       break;
+    case 445:
+      formNames = ["garchomp", "garchomp-mega"];
+      break;
     case 555:
       formNames = ["darmanitan-standard", "darmanitan-galar-standard"];
       break;
@@ -140,6 +143,7 @@ export const filterPokemonForms = <
         "marine",
         "high-plains",
         "river",
+        "fancy",
       ];
       break;
     // case 668:

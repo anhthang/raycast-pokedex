@@ -13,10 +13,10 @@ export function TypeDetail({
 
   // OFFENSE: When this type attacks others
   const attacking = {
-    superEffective: [] as string[],
-    neutral: [] as string[],
-    notVeryEffective: [] as string[],
-    noEffect: [] as string[],
+    superEffective: [] as List.Item.Accessory[],
+    neutral: [] as List.Item.Accessory[],
+    notVeryEffective: [] as List.Item.Accessory[],
+    noEffect: [] as List.Item.Accessory[],
   };
 
   const efficacyMap = new Map();
@@ -31,18 +31,34 @@ export function TypeDetail({
       : 100;
     const targetName = target.typenames[0]?.name || target.name;
 
-    if (factor === 200) attacking.superEffective.push(targetName);
-    else if (factor === 100) attacking.neutral.push(targetName);
-    else if (factor === 50) attacking.notVeryEffective.push(targetName);
-    else if (factor === 0) attacking.noEffect.push(targetName);
+    if (factor === 200)
+      attacking.superEffective.push({
+        tooltip: targetName,
+        icon: `types/${target.name}.svg`,
+      });
+    else if (factor === 100)
+      attacking.neutral.push({
+        tooltip: targetName,
+        icon: `types/${target.name}.svg`,
+      });
+    else if (factor === 50)
+      attacking.notVeryEffective.push({
+        tooltip: targetName,
+        icon: `types/${target.name}.svg`,
+      });
+    else if (factor === 0)
+      attacking.noEffect.push({
+        tooltip: targetName,
+        icon: `types/${target.name}.svg`,
+      });
   });
 
   // DEFENSE: When this type is hit by others
   const defending = {
-    weakTo: [] as string[],
-    neutral: [] as string[],
-    resistantTo: [] as string[],
-    immuneTo: [] as string[],
+    weakTo: [] as List.Item.Accessory[],
+    neutral: [] as List.Item.Accessory[],
+    resistantTo: [] as List.Item.Accessory[],
+    immuneTo: [] as List.Item.Accessory[],
   };
 
   allTypes.forEach((attacker) => {
@@ -54,10 +70,26 @@ export function TypeDetail({
     );
     const factor = eff ? eff.damage_factor : 100;
 
-    if (factor === 200) defending.weakTo.push(attackerName);
-    else if (factor === 100) defending.neutral.push(attackerName);
-    else if (factor === 50) defending.resistantTo.push(attackerName);
-    else if (factor === 0) defending.immuneTo.push(attackerName);
+    if (factor === 200)
+      defending.weakTo.push({
+        tooltip: attackerName,
+        icon: `types/${attacker.name}.svg`,
+      });
+    else if (factor === 100)
+      defending.neutral.push({
+        tooltip: attackerName,
+        icon: `types/${attacker.name}.svg`,
+      });
+    else if (factor === 50)
+      defending.resistantTo.push({
+        tooltip: attackerName,
+        icon: `types/${attacker.name}.svg`,
+      });
+    else if (factor === 0)
+      defending.immuneTo.push({
+        tooltip: attackerName,
+        icon: `types/${attacker.name}.svg`,
+      });
   });
 
   return (
@@ -70,37 +102,25 @@ export function TypeDetail({
           title="Super Effective"
           icon={Icon.ChevronUp}
           subtitle="2x"
-          accessories={attacking.superEffective.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={attacking.superEffective}
         />
         <List.Item
           title="Neutral"
           icon={Icon.CircleFilled}
           subtitle="1x"
-          accessories={attacking.neutral.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={attacking.neutral}
         />
         <List.Item
           title="Not Very Effective"
           icon={Icon.CircleProgress50}
           subtitle="0.5x"
-          accessories={attacking.notVeryEffective.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={attacking.notVeryEffective}
         />
         <List.Item
           title="No Effect"
           icon={Icon.XMarkCircle}
           subtitle="0x"
-          accessories={attacking.noEffect.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={attacking.noEffect}
         />
       </List.Section>
       <List.Section
@@ -111,37 +131,25 @@ export function TypeDetail({
           title="Weak To"
           icon={Icon.ChevronUp}
           subtitle="2x"
-          accessories={defending.weakTo.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={defending.weakTo}
         />
         <List.Item
           title="Neutral"
           icon={Icon.CircleFilled}
           subtitle="1x"
-          accessories={defending.neutral.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={defending.neutral}
         />
         <List.Item
           title="Resistant To"
           icon={Icon.CircleProgress50}
           subtitle="0.5x"
-          accessories={defending.resistantTo.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={defending.resistantTo}
         />
         <List.Item
           title="Immune To"
           icon={Icon.XMarkCircle}
           subtitle="0x"
-          accessories={defending.immuneTo.map((text) => ({
-            tooltip: text,
-            icon: `types/${text.toLowerCase()}.svg`,
-          }))}
+          accessories={defending.immuneTo}
         />
       </List.Section>
     </List>

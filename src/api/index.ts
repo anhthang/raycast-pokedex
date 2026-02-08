@@ -473,6 +473,7 @@ export const fetchTypesWithCaching = async (): Promise<
 
   return fetchDataWithCaching(query, variables, "pokemontypes", true);
 };
+
 export const fetchNaturesWithCaching = async (): Promise<
   Nature[] | undefined
 > => {

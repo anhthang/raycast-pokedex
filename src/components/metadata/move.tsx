@@ -9,9 +9,7 @@ export default function MoveMetadata(props: { move: PokemonMove["move"] }) {
       <List.Item.Detail.Metadata.Label
         title="Type"
         text={move.type.typenames[0].name}
-        icon={{
-          source: `types/${move.type.name}.svg`,
-        }}
+        icon={`types/${move.type.name}.svg`}
       />
       <List.Item.Detail.Metadata.Label
         title="Category"
