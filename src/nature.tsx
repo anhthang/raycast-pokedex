@@ -3,6 +3,45 @@ import { usePromise } from "@raycast/utils";
 import { useMemo } from "react";
 import { fetchNaturesWithCaching } from "./api";
 
+export const natureIconMap: Record<string, Icon> = {
+  // Neutral
+  hardy: Icon.Circle,
+  docile: Icon.Circle,
+  serious: Icon.Circle,
+  bashful: Icon.Circle,
+  quirky: Icon.Circle,
+
+  // +Attack, -Defense / Sp. stats
+  lonely: Icon.Bolt, // +Atk, -Def
+  adamant: Icon.Bolt, // +Atk, -SpA
+  naughty: Icon.Bolt, // +Atk, -SpD
+  brave: Icon.Bolt, // +Atk, -Spe
+
+  // +Defense, -Atk / Sp. stats
+  bold: Icon.Shield, // +Def, -Atk
+  impish: Icon.Shield, // +Def, -SpA
+  lax: Icon.Shield, // +Def, -SpD
+  relaxed: Icon.Shield, // +Def, -Spe
+
+  // +Sp. Atk, -Atk / Def / SpD / Spe
+  modest: Icon.LightBulb, // +SpA, -Atk
+  mild: Icon.LightBulb, // +SpA, -Def
+  rash: Icon.LightBulb, // +SpA, -SpD
+  quiet: Icon.LightBulb, // +SpA, -Spe
+
+  // +Sp. Def, -Atk / Def / SpA / Spe
+  calm: Icon.Heart, // +SpD, -Atk
+  gentle: Icon.Heart, // +SpD, -Def
+  careful: Icon.Heart, // +SpD, -SpA
+  sassy: Icon.Heart, // +SpD, -Spe
+
+  // +Speed, -Atk / Def / SpA / SpD
+  timid: Icon.Windsock, // +Spe, -Atk
+  hasty: Icon.Windsock, // +Spe, -Def
+  jolly: Icon.Windsock, // +Spe, -SpA
+  naive: Icon.Windsock, // +Spe, -SpD
+};
+
 export default function NatureCommand(props: {
   arguments: { search?: string };
 }) {
@@ -40,19 +79,16 @@ export default function NatureCommand(props: {
           if (increasedStat) {
             accessories.push({
               tag: { value: `+10% ${increasedStat}`, color: Color.Green },
-              tooltip: "Stat increased by 10%",
             });
           }
           if (decreasedStat) {
             accessories.push({
               tag: { value: `-10% ${decreasedStat}`, color: Color.Red },
-              tooltip: "Stat decreased by 10%",
             });
           }
         } else {
           accessories.push({
-            tag: { value: "Neutral", color: Color.SecondaryText },
-            tooltip: "No stat changes",
+            tag: { value: "-", color: Color.SecondaryText },
           });
         }
 
@@ -60,7 +96,7 @@ export default function NatureCommand(props: {
           <List.Item
             key={nature.id}
             title={natureName}
-            icon={isNeutral ? Icon.Circle : Icon.List}
+            icon={natureIconMap[nature.name] || Icon.QuestionMark}
             accessories={accessories}
           />
         );
