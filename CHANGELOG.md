@@ -1,11 +1,11 @@
 # Pokédex Changelog
 
-## [Type Mastery] - {PR_MERGE_DATE}
+## [Type Mastery] - 2026-10-02
 
 - Added **Natures** command to explore stat changes and localized names for all Pokémon natures.
 - Added **Type Chart** command for a comprehensive overview of type effectiveness, strengths, and weaknesses.
-- Fixed **Weakness & Resistance** calculations using a robust manual cross-reference logic, resolving issues with missing or incorrect efficacy data from the GraphQL API.
-- Comprehensive **Global Prefix Refactor**: Removed all legacy `pokemon_v2_` prefixes from UI components, types, and API queries to align with the modern PokeAPI GraphQL schema.
+- Fixed **Weakness & Resistance** calculations using a reliable manual cross-reference to avoid missing GraphQL data.
+- Completed a global prefix refactor by removing legacy `pokemon_v2_` naming across UI, types, and API queries.
 
 ## [Move Stability] - 2026-01-04
 

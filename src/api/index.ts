@@ -126,7 +126,7 @@ export const fetchPokemonWithCaching = async (
       pokemonabilities {
         is_hidden
         ability {
-          abilitynames(where: {language_id: {_eq: $language_id}}) {
+          abilitynames(where: {language_id: {_eq: $language_id}}, distinct_on: [name]) {
             name
           }
         }
@@ -286,7 +286,7 @@ export const fetchPokemonWithCaching = async (
           pokemonabilities {
             is_hidden
             ability {
-              abilitynames(where: {language_id: {_eq: $language_id}}) {
+              abilitynames(where: {language_id: {_eq: $language_id}}, distinct_on: [name]) {
                 name
               }
             }
