@@ -16,12 +16,8 @@ import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonSpeciesName } from "./types";
-import {
-  getOfficialArtworkImg,
-  localeName,
-  nationalDexNumber,
-  typeColor,
-} from "./utils";
+import { getOfficialArtworkImg, localeName, nationalDexNumber } from "./utils";
+import TypeMetadata from "./components/metadata/type";
 
 const { language } = getPreferenceValues();
 
@@ -101,16 +97,10 @@ export default function PokeWeaknesses(props: {
                       !isLoading &&
                       pokemon && (
                         <List.Item.Detail.Metadata>
-                          <List.Item.Detail.Metadata.TagList title="Type">
-                            {pokemon?.pokemontypes.map((type) => (
-                              <List.Item.Detail.Metadata.TagList.Item
-                                key={type.type.name}
-                                text={type.type.typenames[0].name}
-                                icon={`types/${type.type.name}.svg`}
-                                color={typeColor[type.type.name]}
-                              />
-                            ))}
-                          </List.Item.Detail.Metadata.TagList>
+                          <TypeMetadata
+                            types={pokemon?.pokemontypes || []}
+                            type="detail"
+                          />
 
                           <WeaknessMetadata
                             types={pokemon?.pokemontypes || []}

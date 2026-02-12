@@ -213,15 +213,19 @@ export default function PokeProfile(props: { id: number }) {
             <Detail.Metadata.Separator />
             <WeaknessMetadata type="detail" types={pokemon.pokemontypes} />
             <Detail.Metadata.Separator />
-            {pokemon.pokemonstats.map((stat, idx) => {
-              return (
-                <Detail.Metadata.Label
+            <Detail.Metadata.TagList title="Base Stats">
+              {pokemon.pokemonstats.map((stat, idx) => (
+                <Detail.Metadata.TagList.Item
                   key={idx}
-                  title={stat.stat.statnames[0].name}
-                  text={stat.base_stat.toString()}
+                  text={`${stat.stat.statnames[0].name}: ${stat.base_stat}`}
+                  color={
+                    stat.stat.name.startsWith("special")
+                      ? Color.Green
+                      : Color.Yellow
+                  }
                 />
-              );
-            })}
+              ))}
+            </Detail.Metadata.TagList>
           </Detail.Metadata>
         )
       }
