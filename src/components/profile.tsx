@@ -9,7 +9,7 @@ import {
 import { usePromise } from "@raycast/utils";
 import json2md from "json2md";
 import { useMemo } from "react";
-import { fetchPokemonWithCaching } from "../api";
+import { fetchPokemon } from "../api";
 import { PokemonSpeciesName, Pokemon, EvolutionSpecies } from "../types";
 import { getOfficialArtworkImg, nationalDexNumber } from "../utils";
 import PokemonEncounters from "./encounter";
@@ -31,9 +31,7 @@ enum GrowthRate {
 }
 
 export default function PokeProfile(props: { id: number }) {
-  const { data: pokemon, isLoading } = usePromise(fetchPokemonWithCaching, [
-    props.id,
-  ]);
+  const { data: pokemon, isLoading } = usePromise(fetchPokemon, [props.id]);
 
   const nameByLang = useMemo(() => {
     if (!pokemon) return {};

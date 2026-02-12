@@ -1,12 +1,12 @@
 import { Action, ActionPanel, Grid, Icon } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { useMemo } from "react";
-import { fetchTypesWithCaching } from "./api";
+import { fetchTypes } from "./api";
 import { TypeDetail } from "./components/type_detail";
 
 export default function TypeChart(props: { arguments: { search?: string } }) {
   const { search } = props.arguments;
-  const { data: types, isLoading } = usePromise(fetchTypesWithCaching);
+  const { data: types, isLoading } = usePromise(fetchTypes);
 
   const filteredTypes = useMemo(() => {
     if (!search || !types) return types;

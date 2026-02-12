@@ -1,7 +1,7 @@
 import { Color, Icon, List } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { useMemo } from "react";
-import { fetchNaturesWithCaching } from "./api";
+import { fetchNatures } from "./api";
 
 export const natureIconMap: Record<string, Icon> = {
   // Neutral
@@ -46,7 +46,7 @@ export default function NatureCommand(props: {
   arguments: { search?: string };
 }) {
   const { search } = props.arguments;
-  const { data: natures, isLoading } = usePromise(fetchNaturesWithCaching);
+  const { data: natures, isLoading } = usePromise(fetchNatures);
 
   const filteredNatures = useMemo(() => {
     if (!search || !natures) return natures;

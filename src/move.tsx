@@ -4,7 +4,7 @@ import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchMoveWithCaching } from "./api";
+import { fetchMove } from "./api";
 import Descriptions from "./components/description";
 import MoveMetadata from "./components/metadata/move";
 import MoveLearnset from "./components/move_learnset";
@@ -25,9 +25,7 @@ export default function PokeMoves(props: {
     }
   }, [props.id]);
 
-  const { data: move, isLoading } = usePromise(fetchMoveWithCaching, [
-    selectedMoveId,
-  ]);
+  const { data: move, isLoading } = usePromise(fetchMove, [selectedMoveId]);
 
   const debouncedSelectionChange = useCallback(
     debounce((index: string | null) => {

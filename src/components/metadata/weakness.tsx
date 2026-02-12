@@ -1,6 +1,6 @@
 import { Detail, List } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
-import { fetchTypesWithCaching } from "../../api";
+import { fetchTypes } from "../../api";
 import { PokemonType } from "../../types";
 import { calculateEffectiveness } from "../../utils";
 
@@ -13,7 +13,7 @@ export default function WeaknessMetadata(props: {
       ? Detail.Metadata.TagList
       : List.Item.Detail.Metadata.TagList;
 
-  const { data: allTypes } = usePromise(fetchTypesWithCaching);
+  const { data: allTypes } = usePromise(fetchTypes);
 
   const { weak, resistant, immune } = calculateEffectiveness(
     props.types,

@@ -89,7 +89,7 @@ async function fetchDataWithCaching<T>(
   }
 }
 
-export const fetchPokemonWithCaching = async (
+export const fetchPokemon = async (
   pokemon_id: number,
 ): Promise<Pokemon | undefined> => {
   const query = `query pokemon($language_id: Int, $pokemon_id: Int) {
@@ -354,9 +354,7 @@ export const fetchPokemonWithCaching = async (
   return fetchDataWithCaching(query, variables, "pokemon");
 };
 
-export const fetchMoveWithCaching = async (
-  move_id: number,
-): Promise<Move | undefined> => {
+export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
   const query = `query move($language_id: Int, $move_id: Int) {
     move(where: {id: {_eq: $move_id}}) {
       id
@@ -446,22 +444,20 @@ export const fetchMoveWithCaching = async (
   return fetchDataWithCaching(query, variables, "move");
 };
 
-export const fetchTypesWithCaching = async (): Promise<
-  TypeChartType[] | undefined
-> => {
+export const fetchTypes = async (): Promise<TypeChartType[] | undefined> => {
   const query = `query types($language_id: Int) {
-    pokemontypes: type(where: {id: {_lte: 18}}) {
+    type(where: {id: {_lte: 18}}) {
       name
       id
-      typenames: typenames(where: {language_id: {_eq: $language_id}}) {
+      typenames(where: {language_id: {_eq: $language_id}}) {
         name
       }
-      typeefficacies: typeefficacies {
+      typeefficacies {
         damage_factor
         target_type_id
         target_type: type {
           name
-          typenames: typenames(where: {language_id: {_eq: $language_id}}) {
+          typenames(where: {language_id: {_eq: $language_id}}) {
             name
           }
         }
@@ -471,17 +467,15 @@ export const fetchTypesWithCaching = async (): Promise<
 
   const variables = { language_id };
 
-  return fetchDataWithCaching(query, variables, "pokemontypes", true);
+  return fetchDataWithCaching(query, variables, "type", true);
 };
 
-export const fetchNaturesWithCaching = async (): Promise<
-  Nature[] | undefined
-> => {
+export const fetchNatures = async (): Promise<Nature[] | undefined> => {
   const query = `query natures($language_id: Int) {
-    pokenatures: nature {
+    nature {
       id
       name
-      naturenames: naturenames(where: {language_id: {_eq: $language_id}}) {
+      naturenames(where: {language_id: {_eq: $language_id}}) {
         name
       }
       increased_stat_id
@@ -503,5 +497,5 @@ export const fetchNaturesWithCaching = async (): Promise<
 
   const variables = { language_id };
 
-  return fetchDataWithCaching(query, variables, "pokenatures", true);
+  return fetchDataWithCaching(query, variables, "nature", true);
 };
