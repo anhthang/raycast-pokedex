@@ -54,7 +54,11 @@ export default function NationalPokedex(props: {
   useEffect(() => {
     const sorted = orderBy(pokedex, ...sort.split("|"));
     const filtered =
-      type != "all" ? sorted.filter((p) => p.types.includes(type)) : sorted;
+      type != "all"
+        ? sorted.filter((p) =>
+            p.types.map((t) => t.toLowerCase()).includes(type),
+          )
+        : sorted;
 
     const searched = search
       ? filtered.filter(

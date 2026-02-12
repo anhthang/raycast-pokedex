@@ -57,7 +57,11 @@ export default function PokeWeaknesses(props: {
 
   const pokemons = useMemo(() => {
     let filtered =
-      type != "all" ? pokedex.filter((p) => p.types.includes(type)) : pokedex;
+      type != "all"
+        ? pokedex.filter((p) =>
+            p.types.map((t) => t.toLowerCase()).includes(type),
+          )
+        : pokedex;
 
     if (search) {
       filtered = filtered.filter(

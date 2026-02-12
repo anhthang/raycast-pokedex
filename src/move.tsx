@@ -44,9 +44,7 @@ export default function PokeMoves(props: {
 
   const generations = useMemo(() => {
     let listing =
-      type === "all"
-        ? moves
-        : moves?.filter((m) => m.type.typenames[0].name === type);
+      type === "all" ? moves : moves?.filter((m) => m.type.name === type);
 
     if (search) {
       listing = listing?.filter((m) =>
