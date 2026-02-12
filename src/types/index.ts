@@ -94,7 +94,11 @@ export interface Generation {
 }
 
 export interface Ability {
+  id: number;
+  name: string;
   abilitynames: Name[];
+  abilityeffecttexts: Effect[];
+  generation: Generation;
 }
 
 export interface Name {

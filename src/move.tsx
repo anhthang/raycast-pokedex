@@ -4,18 +4,20 @@ import json2md from "json2md";
 import debounce from "lodash.debounce";
 import groupBy from "lodash.groupby";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchMove } from "./api";
+import { fetchMove, fetchMoves } from "./api";
 import Descriptions from "./components/description";
 import MoveMetadata from "./components/metadata/move";
 import MoveLearnset from "./components/move_learnset";
 import TypeDropdown from "./components/type_dropdown";
-import moves from "./statics/moves.json";
 
 export default function PokeMoves(props: {
   id?: number;
   arguments?: { search?: string };
 }) {
   const { search } = props.arguments || {};
+
+  const { data: moves } = usePromise(fetchMoves);
+
   const [type, setType] = useState<string>("all");
   const [selectedMoveId, setSelectedMoveId] = useState<number>(71);
 
@@ -41,16 +43,17 @@ export default function PokeMoves(props: {
   };
 
   const generations = useMemo(() => {
-    let listing = type === "all" ? moves : moves.filter((m) => m.type === type);
+    let listing =
+      type === "all" ? moves : moves?.filter((m) => m.type.name === type);
 
     if (search) {
-      listing = listing.filter((m) =>
+      listing = listing?.filter((m) =>
         m.name.toLowerCase().includes(search.toLowerCase()),
       );
     }
 
-    return groupBy(listing, "generation");
-  }, [type, search]);
+    return groupBy(listing, "generation.generationnames.0.name");
+  }, [moves, type, search]);
 
   return (
     <List
@@ -72,9 +75,9 @@ export default function PokeMoves(props: {
                 <List.Item
                   key={m.id}
                   id={m.id.toString()}
-                  title={m.name}
-                  icon={`moves/${m.damage_class || "status"}.svg`}
-                  keywords={[m.name]}
+                  title={m.movenames[0]?.name || m.name}
+                  icon={`moves/${m.movedamageclass.name || "status"}.svg`}
+                  keywords={[m.name, m.movenames[0]?.name]}
                   detail={
                     !isLoading && (
                       <List.Item.Detail
@@ -82,7 +85,7 @@ export default function PokeMoves(props: {
                           move && move.moveeffect?.moveeffecteffecttexts.length
                             ? json2md([
                                 {
-                                  h1: m.name,
+                                  h1: m.movenames[0]?.name || m.name,
                                 },
                                 {
                                   p: move.moveeffect.moveeffecteffecttexts[0].short_effect.replace(

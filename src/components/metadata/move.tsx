@@ -13,11 +13,14 @@ export default function MoveMetadata(props: { move: PokemonMove["move"] }) {
       />
       <List.Item.Detail.Metadata.Label
         title="Category"
+        // text={
+        //   move.movedamageclass.movedamageclassnames[0]?.name || move.movedamageclass.name
+        // }
+        // NOTE: PokeAPI GraphQL is returning an incorrect damage class name here,
+        // so we ignore movedamageclassnames[0]?.name and just normalize `movedamageclass.name` instead.
         text={
-          move.movedamageclass.movedamageclassnames[0].name
-            .charAt(0)
-            .toUpperCase() +
-          move.movedamageclass.movedamageclassnames[0].name.slice(1)
+          move.movedamageclass.name.charAt(0).toUpperCase() +
+          move.movedamageclass.name.slice(1)
         }
         icon={{
           source: `moves/${move.movedamageclass.name || "status"}.svg`,

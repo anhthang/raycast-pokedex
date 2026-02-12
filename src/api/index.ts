@@ -2,7 +2,14 @@
 import { Cache, getPreferenceValues } from "@raycast/api";
 import { showFailureToast } from "@raycast/utils";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { PokeAPI, Pokemon, TypeChartType, Nature, Move } from "../types";
+import {
+  PokeAPI,
+  Pokemon,
+  TypeChartType,
+  Nature,
+  Move,
+  Ability,
+} from "../types";
 
 const cache = new Cache();
 const { language: language_id, duration } = getPreferenceValues();
@@ -148,7 +155,8 @@ export const fetchPokemon = async (
             version_group_id
           }
           movedamageclass {
-            movedamageclassnames(where: {language_id: {_eq: 9}}) {
+            name
+            movedamageclassnames(where: {language_id: {_eq: $language_id}}) {
               name
             }
           }
@@ -354,6 +362,51 @@ export const fetchPokemon = async (
   return fetchDataWithCaching(query, variables, "pokemon");
 };
 
+export const fetchMoves = async (): Promise<Move[] | undefined> => {
+  const query = `query moves($language_id: Int) {
+    move(order_by: [{generation_id: asc}, {name: asc}]) {
+      id
+      accuracy
+      name
+      power
+      pp
+      move_effect_chance
+      move_effect_id
+      move_target_id
+      generation {
+        generationnames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+      }
+      movedamageclass {
+        name
+        movedamageclassnames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+      }
+      type {
+        name
+        typenames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+      }
+      moveeffect {
+        moveeffecteffecttexts(where: {language_id: {_eq: $language_id}}) {
+          short_effect
+          effect
+        }
+      }
+      movenames(where: {language_id: {_eq: $language_id}}) {
+        name
+      }
+    }
+  }`;
+
+  const variables = { language_id };
+
+  return fetchDataWithCaching(query, variables, "move", true);
+};
+
 export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
   const query = `query move($language_id: Int, $move_id: Int) {
     move(where: {id: {_eq: $move_id}}) {
@@ -399,7 +452,8 @@ export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
         }
       }
       movedamageclass {
-        movedamageclassnames(where: {language_id: {_eq: 9}}) {
+        name
+        movedamageclassnames(where: {language_id: {_eq: $language_id}}) {
           name
         }
       }
@@ -498,4 +552,30 @@ export const fetchNatures = async (): Promise<Nature[] | undefined> => {
   const variables = { language_id };
 
   return fetchDataWithCaching(query, variables, "nature", true);
+};
+
+export const fetchAbilities = async (): Promise<Ability[] | undefined> => {
+  const query = `query abilities($language_id: Int) {
+    ability(order_by: [{generation_id: asc}, {name: asc}]) {
+      id
+      name
+      abilitynames(where: {language_id: {_eq: $language_id}}) {
+        name
+      }
+      abilityeffecttexts(where: {language_id: {_eq: $language_id}}) {
+        short_effect
+        effect
+      }
+      generation {
+        name
+        generationnames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+      }
+    }
+  }`;
+
+  const variables = { language_id };
+
+  return fetchDataWithCaching(query, variables, "ability", true);
 };

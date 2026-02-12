@@ -134,7 +134,7 @@ export default function PokemonLearnset(props: {
                   key={`${move.versiongroup.name}-${move.move_learn_method_id}-${move.level}-${move.move_id}`}
                   title={moveName}
                   keywords={[moveName]}
-                  icon={`moves/${move.move.movedamageclass.movedamageclassnames[0].name}.svg`}
+                  icon={`moves/${move.move.movedamageclass.name}.svg`}
                   accessories={[{ text }]}
                   detail={
                     <List.Item.Detail
