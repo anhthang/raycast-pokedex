@@ -9,6 +9,7 @@ import {
   Nature,
   Move,
   Ability,
+  Item,
 } from "../types";
 
 const cache = new Cache();
@@ -120,7 +121,7 @@ export const fetchPokemon = async (
             name
             generation {
               name
-              generationnames(where: {language_id: {_eq: 9}}) {
+              generationnames(where: {language_id: {_eq: $language_id}}) {
                 name
               }
             }
@@ -188,7 +189,7 @@ export const fetchPokemon = async (
           name
           generation {
             name
-            generationnames(where: {language_id: {_eq: 9}}) {
+            generationnames(where: {language_id: {_eq: $language_id}}) {
               name
             }
           }
@@ -331,7 +332,7 @@ export const fetchPokemon = async (
               generation_id
               generation {
                 name
-                generationnames(where: {language_id: {_eq: 9}}) {
+                generationnames(where: {language_id: {_eq: $language_id}}) {
                   name
                 }
               }
@@ -447,7 +448,7 @@ export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
         }
       }
       generation {
-        generationnames(where: {language_id: {_eq: 9}}) {
+        generationnames(where: {language_id: {_eq: $language_id}}) {
           name
         }
       }
@@ -469,7 +470,7 @@ export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
           name
           generation {
             name
-            generationnames(where: {language_id: {_eq: 9}}) {
+            generationnames(where: {language_id: {_eq: $language_id}}) {
               name
             }
           }
@@ -578,4 +579,38 @@ export const fetchAbilities = async (): Promise<Ability[] | undefined> => {
   const variables = { language_id };
 
   return fetchDataWithCaching(query, variables, "ability", true);
+};
+
+export const fetchItems = async (): Promise<Item[] | undefined> => {
+  const query = `query items($language_id: Int) {
+    item {
+      id
+      name
+      cost
+      itemnames(where: {language_id: {_eq: $language_id}}) {
+        name
+      }
+      itemcategory {
+        name
+        item_pocket_id
+        itemcategorynames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+        itempocket {
+          name
+          itempocketnames(where: {language_id: {_eq: $language_id}}) {
+            name
+          }
+        }
+      }
+      itemeffecttexts(where: {language_id: {_eq: $language_id}}) {
+        short_effect
+        effect
+      }
+    }
+  }`;
+
+  const variables = { language_id };
+
+  return fetchDataWithCaching(query, variables, "item", true);
 };

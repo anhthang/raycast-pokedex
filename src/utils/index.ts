@@ -227,3 +227,14 @@ export const filterPokemonForms = <
 
   return forms;
 };
+
+export const fixFlavorText = (raw?: string) => {
+  return raw?.split("\n").join(" ").split("").join(" ") || "";
+};
+
+export const fixItemEffectText = (raw: string) => {
+  return raw
+    .replaceAll("\n:", ":\n")
+    .replaceAll("\n\n", "\n")
+    .replaceAll("    ", "");
+};

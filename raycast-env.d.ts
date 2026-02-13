@@ -32,6 +32,8 @@ declare namespace Preferences {
   export type TypeChart = ExtensionPreferences & {}
   /** Preferences accessible in the `nature` command */
   export type Nature = ExtensionPreferences & {}
+  /** Preferences accessible in the `item` command */
+  export type Item = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -63,6 +65,11 @@ declare namespace Arguments {
   /** Arguments passed to the `nature` command */
   export type Nature = {
   /** Nature name */
+  "search": string
+}
+  /** Arguments passed to the `item` command */
+  export type Item = {
+  /** Item name */
   "search": string
 }
 }

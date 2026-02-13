@@ -1,5 +1,9 @@
 # Pokédex Changelog
 
+## [ItemDex] - 2026-02-28
+
+- Added **Items** command to browse and filter Pokémon items by pocket, with detailed item information and multi-language support.
+
 ## [Type Mastery] - 2026-02-14
 
 - Added **Natures** command to explore stat changes and localized names for all Pokémon natures.

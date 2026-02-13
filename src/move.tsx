@@ -117,7 +117,7 @@ export default function PokeMoves(props: {
                           {move.movenames.length > 0 && (
                             <Action.Push
                               title="Learnset"
-                              icon={Icon.List}
+                              icon={Icon.LightBulb}
                               target={
                                 <MoveLearnset
                                   name={move.movenames[0].name}

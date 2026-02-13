@@ -109,6 +109,21 @@
           "required": false
         }
       ]
+    },
+    {
+      "name": "item",
+      "title": "Items",
+      "subtitle": "Pokédex",
+      "description": "Browse through Pokémon items, their effects, and prices.",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Item name",
+          "type": "text",
+          "required": false
+        }
+      ]
     }
   ],
   "preferences": [

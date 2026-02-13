@@ -11,7 +11,11 @@ import json2md from "json2md";
 import { useMemo } from "react";
 import { fetchPokemon } from "../api";
 import { PokemonSpeciesName, Pokemon, EvolutionSpecies } from "../types";
-import { getOfficialArtworkImg, nationalDexNumber } from "../utils";
+import {
+  fixFlavorText,
+  getOfficialArtworkImg,
+  nationalDexNumber,
+} from "../utils";
 import PokemonEncounters from "./encounter";
 import PokedexEntries from "./entry";
 import PokemonForms from "./form";
@@ -95,7 +99,7 @@ export default function PokeProfile(props: { id: number }) {
         h3: nameByLang[language].genus,
       },
       {
-        p: flavors[0]?.flavor_text.split("\n").join(" ") || "",
+        p: fixFlavorText(flavors[0]?.flavor_text),
       },
       {
         img: {
@@ -246,7 +250,7 @@ export default function PokeProfile(props: { id: number }) {
               />
               <Action.Push
                 title="Forms"
-                icon={Icon.List}
+                icon={Icon.Layers}
                 target={
                   <PokemonForms
                     id={pokemon.id}
@@ -259,7 +263,7 @@ export default function PokeProfile(props: { id: number }) {
               />
               <Action.Push
                 title="Learnset"
-                icon={Icon.List}
+                icon={Icon.LightBulb}
                 target={
                   <PokemonLearnset
                     name={nameByLang[language].name}
@@ -269,7 +273,7 @@ export default function PokeProfile(props: { id: number }) {
               />
               <Action.Push
                 title="Where to Find"
-                icon={Icon.List}
+                icon={Icon.Map}
                 target={
                   <PokemonEncounters
                     name={nameByLang[language].name}
