@@ -16,7 +16,7 @@ export default function PokeMoves(props: {
 }) {
   const { search } = props.arguments || {};
 
-  const { data: moves } = usePromise(fetchMoves);
+  const { data: moves, isLoading } = usePromise(fetchMoves);
 
   const [type, setType] = useState<string>("all");
   const [selectedMoveId, setSelectedMoveId] = useState<number>(71);
@@ -27,7 +27,7 @@ export default function PokeMoves(props: {
     }
   }, [props.id]);
 
-  const { data: move, isLoading } = usePromise(fetchMove, [selectedMoveId]);
+  const { data: move } = usePromise(fetchMove, [selectedMoveId]);
 
   const debouncedSelectionChange = useCallback(
     debounce((index: string | null) => {
@@ -79,7 +79,7 @@ export default function PokeMoves(props: {
                   icon={`moves/${m.movedamageclass.name || "status"}.svg`}
                   keywords={[m.name, m.movenames[0]?.name]}
                   detail={
-                    !isLoading && (
+                    move && (
                       <List.Item.Detail
                         markdown={
                           move && move.moveeffect?.moveeffecteffecttexts.length

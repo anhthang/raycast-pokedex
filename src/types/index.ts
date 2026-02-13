@@ -287,6 +287,7 @@ export interface Item {
   cost: number;
   itemcategory: ItemCategory;
   itemeffecttexts: Effect[];
+  itemflavortexts: FlavorText[];
 }
 
 export interface ItemCategory {

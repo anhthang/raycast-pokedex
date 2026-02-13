@@ -614,3 +614,55 @@ export const fetchItems = async (): Promise<Item[] | undefined> => {
 
   return fetchDataWithCaching(query, variables, "item", true);
 };
+
+export const fetchItem = async (item_id: number): Promise<Item | undefined> => {
+  const query = `query item($language_id: Int, $item_id: Int) {
+    item(where: {id: {_eq: $item_id}}) {
+      id
+      name
+      cost
+      itemnames(where: {language_id: {_eq: $language_id}}) {
+        name
+      }
+      itemcategory {
+        name
+        item_pocket_id
+        itemcategorynames(where: {language_id: {_eq: $language_id}}) {
+          name
+        }
+        itempocket {
+          name
+          itempocketnames(where: {language_id: {_eq: $language_id}}) {
+            name
+          }
+        }
+      }
+      itemeffecttexts(where: {language_id: {_eq: $language_id}}) {
+        short_effect
+        effect
+      }
+      itemflavortexts(where: {language_id: {_eq: $language_id}}) {
+        flavor_text
+        versiongroup {
+          name
+          generation {
+            name
+            generationnames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+          }
+          versions {
+            name
+            versionnames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+  const variables = { language_id, item_id };
+
+  return fetchDataWithCaching(query, variables, "item");
+};

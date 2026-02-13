@@ -1,16 +1,38 @@
-import { List } from "@raycast/api";
+import { Action, ActionPanel, Icon, List } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import json2md from "json2md";
 import groupBy from "lodash.groupby";
-import { useMemo, useState } from "react";
-import { fetchItems } from "./api";
+import debounce from "lodash.debounce";
+import { useCallback, useMemo, useState } from "react";
+import { fetchItems, fetchItem } from "./api";
+import Descriptions from "./components/description";
 import { fixItemEffectText } from "./utils";
 
 export default function PokeItems(props: { arguments: { search?: string } }) {
   const { search } = props.arguments;
   const [pocket, setPocket] = useState<string>("all");
+  const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
   const { data: items, isLoading } = usePromise(fetchItems);
+
+  const { data: item } = usePromise(fetchItem, [selectedItemId || 0], {
+    execute: selectedItemId !== null,
+  });
+
+  const debouncedSelectionChange = useCallback(
+    debounce((itemId: number | null) => {
+      setSelectedItemId(itemId);
+    }, 300),
+    [],
+  );
+
+  const onSelectionChange = (itemId: string | null) => {
+    if (itemId) {
+      debouncedSelectionChange(parseInt(itemId));
+    } else {
+      debouncedSelectionChange(null);
+    }
+  };
 
   const pockets = useMemo(() => {
     return groupBy(
@@ -53,6 +75,8 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
       isShowingDetail={true}
       isLoading={isLoading}
       searchBarPlaceholder="Search Items..."
+      selectedItemId={selectedItemId ? String(selectedItemId) : undefined}
+      onSelectionChange={onSelectionChange}
       searchBarAccessory={
         <List.Dropdown
           tooltip="Filter by Pocket"
@@ -73,20 +97,21 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
       {Object.entries(filteredPockets).map(([pocketName, itemList]) => {
         return (
           <List.Section key={pocketName} title={pocketName}>
-            {itemList?.map((item) => {
-              const itemName = item.itemnames[0]?.name || item.name;
-              const itemIcon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`;
+            {itemList?.map((itemData) => {
+              const itemName = itemData.itemnames[0]?.name || itemData.name;
+              const itemIcon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${itemData.name}.png`;
               const categoryName =
-                item.itemcategory?.itemcategorynames[0]?.name ||
-                item.itemcategory?.name ||
+                itemData.itemcategory?.itemcategorynames[0]?.name ||
+                itemData.itemcategory?.name ||
                 "Unknown Category";
 
               return (
                 <List.Item
-                  key={item.name}
+                  key={itemData.name}
+                  id={String(itemData.id)}
                   title={itemName}
                   icon={itemIcon}
-                  keywords={[item.name, itemName]}
+                  keywords={[itemData.name, itemName]}
                   detail={
                     <List.Item.Detail
                       markdown={json2md([
@@ -95,8 +120,8 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
                         },
                         {
                           p: fixItemEffectText(
-                            item.itemeffecttexts[0]?.effect ||
-                              "No description available.",
+                            itemData.itemeffecttexts[0]?.effect ||
+                              "No effect description available.",
                           ),
                         },
                       ])}
@@ -106,15 +131,35 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
                             title="Category"
                             text={categoryName}
                           />
-                          {item.cost ? (
+                          {itemData.cost ? (
                             <List.Item.Detail.Metadata.Label
                               title="Price"
-                              text={`${item.cost} Poké Dollars`}
+                              text={`${itemData.cost} Poké Dollars`}
                             />
                           ) : null}
                         </List.Item.Detail.Metadata>
                       }
                     />
+                  }
+                  actions={
+                    item &&
+                    item.itemflavortexts &&
+                    item.itemflavortexts.length > 0 && (
+                      <ActionPanel>
+                        <ActionPanel.Section title="Information">
+                          <Action.Push
+                            title="Descriptions"
+                            icon={Icon.List}
+                            target={
+                              <Descriptions
+                                name={itemName}
+                                entries={item.itemflavortexts}
+                              />
+                            }
+                          />
+                        </ActionPanel.Section>
+                      </ActionPanel>
+                    )
                   }
                 />
               );
