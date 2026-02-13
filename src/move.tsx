@@ -71,13 +71,15 @@ export default function PokeMoves(props: {
         return (
           <List.Section key={generation} title={generation}>
             {moves.map((m) => {
+              const moveName = m.movenames[0]?.name || m.name;
+
               return (
                 <List.Item
                   key={m.id}
                   id={m.id.toString()}
-                  title={m.movenames[0]?.name || m.name}
+                  title={moveName}
                   icon={`moves/${m.movedamageclass.name || "status"}.svg`}
-                  keywords={[m.name, m.movenames[0]?.name]}
+                  keywords={[m.name, moveName]}
                   detail={
                     move && (
                       <List.Item.Detail
@@ -85,7 +87,7 @@ export default function PokeMoves(props: {
                           move && move.moveeffect?.moveeffecteffecttexts.length
                             ? json2md([
                                 {
-                                  h1: m.movenames[0]?.name || m.name,
+                                  h1: moveName,
                                 },
                                 {
                                   p: move.moveeffect.moveeffecteffecttexts[0].short_effect.replace(
@@ -109,7 +111,7 @@ export default function PokeMoves(props: {
                             icon={Icon.List}
                             target={
                               <Descriptions
-                                name={m.name}
+                                name={moveName}
                                 entries={move.moveflavortexts}
                               />
                             }
@@ -120,7 +122,7 @@ export default function PokeMoves(props: {
                               icon={Icon.LightBulb}
                               target={
                                 <MoveLearnset
-                                  name={move.movenames[0].name}
+                                  name={moveName}
                                   moves={move.pokemonmoves}
                                 />
                               }

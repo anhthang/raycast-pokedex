@@ -11,11 +11,7 @@ import json2md from "json2md";
 import { useMemo } from "react";
 import { fetchPokemon } from "../api";
 import { PokemonSpeciesName, Pokemon, EvolutionSpecies } from "../types";
-import {
-  fixFlavorText,
-  getOfficialArtworkImg,
-  nationalDexNumber,
-} from "../utils";
+import { fixFlavorText, getContentImg, nationalDexNumber } from "../utils";
 import PokemonEncounters from "./encounter";
 import PokedexEntries from "./entry";
 import PokemonForms from "./form";
@@ -104,7 +100,7 @@ export default function PokeProfile(props: { id: number }) {
       {
         img: {
           title: nameByLang[language].name,
-          source: getOfficialArtworkImg(pokemon.id),
+          source: getContentImg(pokemon.id),
         },
       },
       {
@@ -154,7 +150,7 @@ export default function PokeProfile(props: { id: number }) {
             .map((specy) => {
               return `![${
                 specy.pokemonspeciesnames[0].name
-              }](${getOfficialArtworkImg(specy.id)})`;
+              }](${getContentImg(specy.id)})`;
             })
             .join(" "),
         })),

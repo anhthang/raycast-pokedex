@@ -11,7 +11,7 @@ const getPixelArtImg = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };
 
-export const getOfficialArtworkImg = (id: number, order?: number) => {
+const getOfficialArtworkImg = (id: number, order?: number) => {
   const name = order
     ? `${id.toString().padStart(3, "0")}_f${order + 1}`
     : id.toString().padStart(3, "0");
