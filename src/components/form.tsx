@@ -1,7 +1,7 @@
 import { getPreferenceValues, List } from "@raycast/api";
 import json2md from "json2md";
 import { Pokemon } from "../types";
-import { filterPokemonForms, getContentImg } from "../utils";
+import { filterPokemonForms, getPokemonImage } from "../utils";
 import PokemonMetadata from "./metadata/pokemon";
 import WeaknessMetadata from "./metadata/weakness";
 
@@ -43,7 +43,7 @@ export default function PokemonForms(props: {
                           form.pokemonforms[0].pokemonformnames.find(
                             (n) => n.pokemon_name === form.name,
                           )?.name || form.pokemonforms[0].form_name,
-                        source: getContentImg(poke_id, idx),
+                        source: getPokemonImage(poke_id, idx),
                       },
                     ],
                   },

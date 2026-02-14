@@ -18,7 +18,7 @@ const getOfficialArtworkImg = (id: number, order?: number) => {
   return `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
-export const getContentImg = (id: number, order?: number) => {
+export const getPokemonImage = (id: number, order?: number) => {
   switch (artwork) {
     case "pixel":
       return getPixelArtImg(id);

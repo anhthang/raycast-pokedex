@@ -16,7 +16,7 @@ import PokeProfile from "./components/profile";
 import TypeDropdown from "./components/type_dropdown";
 import pokedex from "./statics/pokedex.json";
 import { PokemonSpeciesName } from "./types";
-import { getContentImg, localeName, nationalDexNumber } from "./utils";
+import { getPokemonImage, localeName, nationalDexNumber } from "./utils";
 import TypeMetadata from "./components/metadata/type";
 
 const { language } = getPreferenceValues();
@@ -92,7 +92,7 @@ export default function PokeWeaknesses(props: {
                         img: [
                           {
                             title: poke.name,
-                            source: getContentImg(poke.id),
+                            source: getPokemonImage(poke.id),
                           },
                         ],
                       },

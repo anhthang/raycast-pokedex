@@ -22,16 +22,16 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `pokemon` command */
   export type Pokemon = ExtensionPreferences & {}
-  /** Preferences accessible in the `ability` command */
-  export type Ability = ExtensionPreferences & {}
-  /** Preferences accessible in the `move` command */
-  export type Move = ExtensionPreferences & {}
-  /** Preferences accessible in the `weakness` command */
-  export type Weakness = ExtensionPreferences & {}
   /** Preferences accessible in the `type_chart` command */
   export type TypeChart = ExtensionPreferences & {}
+  /** Preferences accessible in the `weakness` command */
+  export type Weakness = ExtensionPreferences & {}
+  /** Preferences accessible in the `ability` command */
+  export type Ability = ExtensionPreferences & {}
   /** Preferences accessible in the `nature` command */
   export type Nature = ExtensionPreferences & {}
+  /** Preferences accessible in the `move` command */
+  export type Move = ExtensionPreferences & {}
   /** Preferences accessible in the `item` command */
   export type Item = ExtensionPreferences & {}
 }
@@ -42,14 +42,9 @@ declare namespace Arguments {
   /** Pokémon name or number */
   "search": string
 }
-  /** Arguments passed to the `ability` command */
-  export type Ability = {
-  /** Ability name */
-  "search": string
-}
-  /** Arguments passed to the `move` command */
-  export type Move = {
-  /** Move name */
+  /** Arguments passed to the `type_chart` command */
+  export type TypeChart = {
+  /** Type name */
   "search": string
 }
   /** Arguments passed to the `weakness` command */
@@ -57,14 +52,19 @@ declare namespace Arguments {
   /** Pokémon name */
   "search": string
 }
-  /** Arguments passed to the `type_chart` command */
-  export type TypeChart = {
-  /** Type name */
+  /** Arguments passed to the `ability` command */
+  export type Ability = {
+  /** Ability name */
   "search": string
 }
   /** Arguments passed to the `nature` command */
   export type Nature = {
   /** Nature name */
+  "search": string
+}
+  /** Arguments passed to the `move` command */
+  export type Move = {
+  /** Move name */
   "search": string
 }
   /** Arguments passed to the `item` command */
