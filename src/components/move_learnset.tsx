@@ -9,7 +9,11 @@ import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import uniqBy from "lodash.uniqby";
 import { PokemonMove } from "../types";
-import { filterPokemonForms, getContentImg, nationalDexNumber } from "../utils";
+import {
+  filterPokemonForms,
+  getPokemonImage,
+  nationalDexNumber,
+} from "../utils";
 import PokeProfile from "./profile";
 
 const { artwork } = getPreferenceValues();
@@ -72,7 +76,7 @@ export default function MoveLearnset(props: {
               return (
                 <Grid.Item
                   key={move.pokemon_id}
-                  content={getContentImg(pokeId, formIdx)}
+                  content={getPokemonImage(pokeId, formIdx)}
                   title={title}
                   subtitle={nationalDexNumber(nationalDex)}
                   keywords={[title, nationalDex.toString()]}

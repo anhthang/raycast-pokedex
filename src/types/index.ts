@@ -279,3 +279,25 @@ export interface Nature {
     statnames: Name[];
   } | null;
 }
+
+export interface Item {
+  id: number;
+  name: string;
+  itemnames: Name[];
+  cost: number;
+  itemcategory: ItemCategory;
+  itemeffecttexts: Effect[];
+  itemflavortexts: FlavorText[];
+}
+
+export interface ItemCategory {
+  name: string;
+  item_pocket_id: number;
+  itemcategorynames: Name[];
+  itempocket: ItemPocket;
+}
+
+export interface ItemPocket {
+  name: string;
+  itempocketnames: Name[];
+}

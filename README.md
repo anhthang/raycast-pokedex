@@ -15,6 +15,7 @@ Explore the world of Pokémon with stunning visuals and detailed information in 
 * **Natures:** Browse Pokémon natures and their effects on stat growth.
 * **Moves:** Access detailed move information including base power, accuracy, PP, type, category, priority, and more.
 * **Abilities:** Look up ability descriptions and effects.
+* **Items:** Browse and filter Pokémon items by pocket, view item effects, and item prices.
 * **Weaknesses:** Analyze type effectiveness for any Pokémon or type combination.
 
 ### Customization
@@ -28,7 +29,6 @@ Explore the world of Pokémon with stunning visuals and detailed information in 
 ## TODO
 
 * Integrate Pokémon sprites into Pokédex search results.
-* Items command with item effects and locations.
 
 ## Issues
 

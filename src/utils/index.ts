@@ -11,14 +11,14 @@ const getPixelArtImg = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };
 
-export const getOfficialArtworkImg = (id: number, order?: number) => {
+const getOfficialArtworkImg = (id: number, order?: number) => {
   const name = order
     ? `${id.toString().padStart(3, "0")}_f${order + 1}`
     : id.toString().padStart(3, "0");
   return `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
-export const getContentImg = (id: number, order?: number) => {
+export const getPokemonImage = (id: number, order?: number) => {
   switch (artwork) {
     case "pixel":
       return getPixelArtImg(id);
@@ -226,4 +226,15 @@ export const filterPokemonForms = <
   });
 
   return forms;
+};
+
+export const fixFlavorText = (raw?: string) => {
+  return raw?.split("\n").join(" ").split("").join(" ") || "";
+};
+
+export const fixItemEffectText = (raw: string) => {
+  return raw
+    .replaceAll("\n:", ":\n")
+    .replaceAll("\n\n", "\n")
+    .replaceAll("    ", "");
 };
