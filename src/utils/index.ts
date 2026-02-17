@@ -1,14 +1,16 @@
 import { Detail, getPreferenceValues } from "@raycast/api";
 import { PokemonFormType, PokemonType, TypeChartType } from "../types";
 
-const { artwork } = getPreferenceValues();
+const { artwork, shiny } = getPreferenceValues();
 
 export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
 };
 
 const getPixelArtImg = (id: number) => {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
+  return shiny
+    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/shiny/${id}.png`
+    : `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
 };
 
 const getOfficialArtworkImg = (id: number, order?: number) => {
