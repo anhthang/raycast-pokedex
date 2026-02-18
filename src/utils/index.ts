@@ -17,7 +17,10 @@ const getOfficialArtworkImg = (id: number, order?: number) => {
   const name = order
     ? `${id.toString().padStart(3, "0")}_f${order + 1}`
     : id.toString().padStart(3, "0");
-  return `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
+
+  return shiny
+    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/shiny/${id}.png`
+    : `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
 export const getPokemonImage = (id: number, order?: number) => {
@@ -27,6 +30,13 @@ export const getPokemonImage = (id: number, order?: number) => {
     default:
       return getOfficialArtworkImg(id, order);
   }
+};
+
+export const getMarkdownPokemonImage = (id: number, order?: number) => {
+  const src = getPokemonImage(id, order);
+  const width = artwork === "pixel" ? 96 : 144;
+
+  return `<img src="${src}" alt="${id}" width="${width}" height="${width}" />`;
 };
 
 export const typeColor: Record<string, string> = {

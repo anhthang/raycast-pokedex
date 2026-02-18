@@ -16,7 +16,7 @@ import {
 } from "../utils";
 import PokeProfile from "./profile";
 
-const { artwork } = getPreferenceValues();
+const { artwork, shiny } = getPreferenceValues();
 
 export default function MoveLearnset(props: {
   name: string;
@@ -67,7 +67,7 @@ export default function MoveLearnset(props: {
                 (f) => f.pokemonforms[0].pokemon_id === move.pokemon_id,
               );
               const pokeId =
-                artwork === "pixel" ? move.pokemon_id : nationalDex;
+                artwork === "pixel" || shiny ? move.pokemon_id : nationalDex;
 
               const title =
                 form?.pokemonforms[0].pokemonformnames[0]?.pokemon_name ||
