@@ -14,9 +14,22 @@ export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
 };
 
-const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
+const getImageId = (id: number, form?: PokemonFormRef) => {
   const pokemonId = form?.pokemon_id || id;
-  const name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
+
+  let name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
+
+  if (artwork === "official" && !shiny) {
+    name = form?.idx
+      ? `${id.toString().padStart(3, "0")}_f${form.idx + 1}`
+      : id.toString().padStart(3, "0");
+  }
+
+  return name;
+};
+
+const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
+  const name = getImageId(id, form);
 
   return shiny
     ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/shiny/${name}.png`
@@ -24,20 +37,12 @@ const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
 };
 
 const getOfficialArtworkImg = (id: number, form?: PokemonFormRef) => {
-  const pokemonId = form?.pokemon_id || id;
-
-  let name: string;
-  if (!shiny) {
-    name = form?.idx
-      ? `${id.toString().padStart(3, "0")}_f${form.idx + 1}`
-      : id.toString().padStart(3, "0");
-  } else {
-    name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
-  }
+  const name = getImageId(id, form);
 
   return shiny
     ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/shiny/${name}.png`
-    : `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
+    : // Use the "full" artwork URL instead of "detail" because the detail endpoint has incorrect images for some Pokémon (e.g. #676).
+      `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${name}.png`;
 };
 
 export const getPokemonImage = (id: number, form?: PokemonFormRef) => {
