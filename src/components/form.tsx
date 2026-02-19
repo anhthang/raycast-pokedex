@@ -25,7 +25,10 @@ export default function PokemonForms(props: {
           props.name;
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { pokemonformnames, ...rest } = form.pokemonforms[0];
+        const { pokemonformnames, pokemonformtypes, ...rest } =
+          form.pokemonforms[0];
+        const formTypes =
+          pokemonformtypes.length > 0 ? pokemonformtypes : form.pokemontypes;
 
         return (
           <List.Item
@@ -40,9 +43,9 @@ export default function PokemonForms(props: {
                 ])}
                 metadata={
                   <List.Item.Detail.Metadata>
-                    <PokemonMetadata pokemon={form} />
+                    <PokemonMetadata pokemon={form} formtypes={formTypes} />
                     <List.Item.Detail.Metadata.Separator />
-                    <WeaknessMetadata types={form.pokemontypes} />
+                    <WeaknessMetadata types={formTypes} />
                   </List.Item.Detail.Metadata>
                 }
               />

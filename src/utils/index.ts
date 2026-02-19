@@ -200,6 +200,30 @@ export const filterPokemonForms = <
     case 744:
       formNames = ["rockruff"];
       break;
+    case 773:
+      if (artwork === "pixel") {
+        varieties = [
+          "normal",
+          "fire",
+          "water",
+          "electric",
+          "grass",
+          "ice",
+          "fighting",
+          "poison",
+          "ground",
+          "flying",
+          "psychic",
+          "bug",
+          "rock",
+          "ghost",
+          "dragon",
+          "dark",
+          "steel",
+          "fairy",
+        ];
+      }
+      break;
     case 774:
       formNames = ["minior-red-meteor", "minior-red"];
       break;
