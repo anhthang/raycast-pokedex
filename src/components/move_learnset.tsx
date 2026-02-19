@@ -1,10 +1,4 @@
-import {
-  Action,
-  ActionPanel,
-  getPreferenceValues,
-  Grid,
-  Icon,
-} from "@raycast/api";
+import { Action, ActionPanel, Grid, Icon } from "@raycast/api";
 import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import uniqBy from "lodash.uniqby";
@@ -15,8 +9,6 @@ import {
   nationalDexNumber,
 } from "../utils";
 import PokeProfile from "./profile";
-
-const { artwork, shiny } = getPreferenceValues();
 
 export default function MoveLearnset(props: {
   name: string;
@@ -66,8 +58,6 @@ export default function MoveLearnset(props: {
               const formIdx = forms.findIndex(
                 (f) => f.pokemonforms[0].pokemon_id === move.pokemon_id,
               );
-              const pokeId =
-                artwork === "pixel" || shiny ? move.pokemon_id : nationalDex;
 
               const title =
                 form?.pokemonforms[0].pokemonformnames[0]?.pokemon_name ||
@@ -76,7 +66,10 @@ export default function MoveLearnset(props: {
               return (
                 <Grid.Item
                   key={move.pokemon_id}
-                  content={getPokemonImage(pokeId, formIdx)}
+                  content={getPokemonImage(move.pokemon.pokemon_species_id, {
+                    idx: formIdx,
+                    pokemon_id: move.pokemon_id,
+                  })}
                   title={title}
                   subtitle={nationalDexNumber(nationalDex)}
                   keywords={[title, nationalDex.toString()]}

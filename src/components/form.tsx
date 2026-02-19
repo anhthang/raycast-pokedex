@@ -1,11 +1,9 @@
-import { getPreferenceValues, List } from "@raycast/api";
+import { List } from "@raycast/api";
 import json2md from "json2md";
 import { Pokemon } from "../types";
 import { filterPokemonForms, getMarkdownPokemonImage } from "../utils";
 import PokemonMetadata from "./metadata/pokemon";
 import WeaknessMetadata from "./metadata/weakness";
-
-const { artwork, shiny } = getPreferenceValues();
 
 export default function PokemonForms(props: {
   id: number;
@@ -26,10 +24,8 @@ export default function PokemonForms(props: {
           form.pokemonforms[0].pokemonformnames[0]?.name ||
           props.name;
 
-        const poke_id =
-          artwork === "official" && !shiny
-            ? props.id
-            : form.pokemonforms[0].pokemon_id;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { pokemonformnames, ...rest } = form.pokemonforms[0];
 
         return (
           <List.Item
@@ -39,7 +35,7 @@ export default function PokemonForms(props: {
               <List.Item.Detail
                 markdown={json2md([
                   {
-                    p: getMarkdownPokemonImage(poke_id, idx),
+                    p: getMarkdownPokemonImage(props.id, { idx, ...rest }),
                   },
                 ])}
                 metadata={

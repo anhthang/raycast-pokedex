@@ -3,37 +3,54 @@ import { PokemonFormType, PokemonType, TypeChartType } from "../types";
 
 const { artwork, shiny } = getPreferenceValues();
 
+type PokemonFormRef = {
+  form_name?: string;
+  pokemon_id?: number;
+  idx?: number;
+  variety?: boolean;
+};
+
 export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
 };
 
-const getPixelArtImg = (id: number) => {
+const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
+  const pokemonId = form?.pokemon_id || id;
+  const name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
+
   return shiny
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/shiny/${id}.png`
-    : `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${id}.png`;
+    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/shiny/${name}.png`
+    : `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${name}.png`;
 };
 
-const getOfficialArtworkImg = (id: number, order?: number) => {
-  const name = order
-    ? `${id.toString().padStart(3, "0")}_f${order + 1}`
-    : id.toString().padStart(3, "0");
+const getOfficialArtworkImg = (id: number, form?: PokemonFormRef) => {
+  const pokemonId = form?.pokemon_id || id;
+
+  let name: string;
+  if (!shiny) {
+    name = form?.idx
+      ? `${id.toString().padStart(3, "0")}_f${form.idx + 1}`
+      : id.toString().padStart(3, "0");
+  } else {
+    name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
+  }
 
   return shiny
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/shiny/${id}.png`
+    ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/shiny/${name}.png`
     : `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${name}.png`;
 };
 
-export const getPokemonImage = (id: number, order?: number) => {
+export const getPokemonImage = (id: number, form?: PokemonFormRef) => {
   switch (artwork) {
     case "pixel":
-      return getPixelArtImg(id);
+      return getPixelArtImg(id, form);
     default:
-      return getOfficialArtworkImg(id, order);
+      return getOfficialArtworkImg(id, form);
   }
 };
 
-export const getMarkdownPokemonImage = (id: number, order?: number) => {
-  const src = getPokemonImage(id, order);
+export const getMarkdownPokemonImage = (id: number, form?: PokemonFormRef) => {
+  const src = getPokemonImage(id, form);
   const width = artwork === "pixel" ? 96 : 144;
 
   return `<img src="${src}" alt="${id}" width="${width}" height="${width}" />`;
@@ -222,14 +239,14 @@ export const filterPokemonForms = <
 
   pokemons.forEach((p) => {
     if (varieties.length) {
-      varieties.forEach((variety) => {
-        const pokemonforms = p.pokemonforms.filter(
-          (f) => f.form_name === variety,
-        );
+      varieties.forEach((variety, idx) => {
+        const pokemonforms = p.pokemonforms
+          .filter((f) => f.form_name === variety)
+          .map((f) => ({ ...f, variety: idx !== 0 })); // mark if it's the default variety
 
         forms.push({
           ...p,
-          pokemonforms: pokemonforms,
+          pokemonforms,
         } as T);
       });
     } else {
