@@ -3,12 +3,9 @@ import groupBy from "lodash.groupby";
 import orderBy from "lodash.orderby";
 import uniqBy from "lodash.uniqby";
 import { PokemonMove } from "../types";
-import {
-  filterPokemonForms,
-  getPokemonImage,
-  nationalDexNumber,
-} from "../utils";
+import { getPokemonImage, nationalDexNumber } from "../utils";
 import PokeProfile from "./profile";
+import { filterPokemonForms } from "../utils/form";
 
 export default function MoveLearnset(props: {
   name: string;

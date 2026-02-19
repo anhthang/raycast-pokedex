@@ -1,9 +1,10 @@
 import { List } from "@raycast/api";
 import json2md from "json2md";
 import { Pokemon } from "../types";
-import { filterPokemonForms, getMarkdownPokemonImage } from "../utils";
 import PokemonMetadata from "./metadata/pokemon";
 import WeaknessMetadata from "./metadata/weakness";
+import { getMarkdownPokemonImage } from "../utils";
+import { filterPokemonForms } from "../utils/form";
 
 export default function PokemonForms(props: {
   id: number;
