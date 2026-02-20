@@ -27,12 +27,40 @@ export const FORM_RULES: Record<number, FormRule> = {
     varieties: [],
   },
 
+  412: {
+    varieties: ["plant", "sandy", "trash"],
+  },
+
+  421: {
+    varieties: ["overcast", "sunshine"],
+  },
+
+  422: {
+    varieties: ["west", "east"],
+  },
+
   445: {
     allowedNames: ["garchomp", "garchomp-mega"],
   },
 
+  493: {
+    varieties: [],
+  },
+
   555: {
     allowedNames: ["darmanitan-standard", "darmanitan-galar-standard"],
+  },
+
+  585: {
+    varieties: ["spring", "summer", "autumn", "winter"],
+  },
+
+  586: {
+    varieties: ["spring", "summer", "autumn", "winter"],
+  },
+
+  649: {
+    varieties: [],
   },
 
   658: {
@@ -62,6 +90,10 @@ export const FORM_RULES: Record<number, FormRule> = {
 
   676: {
     varieties: ["natural", "heart", "star", "diamond"],
+  },
+
+  716: {
+    varieties: [],
   },
 
   718: {
@@ -104,6 +136,10 @@ export const FORM_RULES: Record<number, FormRule> = {
       "toxtricity-low-key",
       "toxtricity-amped-gmax",
     ],
+  },
+
+  869: {
+    varieties: [],
   },
 
   875: {
@@ -168,8 +204,9 @@ export const filterPokemonForms = <
 
   if (!varieties.length) return filtered;
 
-  return filtered.flatMap((p) =>
-    varieties.map((variety, idx) => ({
+  return filtered.flatMap((p, fIdx) => {
+    if (fIdx > 0) return p; // only expand the first form entry to avoid duplicates
+    return varieties.map((variety, idx) => ({
       ...p,
       pokemonforms: p.pokemonforms
         .filter((f) => f.form_name === variety)
@@ -177,6 +214,6 @@ export const filterPokemonForms = <
           ...f,
           variety: idx !== 0,
         })),
-    })),
-  );
+    }));
+  });
 };

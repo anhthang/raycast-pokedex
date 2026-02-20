@@ -1,6 +1,12 @@
 # Pokédex Changelog
 
-## [ItemDex] - 2026-02-28
+## [Shiny Forms] - 2026-02-28
+
+- Added *Shiny* configuration support for Pokémon sprites and artwork.
+- Improved Pokémon form handling: pixel expands all forms, official applies filtering.
+- Fixed Pokémon form type handling for multi-form species such as #773 (Silvally).
+
+## [ItemDex] - 2026-02-18
 
 - Added **Items** command to browse and filter Pokémon items by pocket, with detailed item information and multi-language support.
 - Improved consistency of Pokémon image rendering across all components.
