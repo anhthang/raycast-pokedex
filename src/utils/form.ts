@@ -97,9 +97,13 @@ export const FORM_RULES: Record<number, FormRule> = {
   },
 
   718: {
+    /**
+     * FIXME: using zygarde-50 and zygarde-10-power-construct to represent the forms of Zygarde
+     * since the form names in PokéAPI are inconsistent with the official artwork URLs
+     */
     allowedNames: [
+      "zygarde-50",
       "zygarde-10-power-construct",
-      "zygarde-50-power-construct",
       "zygarde-complete",
       "zygarde-mega",
     ],
