@@ -221,10 +221,19 @@
           "value": "official"
         },
         {
-          "title": "Pixel Art",
+          "title": "Black & White Sprites",
           "value": "pixel"
         }
       ]
+    },
+    {
+      "name": "shiny",
+      "title": "Appearance",
+      "description": "Display shiny versions of Pokémon images when available.",
+      "label": "Show Shiny Sprites",
+      "required": false,
+      "type": "checkbox",
+      "default": false
     }
   ],
   "dependencies": {

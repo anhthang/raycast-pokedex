@@ -280,7 +280,10 @@ export const fetchPokemon = async (
             }
           }
         }
-        pokemons(order_by: {id: asc}, where: {pokemonforms: {form_name: {_nin: ["starter", "totem", "totem-alola"]}}}) {
+        pokemons(
+          order_by: {id: asc}
+          where: {pokemonforms: {form_name: {_nin: ["starter", "totem", "totem-alola"]}}}
+        ) {
           name
           height
           weight
@@ -290,6 +293,26 @@ export const fetchPokemon = async (
             pokemonformnames(where: {language_id: {_eq: $language_id}}) {
               name
               pokemon_name
+            }
+            pokemonformtypes {
+              type {
+                id
+                name
+                typenames(where: {language_id: {_eq: $language_id}}) {
+                  name
+                }
+                typeefficacies(where: {damage_factor: {_neq: 100}}) {
+                  damage_factor
+                  damage_type_id
+                  target_type_id
+                  type {
+                    name
+                    typenames(where: {language_id: {_eq: $language_id}}) {
+                      name
+                    }
+                  }
+                }
+              }
             }
           }
           pokemonabilities {
@@ -321,7 +344,10 @@ export const fetchPokemon = async (
             }
           }
         }
-        pokemonspeciesflavortexts(where: {language_id: {_eq: $language_id}}, order_by: {version_id: asc}) {
+        pokemonspeciesflavortexts(
+          where: {language_id: {_eq: $language_id}}
+          order_by: {version_id: asc}
+        ) {
           flavor_text
           version {
             id
