@@ -222,7 +222,11 @@
         },
         {
           "title": "Black & White Sprites",
-          "value": "pixel"
+          "value": "bw"
+        },
+        {
+          "title": "Scarlet & Violet Sprites",
+          "value": "sv"
         }
       ]
     },
@@ -256,7 +260,7 @@
     "@types/lodash.shuffle": "^4.2.9",
     "@types/lodash.uniqby": "^4.7.9",
     "@types/react": "^19.2.14",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   },

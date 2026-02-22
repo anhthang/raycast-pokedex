@@ -1,7 +1,7 @@
 import { Detail, getPreferenceValues } from "@raycast/api";
 import { PokemonType, TypeChartType } from "../types";
 
-const { artwork, shiny } = getPreferenceValues();
+type SpriteMode = "bw" | "sv" | "official";
 
 type PokemonFormRef = {
   form_name?: string;
@@ -9,6 +9,8 @@ type PokemonFormRef = {
   idx?: number;
   variety?: boolean;
 };
+
+const { artwork, shiny } = getPreferenceValues();
 
 export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
@@ -28,7 +30,7 @@ const getImageId = (id: number, form?: PokemonFormRef) => {
   return name;
 };
 
-const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
+const getBlackWhiteSprite = (id: number, form?: PokemonFormRef) => {
   const name = getImageId(id, form);
 
   return shiny
@@ -36,7 +38,13 @@ const getPixelArtImg = (id: number, form?: PokemonFormRef) => {
     : `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${name}.png`;
 };
 
-const getOfficialArtworkImg = (id: number, form?: PokemonFormRef) => {
+const getScarletVioletSprite = (id: number, form?: PokemonFormRef) => {
+  const name = getImageId(id, form);
+
+  return `https://raw.githubusercontent.com/anhthang/sv-sprites/refs/heads/main/sprites/${name}.png`;
+};
+
+const getOfficialArtwork = (id: number, form?: PokemonFormRef) => {
   const name = getImageId(id, form);
 
   return shiny
@@ -47,16 +55,27 @@ const getOfficialArtworkImg = (id: number, form?: PokemonFormRef) => {
 
 export const getPokemonImage = (id: number, form?: PokemonFormRef) => {
   switch (artwork) {
-    case "pixel":
-      return getPixelArtImg(id, form);
+    case "bw":
+      return getBlackWhiteSprite(id, form);
+    case "sv":
+      return getScarletVioletSprite(id, form);
+    case "official":
     default:
-      return getOfficialArtworkImg(id, form);
+      return getOfficialArtwork(id, form);
   }
 };
 
-export const getMarkdownPokemonImage = (id: number, form?: PokemonFormRef) => {
+const spriteSize: Record<SpriteMode, number> = {
+  bw: 96,
+  sv: 128,
+  official: 144,
+};
+
+const getSpriteSize = (mode: SpriteMode) => spriteSize[mode];
+
+export const getPokemonImageTag = (id: number, form?: PokemonFormRef) => {
   const src = getPokemonImage(id, form);
-  const width = artwork === "pixel" ? 96 : 144;
+  const width = getSpriteSize(artwork);
 
   return `<img src="${src}" alt="${id}" width="${width}" height="${width}" />`;
 };
