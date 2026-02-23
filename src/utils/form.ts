@@ -3,97 +3,90 @@ import { PokemonFormType } from "../types";
 
 const { artwork } = getPreferenceValues();
 
+export type SpriteMode = "bw" | "sv" | "official";
+
 export type FormRule = {
   /**
-   * Allowed alternate form Pokémon names for official artwork only
-   * (Mega, Gmax, regional entries, etc).
+   * Whitelisted Pokémon varieties (mega, regional, etc)
+   * per sprite mode.
+   *
+   * Matches PokéAPI `pokemon.varieties`.
    */
-  allowedNames?: string[];
+  varieties?: Partial<Record<SpriteMode, string[]>>;
 
   /**
-   * Supported varieties for official artwork.
-   * Pixel mode expands all varieties automatically.
+   * Supported Pokémon forms (form_name)
+   * per sprite mode.
+   *
+   * Matches PokéAPI `pokemonforms`.
    */
-  varieties?: string[];
+  forms?: Partial<Record<SpriteMode, string[]>>;
 };
 
 export const FORM_RULES: Record<number, FormRule> = {
   25: {
-    allowedNames: ["pikachu", "pikachu-gmax"],
-  },
-
-  // Unown: expand all varieties in pixel mode
-  201: {
-    varieties: [],
+    varieties: { official: ["pikachu", "pikachu-gmax"] },
   },
 
   412: {
-    varieties: ["plant", "sandy", "trash"],
+    forms: { official: ["plant", "sandy", "trash"] },
   },
 
   421: {
-    varieties: ["overcast", "sunshine"],
+    forms: { official: ["overcast", "sunshine"] },
   },
 
   422: {
-    varieties: ["west", "east"],
+    forms: { official: ["west", "east"] },
   },
 
   445: {
-    allowedNames: ["garchomp", "garchomp-mega"],
-  },
-
-  493: {
-    varieties: [],
+    varieties: { official: ["garchomp", "garchomp-mega"] },
   },
 
   555: {
-    allowedNames: ["darmanitan-standard", "darmanitan-galar-standard"],
+    varieties: {
+      official: ["darmanitan-standard", "darmanitan-galar-standard"],
+    },
   },
 
   585: {
-    varieties: ["spring", "summer", "autumn", "winter"],
+    forms: { official: ["spring", "summer", "autumn", "winter"] },
   },
 
   586: {
-    varieties: ["spring", "summer", "autumn", "winter"],
-  },
-
-  649: {
-    varieties: [],
+    forms: { official: ["spring", "summer", "autumn", "winter"] },
   },
 
   658: {
-    allowedNames: ["greninja", "greninja-ash", "greninja-mega"],
+    varieties: { official: ["greninja", "greninja-ash", "greninja-mega"] },
   },
 
   666: {
-    varieties: [
-      "meadow",
-      "continental",
-      "garden",
-      "elegant",
-      "marine",
-      "high-plains",
-      "river",
-      "fancy",
-    ],
+    forms: {
+      official: [
+        "meadow",
+        "continental",
+        "garden",
+        "elegant",
+        "marine",
+        "high-plains",
+        "river",
+        "fancy",
+      ],
+    },
   },
 
   669: {
-    varieties: ["red"],
+    forms: { official: ["red"] },
   },
 
   671: {
-    varieties: ["red"],
+    forms: { official: ["red"] },
   },
 
   676: {
-    varieties: ["natural", "heart", "star", "diamond"],
-  },
-
-  716: {
-    varieties: [],
+    forms: { official: ["natural", "heart", "star", "diamond"] },
   },
 
   718: {
@@ -101,81 +94,61 @@ export const FORM_RULES: Record<number, FormRule> = {
      * FIXME: using zygarde-50 and zygarde-10-power-construct to represent the forms of Zygarde
      * since the form names in PokéAPI are inconsistent with the official artwork URLs
      */
-    allowedNames: [
-      "zygarde-50",
-      "zygarde-10-power-construct",
-      "zygarde-complete",
-      "zygarde-mega",
-    ],
+    varieties: {
+      official: [
+        "zygarde-50",
+        "zygarde-10-power-construct",
+        "zygarde-complete",
+        "zygarde-mega",
+      ],
+    },
   },
 
   744: {
-    allowedNames: ["rockruff"],
-  },
-
-  // Silvally: expand all varieties in pixel mode
-  773: {
-    varieties: [],
+    varieties: { official: ["rockruff"] },
   },
 
   774: {
-    allowedNames: ["minior-red-meteor", "minior-red"],
+    varieties: { official: ["minior-red-meteor", "minior-red"] },
   },
 
   778: {
-    allowedNames: ["mimikyu-disguised"],
+    varieties: { official: ["mimikyu-disguised"] },
   },
 
   801: {
-    allowedNames: ["magearna", "magearna-mega"],
+    varieties: { official: ["magearna", "magearna-mega"] },
   },
 
   845: {
-    allowedNames: ["cramorant"],
+    varieties: { official: ["cramorant"] },
   },
 
   849: {
-    allowedNames: [
-      "toxtricity-amped",
-      "toxtricity-low-key",
-      "toxtricity-amped-gmax",
-    ],
-  },
-
-  869: {
-    varieties: [],
+    varieties: {
+      official: [
+        "toxtricity-amped",
+        "toxtricity-low-key",
+        "toxtricity-amped-gmax",
+      ],
+    },
   },
 
   875: {
-    allowedNames: ["eiscue-ice"],
+    varieties: { official: ["eiscue-ice"] },
   },
 
   893: {
-    allowedNames: ["zarude-dada"],
+    varieties: { official: ["zarude-dada"] },
   },
 
   1007: {
-    allowedNames: ["koraidon"],
+    varieties: { official: ["koraidon"] },
   },
 
   1008: {
-    allowedNames: ["miraidon"],
+    varieties: { official: ["miraidon"] },
   },
-};
-
-const resolveVarieties = (
-  rule: FormRule | undefined,
-  pokemons: { pokemonforms: PokemonFormType[] }[],
-): string[] => {
-  if (!rule?.varieties) return [];
-
-  // Pixel mode: always expand all PokéAPI varieties
-  if (artwork === "pixel") {
-    return pokemons[0]?.pokemonforms.map((f) => f.form_name) ?? [];
-  }
-
-  // Official mode: expand only whitelisted varieties
-  return rule.varieties;
 };
 
 export const filterPokemonForms = <
@@ -187,37 +160,47 @@ export const filterPokemonForms = <
   if (!pokemons.length) return [];
 
   const rule = FORM_RULES[id];
-  if (!rule) return pokemons;
+  const mode: SpriteMode = artwork;
 
   let filtered = pokemons;
 
-  /**
-   * Official artwork only:
-   * filter alternate form entries (Mega, Gmax, etc)
-   */
-  if (artwork === "official" && rule?.allowedNames?.length) {
-    filtered = filtered.filter((p) => rule.allowedNames!.includes(p.name));
+  // Filter Pokémon varieties (mega, regional, etc)
+  const allowedVarieties = rule?.varieties?.[mode];
+  if (allowedVarieties?.length) {
+    filtered = filtered.filter((p) => allowedVarieties.includes(p.name));
   }
 
-  /**
-   * Expand varieties:
-   * - Pixel: expand all automatically
-   * - Official: expand only whitelisted varieties
-   */
-  const varieties = resolveVarieties(rule, filtered);
+  const allForms = filtered[0]?.pokemonforms.map((f) => f.form_name) ?? [];
 
-  if (!varieties.length) return filtered;
+  // Resolve forms per sprite mode
+  let forms: string[] = [];
 
-  return filtered.flatMap((p, fIdx) => {
-    if (fIdx > 0) return p; // only expand the first form entry to avoid duplicates
-    return varieties.map((variety, idx) => ({
-      ...p,
-      pokemonforms: p.pokemonforms
-        .filter((f) => f.form_name === variety)
-        .map((f) => ({
-          ...f,
-          variety: idx !== 0,
-        })),
-    }));
+  if (mode === "bw") {
+    // Gen 5 sprites support all forms
+    forms = allForms.length > 1 ? allForms : [];
+  } else {
+    forms = rule?.forms?.[mode] ?? [];
+  }
+
+  if (!forms.length) return filtered;
+
+  const first = filtered[0];
+  const formMap = new Map(first?.pokemonforms.map((f) => [f.form_name, f]));
+
+  // Only expand forms for the first Pokémon entry, other varieties remain untouched
+  return filtered.flatMap((p, idx) => {
+    if (idx !== 0 || !forms.length) return p;
+
+    return forms
+      .map((name, i) => {
+        const form = formMap.get(name);
+        return (
+          form && {
+            ...p,
+            pokemonforms: [{ ...form, variety: i !== 0 }],
+          }
+        );
+      })
+      .filter(Boolean) as T[];
   });
 };
