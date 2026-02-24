@@ -27,11 +27,16 @@ const getImageId = (id: number, form?: PokemonFormRef) => {
       : id.toString().padStart(3, "0");
   }
 
+  if (artwork === "sv" && form?.form_name) {
+    name = `${id}-${form.form_name}`;
+  }
+
   return name;
 };
 
 const getBlackWhiteSprite = (id: number, form?: PokemonFormRef) => {
-  const name = getImageId(id, form);
+  const name =
+    form?.form_name === "female" ? `female/${id}` : getImageId(id, form);
 
   return shiny
     ? `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/shiny/${name}.png`
