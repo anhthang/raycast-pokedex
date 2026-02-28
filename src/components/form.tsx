@@ -3,7 +3,7 @@ import json2md from "json2md";
 import { Pokemon } from "../types";
 import PokemonMetadata from "./metadata/pokemon";
 import WeaknessMetadata from "./metadata/weakness";
-import { getMarkdownPokemonImage } from "../utils";
+import { getPokemonImageTag } from "../utils";
 import { filterPokemonForms } from "../utils/form";
 
 export default function PokemonForms(props: {
@@ -39,7 +39,7 @@ export default function PokemonForms(props: {
               <List.Item.Detail
                 markdown={json2md([
                   {
-                    p: getMarkdownPokemonImage(props.id, { idx, ...rest }),
+                    p: getPokemonImageTag(props.id, { idx, ...rest }),
                   },
                 ])}
                 metadata={

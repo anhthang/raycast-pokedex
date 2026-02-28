@@ -1,6 +1,10 @@
 # Pokédex Changelog
 
-## [Shiny Forms] - 2026-02-28
+## [Scarlet & Violet Sprites] - 2026-02-28
+
+- Added Scarlet & Violet sprite mode support.
+
+## [Shiny Forms] - 2026-02-21
 
 - Added *Shiny* configuration support for Pokémon sprites and artwork.
 - Improved Pokémon form handling: pixel expands all forms, official applies filtering.
