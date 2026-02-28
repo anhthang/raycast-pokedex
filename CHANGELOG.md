@@ -2,8 +2,7 @@
 
 ## [Scarlet & Violet Sprites] - 2026-02-28
 
-- Added Scarlet & Violet (SV) sprite mode support.
-- Improved form resolution logic by falling back to all forms when mode-specific variants are unavailable.
+- Added Scarlet & Violet sprite mode support.
 
 ## [Shiny Forms] - 2026-02-21
 

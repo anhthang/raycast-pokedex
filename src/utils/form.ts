@@ -36,10 +36,18 @@ export const FORM_RULES: Record<number, FormRule> = {
     varieties: { official: ["garchomp", "garchomp-mega"] },
   },
 
+  493: {
+    forms: { official: [] },
+  },
+
   555: {
     varieties: {
       official: ["darmanitan-standard", "darmanitan-galar-standard"],
     },
+  },
+
+  649: {
+    forms: { official: [] },
   },
 
   658: {
@@ -73,6 +81,10 @@ export const FORM_RULES: Record<number, FormRule> = {
     forms: { official: ["natural", "heart", "star", "diamond"] },
   },
 
+  716: {
+    forms: { official: [] },
+  },
+
   718: {
     /**
      * FIXME: using zygarde-50 and zygarde-10-power-construct to represent the forms of Zygarde
@@ -90,6 +102,10 @@ export const FORM_RULES: Record<number, FormRule> = {
 
   744: {
     varieties: { official: ["rockruff"] },
+  },
+
+  773: {
+    varieties: { official: [] },
   },
 
   774: {
@@ -116,6 +132,10 @@ export const FORM_RULES: Record<number, FormRule> = {
         "toxtricity-amped-gmax",
       ],
     },
+  },
+
+  869: {
+    forms: { official: [] },
   },
 
   875: {

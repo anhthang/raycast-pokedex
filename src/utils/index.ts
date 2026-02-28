@@ -28,7 +28,7 @@ const getImageId = (id: number, form?: PokemonFormRef) => {
   }
 
   if (artwork === "sv" && form?.form_name) {
-    name = `${id}-${form.form_name}`;
+    name = form.idx === 0 ? id.toString() : `${id}-${form.form_name}`;
   }
 
   return name;
