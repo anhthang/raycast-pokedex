@@ -109,7 +109,7 @@ export const typeColor: Record<string, string> = {
 export const calculateEffectiveness = (
   types: PokemonType[],
   allTypes: TypeChartType[],
-) => {
+): Record<string, Detail.Metadata.TagList.Item.Props[]> => {
   const effectivenessMap = new Map<string, number>();
   const typeNameMap = new Map<string, string>();
 

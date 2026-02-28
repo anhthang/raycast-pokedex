@@ -28,16 +28,8 @@ export const FORM_RULES: Record<number, FormRule> = {
     varieties: { official: ["pikachu", "pikachu-gmax"] },
   },
 
-  412: {
-    forms: { official: ["plant", "sandy", "trash"] },
-  },
-
-  421: {
-    forms: { official: ["overcast", "sunshine"] },
-  },
-
-  422: {
-    forms: { official: ["west", "east"] },
+  201: {
+    forms: { official: [] },
   },
 
   445: {
@@ -48,14 +40,6 @@ export const FORM_RULES: Record<number, FormRule> = {
     varieties: {
       official: ["darmanitan-standard", "darmanitan-galar-standard"],
     },
-  },
-
-  585: {
-    forms: { official: ["spring", "summer", "autumn", "winter"] },
-  },
-
-  586: {
-    forms: { official: ["spring", "summer", "autumn", "winter"] },
   },
 
   658: {
@@ -162,44 +146,42 @@ export const filterPokemonForms = <
   const rule = FORM_RULES[id];
   const mode: SpriteMode = artwork;
 
-  let filtered = pokemons;
-
   // Filter Pokémon varieties (mega, regional, etc)
-  const allowedVarieties = rule?.varieties?.[mode];
-  if (allowedVarieties?.length) {
-    filtered = filtered.filter((p) => allowedVarieties.includes(p.name));
-  }
+  const filtered = rule?.varieties?.[mode]?.length
+    ? pokemons.filter((p) => rule.varieties![mode]!.includes(p.name))
+    : pokemons;
 
-  const allForms = filtered[0]?.pokemonforms.map((f) => f.form_name) ?? [];
+  if (!filtered.length) return [];
 
-  // Resolve forms per sprite mode
-  let forms: string[] = [];
+  // Resolve forms: expand all by default, override via rule if provided.
+  const first = filtered[0];
 
-  if (mode === "bw") {
-    // Gen 5 sprites support all forms
-    forms = allForms.length > 1 ? allForms : [];
-  } else {
-    forms = rule?.forms?.[mode] ?? [];
-  }
+  const allForms = first.pokemonforms.map((f) => f.form_name);
+
+  const forms = rule?.forms?.[mode] ?? allForms;
 
   if (!forms.length) return filtered;
 
-  const first = filtered[0];
-  const formMap = new Map(first?.pokemonforms.map((f) => [f.form_name, f]));
+  const formMap = new Map(first.pokemonforms.map((f) => [f.form_name, f]));
 
-  // Only expand forms for the first Pokémon entry, other varieties remain untouched
-  return filtered.flatMap((p, idx) => {
-    if (idx !== 0 || !forms.length) return p;
+  // Expand forms only for the first Pokémon, other varieties remain untouched
+  return filtered.flatMap((pokemon, index) => {
+    if (index !== 0) return pokemon;
 
     return forms
-      .map((name, i) => {
-        const form = formMap.get(name);
-        return (
-          form && {
-            ...p,
-            pokemonforms: [{ ...form, variety: i !== 0 }],
-          }
-        );
+      .map((formName, formIndex) => {
+        const form = formMap.get(formName);
+        if (!form) return null;
+
+        return {
+          ...pokemon,
+          pokemonforms: [
+            {
+              ...form,
+              variety: formIndex !== 0,
+            },
+          ],
+        };
       })
       .filter(Boolean) as T[];
   });
