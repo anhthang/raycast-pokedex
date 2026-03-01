@@ -20,11 +20,12 @@ Explore the world of Pokémon with stunning visuals and detailed information in 
 
 ### Customization
 
-* **Language Support:** English, French, German, Italian, Japanese, Korean, Spanish, Simplified & Traditional Chinese.
+* **Language Support:** English, French, German, Italian, Japanese, Korean, Spanish, Simplified Chinese & Traditional Chinese.
 * **Type Filtering:** Narrow results by Pokémon type in the Pokédex.
 * **Sorting Options:** Sort by Pokémon name or National Pokédex number.
-* **Artwork Styles:** Choose between official artwork or pixel art sprites.
-* **Quick Links:** Direct access to official Pokémon website and Bulbapedia.
+* **Artwork Styles:** Choose between official artwork, Black & White–style sprites, or Scarlet & Violet–style sprites.
+* **Shiny Display Option:** Toggle to display Pokémon as shiny sprites (available for official artwork and Black & White sprites; not supported for Scarlet & Violet sprites).
+* **Quick Links:** Direct access to the official Pokémon website and Bulbapedia.
 
 ## TODO
 
