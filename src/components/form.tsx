@@ -31,10 +31,20 @@ export default function PokemonForms(props: {
         const formTypes =
           pokemonformtypes.length > 0 ? pokemonformtypes : form.pokemontypes;
 
+        const accessories: List.Item.Accessory[] = [];
+        if (rest.is_mega) {
+          accessories.push({ icon: "mega-evolution-sigil.png" });
+        }
+
+        if (rest.form_name.endsWith("gmax")) {
+          accessories.push({ icon: "gigantamax-icon.png" });
+        }
+
         return (
           <List.Item
             key={idx}
             title={name}
+            accessories={accessories}
             detail={
               <List.Item.Detail
                 markdown={json2md([
@@ -44,7 +54,11 @@ export default function PokemonForms(props: {
                 ])}
                 metadata={
                   <List.Item.Detail.Metadata>
-                    <PokemonMetadata pokemon={form} formtypes={formTypes} />
+                    <PokemonMetadata
+                      pokemon={form}
+                      mega={rest.is_mega}
+                      formtypes={formTypes}
+                    />
                     <List.Item.Detail.Metadata.Separator />
                     <WeaknessMetadata types={formTypes} />
                   </List.Item.Detail.Metadata>

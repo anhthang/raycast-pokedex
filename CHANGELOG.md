@@ -3,6 +3,8 @@
 ## [Terastal Expansion] - 2026-02-28
 
 - Added support for Scarlet & Violet–style sprite artwork.
+- Added Mega Evolution and Gigantamax indicator icons to Pokémon forms
+- Removed navigation from Pokémon profile page to the Moves.
 
 ## [Shiny Spectrum] - 2026-02-21
 
