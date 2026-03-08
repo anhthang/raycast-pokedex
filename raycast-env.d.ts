@@ -24,6 +24,8 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `pokemon` command */
   export type Pokemon = ExtensionPreferences & {}
+  /** Preferences accessible in the `regional_pokedex` command */
+  export type RegionalPokedex = ExtensionPreferences & {}
   /** Preferences accessible in the `type_chart` command */
   export type TypeChart = ExtensionPreferences & {}
   /** Preferences accessible in the `weakness` command */
@@ -41,6 +43,11 @@ declare namespace Preferences {
 declare namespace Arguments {
   /** Arguments passed to the `pokemon` command */
   export type Pokemon = {
+  /** Pokémon name or number */
+  "search": string
+}
+  /** Arguments passed to the `regional_pokedex` command */
+  export type RegionalPokedex = {
   /** Pokémon name or number */
   "search": string
 }
