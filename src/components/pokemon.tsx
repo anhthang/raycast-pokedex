@@ -30,7 +30,7 @@ enum GrowthRate {
   "Fluctuating" = 6,
 }
 
-export default function PokeProfile(props: { id: number }) {
+export default function PokemonDetail(props: { id: number }) {
   const { data: pokemon, isLoading } = usePromise(fetchPokemon, [props.id]);
 
   const nameByLang = useMemo(() => {
@@ -278,7 +278,7 @@ export default function PokeProfile(props: { id: number }) {
                         key={specy.id}
                         title={specy.pokemonspeciesnames[0].name}
                         icon="pokeball.svg"
-                        target={<PokeProfile id={specy.id} />}
+                        target={<PokemonDetail id={specy.id} />}
                       />
                     );
                   },

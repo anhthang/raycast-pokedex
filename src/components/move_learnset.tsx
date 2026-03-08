@@ -4,7 +4,7 @@ import orderBy from "lodash.orderby";
 import uniqBy from "lodash.uniqby";
 import { PokemonMove } from "../types";
 import { getPokemonImage, nationalDexNumber } from "../utils";
-import PokeProfile from "./profile";
+import Pokemon from "./pokemon";
 import { filterPokemonForms } from "../utils/form";
 
 export default function MoveLearnset(props: {
@@ -76,7 +76,7 @@ export default function MoveLearnset(props: {
                         <Action.Push
                           title="Pokémon Profile"
                           icon={Icon.Sidebar}
-                          target={<PokeProfile id={nationalDex} />}
+                          target={<Pokemon id={nationalDex} />}
                         />
                       </ActionPanel.Section>
                     </ActionPanel>

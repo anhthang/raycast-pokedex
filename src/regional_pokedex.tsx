@@ -3,7 +3,7 @@ import { usePromise } from "@raycast/utils";
 import groupBy from "lodash.groupby";
 import { useEffect, useState } from "react";
 import { fetchPokedexes, fetchPokedexPokemon } from "./api";
-import PokeProfile from "./components/profile";
+import Pokemon from "./components/pokemon";
 import { getPokemonImage } from "./utils";
 import { PokemonDex } from "./types";
 
@@ -94,7 +94,7 @@ export default function RegionalPokedex(props: {
                   <Action.Push
                     title="View Profile"
                     icon={Icon.Sidebar}
-                    target={<PokeProfile id={entry.pokemon_species_id} />}
+                    target={<Pokemon id={entry.pokemon_species_id} />}
                   />
                 </ActionPanel>
               }
