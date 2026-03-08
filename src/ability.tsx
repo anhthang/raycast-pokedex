@@ -10,7 +10,7 @@ export default function PokeAbilities(props: {
 }) {
   const { search } = props.arguments;
 
-  const { data: abilities, isLoading } = usePromise(fetchAbilities);
+  const { data: abilities = [], isLoading } = usePromise(fetchAbilities);
   const generations = useMemo(() => {
     return groupBy(abilities, "generation.generationnames.0.name");
   }, [abilities]);
@@ -40,7 +40,7 @@ export default function PokeAbilities(props: {
       {Object.entries(filteredGenerations).map(([generation, abilities]) => {
         return (
           <List.Section key={generation} title={generation}>
-            {abilities?.map((ability) => {
+            {abilities.map((ability) => {
               const abilityName = ability.abilitynames[0]?.name || ability.name;
               return (
                 <List.Item

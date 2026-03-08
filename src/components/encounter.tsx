@@ -1,4 +1,4 @@
-import { List } from "@raycast/api";
+import { Icon, List } from "@raycast/api";
 import groupBy from "lodash.groupby";
 import uniqBy from "lodash.uniqby";
 import { PokemonEncounter } from "../types";
@@ -51,6 +51,7 @@ export default function PokemonEncounters(props: {
           </List.Section>
         );
       })}
+      <List.EmptyView icon={Icon.Binoculars} title="No Encounters Found" />
     </List>
   );
 }

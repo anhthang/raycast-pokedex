@@ -6,7 +6,7 @@ import { TypeDetail } from "./components/type_detail";
 
 export default function TypeChart(props: { arguments: { search?: string } }) {
   const { search } = props.arguments;
-  const { data: types, isLoading } = usePromise(fetchTypes);
+  const { data: types = [], isLoading } = usePromise(fetchTypes);
 
   const filteredTypes = useMemo(() => {
     if (!search || !types) return types;
@@ -22,7 +22,7 @@ export default function TypeChart(props: { arguments: { search?: string } }) {
       columns={8}
       searchBarPlaceholder="Search Pokémon type..."
     >
-      {filteredTypes?.map((type) => {
+      {filteredTypes.map((type) => {
         const typeName = type.typenames[0]?.name || type.name;
 
         return (

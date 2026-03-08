@@ -10,7 +10,7 @@ export default function TypeDropdown(props: {
   const DropdownComponent =
     props.type === "grid" ? Grid.Dropdown : List.Dropdown;
 
-  const { data: types, isLoading } = usePromise(fetchTypes);
+  const { data: types = [], isLoading } = usePromise(fetchTypes);
 
   return (
     <DropdownComponent
@@ -25,7 +25,7 @@ export default function TypeDropdown(props: {
         icon="pokeball.svg"
       />
       <DropdownComponent.Section>
-        {types?.map((type) => {
+        {types.map((type) => {
           return (
             <DropdownComponent.Item
               key={type.name}

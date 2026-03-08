@@ -46,7 +46,7 @@ export default function NatureCommand(props: {
   arguments: { search?: string };
 }) {
   const { search } = props.arguments;
-  const { data: natures, isLoading } = usePromise(fetchNatures);
+  const { data: natures = [], isLoading } = usePromise(fetchNatures);
 
   const filteredNatures = useMemo(() => {
     if (!search || !natures) return natures;
@@ -62,7 +62,7 @@ export default function NatureCommand(props: {
       searchBarPlaceholder="Search Nature..."
       throttle
     >
-      {filteredNatures?.map((nature) => {
+      {filteredNatures.map((nature) => {
         const natureName = nature.naturenames[0]?.name || nature.name;
         const increasedStat =
           nature.increased_stat?.statnames[0]?.name ||

@@ -13,7 +13,7 @@ import TypeDropdown from "./components/type_dropdown";
 export default function PokeMoves(props: { arguments?: { search?: string } }) {
   const { search } = props.arguments || {};
 
-  const { data: moves } = usePromise(fetchMoves);
+  const { data: moves = [] } = usePromise(fetchMoves);
 
   const [type, setType] = useState<string>("all");
   const [selectedMoveId, setSelectedMoveId] = useState<number>(71);
@@ -35,10 +35,10 @@ export default function PokeMoves(props: { arguments?: { search?: string } }) {
 
   const generations = useMemo(() => {
     let listing =
-      type === "all" ? moves : moves?.filter((m) => m.type.name === type);
+      type === "all" ? moves : moves.filter((m) => m.type.name === type);
 
     if (search) {
-      listing = listing?.filter((m) =>
+      listing = listing.filter((m) =>
         m.name.toLowerCase().includes(search.toLowerCase()),
       );
     }
@@ -52,7 +52,7 @@ export default function PokeMoves(props: { arguments?: { search?: string } }) {
       navigationTitle="Moves"
       isShowingDetail={true}
       searchBarAccessory={
-        <TypeDropdown command="Move" onSelectType={setType} />
+        <TypeDropdown command="Move" onSelectType={setType} type="list" />
       }
       selectedItemId={String(selectedMoveId)}
       onSelectionChange={onSelectionChange}

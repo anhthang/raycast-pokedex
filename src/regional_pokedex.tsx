@@ -12,10 +12,10 @@ export default function RegionalPokedex(props: {
 }) {
   const { search } = props.arguments;
   const [selectedPokedex, setSelectedPokedex] = useState<number | null>(null);
-  const [pokemonList, setPokemonList] = useState<PokemonDex[] | undefined>([]);
+  const [pokemonList, setPokemonList] = useState<PokemonDex[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { data: pokedexes, isLoading: pokedexesLoading } =
+  const { data: pokedexes = [], isLoading: pokedexesLoading } =
     usePromise(fetchPokedexes);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function RegionalPokedex(props: {
   }, [selectedPokedex]);
 
   const filteredPokemon = search
-    ? pokemonList?.filter(
+    ? pokemonList.filter(
         (p) =>
           p.pokemonspecy.name.toLowerCase().includes(search.toLowerCase()) ||
           p.pokedex_number.toString() === search,
@@ -39,7 +39,7 @@ export default function RegionalPokedex(props: {
 
   // Group Pokédexes by version group for dropdown
   const groupedPokedexes = groupBy(
-    pokedexes || [],
+    pokedexes,
     (p) =>
       p.pokedexversiongroups[0]?.versiongroup.versions
         .map((v) => v.versionnames.map((n) => n.name).join(" & "))
@@ -76,7 +76,7 @@ export default function RegionalPokedex(props: {
       }
       isLoading={isLoading}
     >
-      {filteredPokemon && filteredPokemon.length > 0 ? (
+      {filteredPokemon.length > 0 ? (
         filteredPokemon.map((entry) => {
           const pokemonName =
             entry.pokemonspecy.pokemonspeciesnames[0]?.name ||
@@ -92,7 +92,7 @@ export default function RegionalPokedex(props: {
               actions={
                 <ActionPanel>
                   <Action.Push
-                    title="View Profile"
+                    title="Pokémon Profile"
                     icon={Icon.Sidebar}
                     target={<Pokemon id={entry.pokemon_species_id} />}
                   />
@@ -102,11 +102,7 @@ export default function RegionalPokedex(props: {
           );
         })
       ) : selectedPokedex ? (
-        <Grid.EmptyView
-          icon={Icon.Binoculars}
-          title="No Pokémon Found"
-          description="Try a different search term"
-        />
+        <Grid.EmptyView icon={Icon.Binoculars} title="No Pokémon Found" />
       ) : (
         <Grid.EmptyView
           icon={Icon.Binoculars}

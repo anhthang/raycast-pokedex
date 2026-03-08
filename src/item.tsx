@@ -13,7 +13,7 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
   const [pocket, setPocket] = useState<string>("all");
   const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 
-  const { data: items, isLoading } = usePromise(fetchItems);
+  const { data: items = [], isLoading } = usePromise(fetchItems);
 
   const { data: item } = usePromise(fetchItem, [selectedItemId || 0], {
     execute: selectedItemId !== null,
@@ -97,7 +97,7 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
       {Object.entries(filteredPockets).map(([pocketName, itemList]) => {
         return (
           <List.Section key={pocketName} title={pocketName}>
-            {itemList?.map((itemData) => {
+            {itemList.map((itemData) => {
               const itemName = itemData.itemnames[0]?.name || itemData.name;
               const itemIcon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${itemData.name}.png`;
               const categoryName =
