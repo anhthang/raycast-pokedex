@@ -699,7 +699,7 @@ export const fetchItem = async (item_id: number): Promise<Item | undefined> => {
 export const fetchPokedexes = async (): Promise<Pokedex[] | undefined> => {
   // exclude national dex (id: 1) since it contains all pokemon and isn't a "regional" dex
   const query = `query pokedexes($language_id: Int) {
-    pokedex(where: {id: {_neq: 1}}) {
+    pokedex(where: {id: {_neq: 1}, is_main_series: {_eq: true}}) {
       id
       name
       is_main_series

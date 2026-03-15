@@ -102,10 +102,10 @@ export default function RegionalPokedex(props: {
           );
         })
       ) : selectedPokedex ? (
-        <Grid.EmptyView icon={Icon.Binoculars} title="No Pokémon Found" />
+        <Grid.EmptyView icon={Icon.MagnifyingGlass} title="No Pokémon Found" />
       ) : (
         <Grid.EmptyView
-          icon={Icon.Binoculars}
+          icon={Icon.MagnifyingGlass}
           title="Select a Regional Pokédex"
           description="Choose a region from the dropdown to view Pokémon"
         />

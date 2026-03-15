@@ -51,7 +51,7 @@ export default function PokemonEncounters(props: {
           </List.Section>
         );
       })}
-      <List.EmptyView icon={Icon.Binoculars} title="No Encounters Found" />
+      <List.EmptyView icon={Icon.Map} title="No Encounters Found" />
     </List>
   );
 }
