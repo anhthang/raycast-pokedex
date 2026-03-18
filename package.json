@@ -256,7 +256,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.104.9",
+    "@raycast/api": "^1.104.10",
     "@raycast/utils": "^2.2.3",
     "axios": "^1.13.6",
     "json2md": "^2.0.3",
