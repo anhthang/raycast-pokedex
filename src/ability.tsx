@@ -4,6 +4,7 @@ import json2md from "json2md";
 import groupBy from "lodash.groupby";
 import { useMemo } from "react";
 import { fetchAbilities } from "./api";
+import { getLocalizedName } from "./utils";
 
 export default function PokeAbilities(props: {
   arguments: { search?: string };
@@ -12,7 +13,12 @@ export default function PokeAbilities(props: {
 
   const { data: abilities = [], isLoading } = usePromise(fetchAbilities);
   const generations = useMemo(() => {
-    return groupBy(abilities, "generation.generationnames.0.name");
+    return groupBy(abilities, (ability) =>
+      getLocalizedName(
+        ability.generation.generationnames,
+        ability.generation.name,
+      ),
+    );
   }, [abilities]);
 
   const filteredGenerations = useMemo(() => {
@@ -41,7 +47,10 @@ export default function PokeAbilities(props: {
         return (
           <List.Section key={generation} title={generation}>
             {abilities.map((ability) => {
-              const abilityName = ability.abilitynames[0]?.name || ability.name;
+              const abilityName = getLocalizedName(
+                ability.abilitynames,
+                ability.name,
+              );
               return (
                 <List.Item
                   key={ability.name}
@@ -54,9 +63,10 @@ export default function PokeAbilities(props: {
                           h1: abilityName,
                         },
                         {
-                          p:
-                            ability.generation.generationnames[0]?.name ||
-                            "Unknown Generation",
+                          p: getLocalizedName(
+                            ability.generation.generationnames,
+                            ability.generation.name,
+                          ),
                         },
                         {
                           p:

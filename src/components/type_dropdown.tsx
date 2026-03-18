@@ -1,6 +1,7 @@
 import { Grid, List } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { fetchTypes } from "../api";
+import { getLocalizedName } from "../utils";
 
 export default function TypeDropdown(props: {
   type?: string;
@@ -30,7 +31,7 @@ export default function TypeDropdown(props: {
             <DropdownComponent.Item
               key={type.name}
               value={type.name}
-              title={type.typenames[0]?.name || type.name}
+              title={getLocalizedName(type.typenames, type.name)}
               icon={`types/${type.name.toLowerCase()}.svg`}
             />
           );

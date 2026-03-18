@@ -6,7 +6,7 @@ import debounce from "lodash.debounce";
 import { useCallback, useMemo, useState } from "react";
 import { fetchItems, fetchItem } from "./api";
 import Descriptions from "./components/description";
-import { fixItemEffectText } from "./utils";
+import { fixItemEffectText, getLocalizedName } from "./utils";
 
 export default function PokeItems(props: { arguments: { search?: string } }) {
   const { search } = props.arguments;
@@ -35,12 +35,11 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
   };
 
   const pockets = useMemo(() => {
-    return groupBy(
-      items,
-      (i) =>
-        i.itemcategory?.itempocket?.itempocketnames[0]?.name ||
-        i.itemcategory?.itempocket?.name ||
-        "Unknown Pocket",
+    return groupBy(items, (i) =>
+      getLocalizedName(
+        i.itemcategory?.itempocket?.itempocketnames,
+        i.itemcategory?.itempocket?.name,
+      ),
     );
   }, [items]);
 
@@ -98,12 +97,15 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
         return (
           <List.Section key={pocketName} title={pocketName}>
             {itemList.map((itemData) => {
-              const itemName = itemData.itemnames[0]?.name || itemData.name;
+              const itemName = getLocalizedName(
+                itemData.itemnames,
+                itemData.name,
+              );
               const itemIcon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${itemData.name}.png`;
-              const categoryName =
-                itemData.itemcategory?.itemcategorynames[0]?.name ||
-                itemData.itemcategory?.name ||
-                "Unknown Category";
+              const categoryName = getLocalizedName(
+                itemData.itemcategory?.itemcategorynames,
+                itemData.itemcategory?.name,
+              );
 
               return (
                 <List.Item

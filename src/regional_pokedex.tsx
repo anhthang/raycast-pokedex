@@ -4,7 +4,7 @@ import groupBy from "lodash.groupby";
 import { useEffect, useState } from "react";
 import { fetchPokedexes, fetchPokedexPokemon } from "./api";
 import Pokemon from "./components/pokemon";
-import { getPokemonImage } from "./utils";
+import { getLocalizedName, getPokemonImage } from "./utils";
 import { PokemonDex } from "./types";
 
 export default function RegionalPokedex(props: {
@@ -42,7 +42,7 @@ export default function RegionalPokedex(props: {
     pokedexes,
     (p) =>
       p.pokedexversiongroups[0]?.versiongroup.versions
-        .map((v) => v.versionnames.map((n) => n.name).join(" & "))
+        .map((v) => getLocalizedName(v.versionnames, v.name))
         .join(" & ") || "Other",
   );
 
@@ -66,7 +66,7 @@ export default function RegionalPokedex(props: {
               {items.map((pokedex) => (
                 <Grid.Dropdown.Item
                   key={pokedex.id}
-                  title={pokedex.pokedexnames[0]?.name || pokedex.name}
+                  title={getLocalizedName(pokedex.pokedexnames, pokedex.name)}
                   value={pokedex.id.toString()}
                 />
               ))}
@@ -78,9 +78,10 @@ export default function RegionalPokedex(props: {
     >
       {filteredPokemon.length > 0 ? (
         filteredPokemon.map((entry) => {
-          const pokemonName =
-            entry.pokemonspecy.pokemonspeciesnames[0]?.name ||
-            entry.pokemonspecy.name;
+          const pokemonName = getLocalizedName(
+            entry.pokemonspecy.pokemonspeciesnames,
+            entry.pokemonspecy.name,
+          );
 
           return (
             <Grid.Item

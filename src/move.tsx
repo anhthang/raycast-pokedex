@@ -9,6 +9,7 @@ import Descriptions from "./components/description";
 import MoveMetadata from "./components/metadata/move";
 import MoveLearnset from "./components/move_learnset";
 import TypeDropdown from "./components/type_dropdown";
+import { getLocalizedName } from "./utils";
 
 export default function PokeMoves(props: { arguments?: { search?: string } }) {
   const { search } = props.arguments || {};
@@ -62,7 +63,7 @@ export default function PokeMoves(props: { arguments?: { search?: string } }) {
         return (
           <List.Section key={generation} title={generation}>
             {moves.map((m) => {
-              const moveName = m.movenames[0]?.name || m.name;
+              const moveName = getLocalizedName(m.movenames, m.name);
 
               return (
                 <List.Item

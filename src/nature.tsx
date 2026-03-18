@@ -2,6 +2,7 @@ import { Color, Icon, List } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { useMemo } from "react";
 import { fetchNatures } from "./api";
+import { getLocalizedName } from "./utils";
 
 export const natureIconMap: Record<string, Icon> = {
   // Neutral
@@ -51,7 +52,7 @@ export default function NatureCommand(props: {
   const filteredNatures = useMemo(() => {
     if (!search || !natures) return natures;
     return natures.filter((n) => {
-      const natureName = n.naturenames[0]?.name || n.name;
+      const natureName = getLocalizedName(n.naturenames, n.name);
       return natureName.toLowerCase().includes(search.toLowerCase());
     });
   }, [search, natures]);
@@ -63,13 +64,15 @@ export default function NatureCommand(props: {
       throttle
     >
       {filteredNatures.map((nature) => {
-        const natureName = nature.naturenames[0]?.name || nature.name;
-        const increasedStat =
-          nature.increased_stat?.statnames[0]?.name ||
-          nature.increased_stat?.name;
-        const decreasedStat =
-          nature.decreased_stat?.statnames[0]?.name ||
-          nature.decreased_stat?.name;
+        const natureName = getLocalizedName(nature.naturenames, nature.name);
+        const increasedStat = getLocalizedName(
+          nature.increased_stat?.statnames,
+          nature.increased_stat?.name || "None",
+        );
+        const decreasedStat = getLocalizedName(
+          nature.decreased_stat?.statnames,
+          nature.decreased_stat?.name || "None",
+        );
 
         const isNeutral = !increasedStat && !decreasedStat;
 
