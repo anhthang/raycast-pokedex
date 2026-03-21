@@ -275,7 +275,7 @@
     "@types/lodash.shuffle": "^4.2.9",
     "@types/lodash.uniqby": "^4.7.9",
     "@types/react": "^19.2.14",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   },
