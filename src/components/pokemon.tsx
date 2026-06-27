@@ -209,8 +209,6 @@ export default function PokemonDetail(props: { id: number }) {
               }}
             />
             <Detail.Metadata.Separator />
-            <WeaknessMetadata type="detail" types={pokemon.pokemontypes} />
-            <Detail.Metadata.Separator />
             <Detail.Metadata.TagList title="Base Stats">
               {pokemon.pokemonstats.map((stat, idx) => (
                 <Detail.Metadata.TagList.Item
@@ -224,6 +222,8 @@ export default function PokemonDetail(props: { id: number }) {
                 />
               ))}
             </Detail.Metadata.TagList>
+            <Detail.Metadata.Separator />
+            <WeaknessMetadata type="detail" types={pokemon.pokemontypes} />
           </Detail.Metadata>
         )
       }

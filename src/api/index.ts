@@ -5,13 +5,13 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import {
   PokeAPI,
   Pokemon,
-  TypeChartType,
   Nature,
   Move,
   Ability,
   Item,
   Pokedex,
   PokemonDex,
+  Type,
 } from "../types";
 
 const cache = new Cache();
@@ -528,7 +528,7 @@ export const fetchMove = async (move_id: number): Promise<Move | undefined> => {
   return fetchDataWithCaching(query, variables, "move");
 };
 
-export const fetchTypes = async (): Promise<TypeChartType[] | undefined> => {
+export const fetchTypes = async (): Promise<Type[] | undefined> => {
   const query = `query types($language_id: Int) {
     type(where: {id: {_lte: 18}}) {
       name

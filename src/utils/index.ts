@@ -1,5 +1,5 @@
 import { Detail, getPreferenceValues } from "@raycast/api";
-import { Name, PokemonType, TypeChartType } from "../types";
+import { Name, PokemonType, Type } from "../types";
 
 type SpriteMode = "bw" | "sv" | "official";
 
@@ -115,7 +115,7 @@ export const getLocalizedName = (
 
 export const calculateEffectiveness = (
   types: PokemonType[],
-  allTypes: TypeChartType[],
+  allTypes: Type[],
 ): Record<string, Detail.Metadata.TagList.Item.Props[]> => {
   const effectivenessMap = new Map<string, number>();
   const typeNameMap = new Map<string, string>();
@@ -166,6 +166,79 @@ export const calculateEffectiveness = (
   });
 
   return { normal, weak, immune, resistant };
+};
+
+export const calculateStrengths = (
+  types: PokemonType[],
+  allTypes: Type[],
+): Record<string, Detail.Metadata.TagList.Item.Props[]> => {
+  const effectivenessMap = new Map<string, number>();
+  const typeNameMap = new Map<string, string>();
+
+  // Iterate over all possible types, treating them as the "defender"
+  allTypes.forEach((defender) => {
+    let maxDamageFactor = 0; // Track the best multiplier we can achieve
+
+    types.forEach((pType) => {
+      // Find the full Type object for our Pokémon's attacking type
+      const attacker = allTypes.find(
+        (t) => t.name === pType.type.name || t.id === pType.type.id,
+      );
+
+      let damageFactor = 1; // Default to neutral damage (1x)
+
+      if (attacker) {
+        // Find how this attacking type affects the current defender
+        const efficacy = attacker.typeefficacies.find(
+          (eff) => eff.target_type_id === defender.id,
+        );
+
+        if (efficacy) {
+          damageFactor = efficacy.damage_factor / 100;
+        }
+      }
+
+      // Offensive coverage takes the best possible multiplier among its STAB types
+      if (damageFactor > maxDamageFactor) {
+        maxDamageFactor = damageFactor;
+      }
+    });
+
+    // Only track non-neutral matchups for the final output
+    if (maxDamageFactor !== 1 && types.length > 0) {
+      effectivenessMap.set(defender.name, maxDamageFactor);
+      typeNameMap.set(
+        defender.name,
+        getLocalizedName(defender.typenames, defender.name),
+      );
+    }
+  });
+
+  const normal: Detail.Metadata.TagList.Item.Props[] = [];
+  const superEffective: Detail.Metadata.TagList.Item.Props[] = [];
+  const notVeryEffective: Detail.Metadata.TagList.Item.Props[] = [];
+  const noEffect: Detail.Metadata.TagList.Item.Props[] = [];
+
+  effectivenessMap.forEach((factor, type) => {
+    if (factor > 1) {
+      superEffective.push({
+        text: `${factor}x ${typeNameMap.get(type)}`,
+        color: typeColor[type],
+      });
+    } else if (factor < 1 && factor > 0) {
+      notVeryEffective.push({
+        text: `${factor}x ${typeNameMap.get(type)}`,
+        color: typeColor[type],
+      });
+    } else if (factor === 0) {
+      noEffect.push({
+        text: `${typeNameMap.get(type)}`,
+        color: typeColor[type],
+      });
+    }
+  });
+
+  return { normal, superEffective, notVeryEffective, noEffect };
 };
 
 export const localeName = (

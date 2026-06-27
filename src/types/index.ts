@@ -257,20 +257,6 @@ export interface Move {
   pokemonmoves: PokemonMove[];
 }
 
-export interface TypeChartType {
-  id: number;
-  name: string;
-  typenames: Name[];
-  typeefficacies: {
-    damage_factor: number;
-    target_type_id: number;
-    target_type: {
-      name: string;
-      typenames: Name[];
-    };
-  }[];
-}
-
 export interface Nature {
   id: number;
   name: string;
