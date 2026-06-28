@@ -34,7 +34,7 @@ export default function WeaknessMetadata(props: {
 
   if (immune.length) {
     tagList.push(
-      <TagListComponent title="Immunities" key="immute">
+      <TagListComponent title="Immunities" key="immune">
         {immune.map((props, index) => (
           <TagListComponent.Item key={index} {...props} />
         ))}

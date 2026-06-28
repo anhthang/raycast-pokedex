@@ -151,16 +151,19 @@ export const calculateEffectiveness = (
       weak.push({
         text: `${factor}x ${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     } else if (factor < 1 && factor > 0) {
       resistant.push({
         text: `${factor}x ${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     } else if (factor === 0) {
       immune.push({
         text: `${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     }
   });
@@ -224,16 +227,19 @@ export const calculateStrengths = (
       superEffective.push({
         text: `${factor}x ${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     } else if (factor < 1 && factor > 0) {
       notVeryEffective.push({
         text: `${factor}x ${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     } else if (factor === 0) {
       noEffect.push({
         text: `${typeNameMap.get(type)}`,
         color: typeColor[type],
+        icon: `types/${type}.svg`,
       });
     }
   });
