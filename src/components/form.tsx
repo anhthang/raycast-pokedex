@@ -53,11 +53,7 @@ export default function PokemonForms(props: {
                 ])}
                 metadata={
                   <List.Item.Detail.Metadata>
-                    <PokemonMetadata
-                      pokemon={form}
-                      mega={rest.is_mega}
-                      formtypes={formTypes}
-                    />
+                    <PokemonMetadata pokemon={form} formtypes={formTypes} />
                     <List.Item.Detail.Metadata.Separator />
                     <WeaknessMetadata types={formTypes} />
                   </List.Item.Detail.Metadata>
