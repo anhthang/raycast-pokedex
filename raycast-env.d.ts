@@ -13,7 +13,7 @@ type ExtensionPreferences = {
   /** Data Cache Duration - Set the duration for caching Pokémon details. A value of 0 disables caching. */
   "duration": "0" | "1" | "3" | "7" | "14" | "30",
   /** Artwork Style - Choose the preferred artwork style for Pokémon. */
-  "artwork": "official" | "bw" | "sv",
+  "artwork": "official" | "bw" | "sv" | "go",
   /** Appearance - Display shiny versions of Pokémon images when available. */
   "shiny": boolean
 }

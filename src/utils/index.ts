@@ -1,7 +1,7 @@
 import { Detail, getPreferenceValues } from "@raycast/api";
 import { Name, PokemonType, Type } from "../types";
 
-type SpriteMode = "bw" | "sv" | "official";
+type SpriteMode = "bw" | "sv" | "go" | "official";
 
 type PokemonFormRef = {
   form_name?: string;
@@ -27,7 +27,7 @@ const getImageId = (id: number, form?: PokemonFormRef) => {
       : id.toString().padStart(3, "0");
   }
 
-  if (artwork === "sv" && form?.form_name) {
+  if ((artwork === "sv" || artwork === "go") && form?.form_name) {
     name = form.idx === 0 ? id.toString() : `${id}-${form.form_name}`;
   }
 
@@ -43,10 +43,14 @@ const getBlackWhiteSprite = (id: number, form?: PokemonFormRef) => {
     : `https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/${name}.png`;
 };
 
-const getScarletVioletSprite = (id: number, form?: PokemonFormRef) => {
+const getPokedexAssets = (id: number, form?: PokemonFormRef) => {
   const name = getImageId(id, form);
 
-  return `https://raw.githubusercontent.com/anhthang/sv-sprites/refs/heads/main/sprites/${name}.png`;
+  const folder = artwork === "sv" ? "scarlet_violet" : "go";
+
+  return shiny
+    ? `https://raw.githubusercontent.com/anhthang/pokedex-assets/refs/heads/main/assets/${folder}/shiny/${name}.png`
+    : `https://raw.githubusercontent.com/anhthang/pokedex-assets/refs/heads/main/assets/${folder}/${name}.png`;
 };
 
 const getOfficialArtwork = (id: number, form?: PokemonFormRef) => {
@@ -63,7 +67,8 @@ export const getPokemonImage = (id: number, form?: PokemonFormRef) => {
     case "bw":
       return getBlackWhiteSprite(id, form);
     case "sv":
-      return getScarletVioletSprite(id, form);
+    case "go":
+      return getPokedexAssets(id, form);
     case "official":
     default:
       return getOfficialArtwork(id, form);
@@ -73,6 +78,7 @@ export const getPokemonImage = (id: number, form?: PokemonFormRef) => {
 const spriteSize: Record<SpriteMode, number> = {
   bw: 96,
   sv: 128,
+  go: 144,
   official: 144,
 };
 

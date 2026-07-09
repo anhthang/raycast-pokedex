@@ -1,5 +1,10 @@
 # Pokédex Changelog
 
+## [Go Mobility] - 2026-07-09
+
+- Added support for Pokémon GO sprite artwork variants.
+- Refactored the **Type Chart** command and effectiveness calculations for improved performance and layout clarity.
+
 ## [Regional Pokédex] - 2026-03-18
 
 - Added **Regional Pokédex** command to browse Pokémon by regional dex with quick profile navigation.
