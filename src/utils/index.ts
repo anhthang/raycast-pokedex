@@ -16,22 +16,34 @@ export const nationalDexNumber = (id: number) => {
   return `#${id.toString().padStart(4, "0")}`;
 };
 
-const getImageId = (id: number, form?: PokemonFormRef) => {
-  const pokemonId = form?.pokemon_id || id;
+const getImageId = (id: number, form?: PokemonFormRef): string => {
+  // Use the form's specific pokemon_id if available, otherwise fallback to the dex id
+  const targetId = form?.pokemon_id ?? id;
 
-  let name = form?.variety ? `${id}-${form.form_name}` : pokemonId.toString();
+  switch (artwork) {
+    case "official": {
+      if (!shiny) {
+        const paddedId = id.toString().padStart(3, "0");
+        // If it's a specific form index > 0, append the suffix (e.g., 003_f2)
+        return form?.idx ? `${paddedId}_f${form.idx + 1}` : paddedId;
+      }
+      break;
+    }
 
-  if (artwork === "official" && !shiny) {
-    name = form?.idx
-      ? `${id.toString().padStart(3, "0")}_f${form.idx + 1}`
-      : id.toString().padStart(3, "0");
+    case "sv":
+    case "go": {
+      // If it's the base form (idx === 0) or has no form name, just use the dex id
+      if (!form?.form_name || form.idx === 0) {
+        return id.toString();
+      }
+      return `${id}-${form.form_name}`;
+    }
   }
 
-  if ((artwork === "sv" || artwork === "go") && form?.form_name) {
-    name = form.idx === 0 ? id.toString() : `${id}-${form.form_name}`;
-  }
-
-  return name;
+  // Default fallback (e.g., standard sprites, or official-shiny)
+  return form?.variety && form.form_name
+    ? `${targetId}-${form.form_name}`
+    : targetId.toString();
 };
 
 const getBlackWhiteSprite = (id: number, form?: PokemonFormRef) => {
