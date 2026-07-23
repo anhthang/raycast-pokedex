@@ -27,12 +27,12 @@ import PokemonLearnset from "./pokemon_learnset";
 const { language } = getPreferenceValues();
 
 enum GrowthRate {
-  "Slow" = 1,
-  "Medium" = 2,
-  "Fast" = 3,
+  Slow = 1,
+  Medium = 2,
+  Fast = 3,
   "Medium Slow" = 4,
-  "Erratic" = 5,
-  "Fluctuating" = 6,
+  Erratic = 5,
+  Fluctuating = 6,
 }
 
 export default function PokemonDetail(props: { id: number }) {
@@ -209,21 +209,25 @@ export default function PokemonDetail(props: { id: number }) {
               }}
             />
             <Detail.Metadata.Separator />
-            <Detail.Metadata.TagList title="Base Stats">
-              {pokemon.pokemonstats.map((stat, idx) => (
-                <Detail.Metadata.TagList.Item
-                  key={idx}
-                  text={`${getLocalizedName(stat.stat.statnames, stat.stat.name)}: ${stat.base_stat}`}
-                  color={
-                    stat.stat.name.startsWith("special")
-                      ? Color.Green
-                      : Color.Yellow
-                  }
-                />
-              ))}
-            </Detail.Metadata.TagList>
-            <Detail.Metadata.Separator />
             <WeaknessMetadata type="detail" types={pokemon.pokemontypes} />
+            {(pokemon.pokemonstats?.length ?? 0) > 0 && (
+              <>
+                <Detail.Metadata.Separator />
+                <Detail.Metadata.TagList title="Base Stats">
+                  {pokemon.pokemonstats.map((stat, idx) => (
+                    <Detail.Metadata.TagList.Item
+                      key={idx}
+                      text={`${getLocalizedName(stat.stat.statnames, stat.stat.name)}: ${stat.base_stat}`}
+                      color={
+                        stat.stat.name.startsWith("special")
+                          ? Color.Green
+                          : Color.Yellow
+                      }
+                    />
+                  ))}
+                </Detail.Metadata.TagList>
+              </>
+            )}
           </Detail.Metadata>
         )
       }

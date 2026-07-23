@@ -7,6 +7,9 @@
   "author": "anhthang",
   "contributors": [
     "miguel-felix1",
+    "ridemountainpig"
+  ],
+  "pastContributors": [
     "DanBennett"
   ],
   "license": "MIT",
@@ -260,28 +263,28 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.104.21",
-    "@raycast/utils": "^2.2.7",
-    "axios": "^1.18.1",
+    "@raycast/api": "^1.104.10",
+    "@raycast/utils": "^2.2.3",
+    "axios": "^1.13.6",
     "json2md": "^2.0.3",
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
-    "lodash.orderby": "^4.18.0",
+    "lodash.orderby": "^4.6.0",
     "lodash.shuffle": "^4.2.0",
     "lodash.uniqby": "^4.7.0"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "^2.2.0",
+    "@raycast/eslint-config": "^2.1.1",
     "@types/json2md": "^1.5.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.groupby": "^4.6.9",
     "@types/lodash.orderby": "^4.6.9",
     "@types/lodash.shuffle": "^4.2.9",
     "@types/lodash.uniqby": "^4.7.9",
-    "@types/react": "^19.2.17",
-    "eslint": "^10.6.0",
-    "prettier": "^3.9.4",
-    "typescript": "^6.0.3"
+    "@types/react": "^19.2.14",
+    "eslint": "^10.0.3",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "build": "ray build",

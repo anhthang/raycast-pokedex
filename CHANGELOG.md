@@ -5,6 +5,10 @@
 - Added support for Pokémon GO sprite artwork variants.
 - Refactored the **Type Chart** command and effectiveness calculations for improved performance and layout clarity.
 
+## [Fix Missing Base Stats] - 2026-07-22
+
+- Fixed missing **Type**, **Weaknesses**, and **Base Stats** on some Pokémon profiles by no longer caching incomplete API responses.
+
 ## [Regional Pokédex] - 2026-03-18
 
 - Added **Regional Pokédex** command to browse Pokémon by regional dex with quick profile navigation.
