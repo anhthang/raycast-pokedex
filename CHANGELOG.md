@@ -1,5 +1,10 @@
 # Pokédex Changelog
 
+## [PokéMart Update] - {PR_MERGE_DATE}
+
+- Added **Prices** to the Items command, showing buy/sell values for each item.
+- Added **Base Stats** to Pokémon form details, so alternate forms now display their own stat spreads.
+
 ## [Go Mobility] - 2026-07-09
 
 - Added support for Pokémon GO sprite artwork variants.
