@@ -329,6 +329,16 @@ export const fetchPokemon = async (
               }
             }
           }
+          pokemonstats {
+            base_stat
+            effort
+            stat {
+              name
+              statnames(where: {language_id: {_eq: $language_id}}) {
+                name
+              }
+            }
+          }
           pokemontypes {
             type {
               id
@@ -632,7 +642,6 @@ export const fetchItems = async (): Promise<Item[] | undefined> => {
     item {
       id
       name
-      cost
       itemnames(where: {language_id: {_eq: $language_id}}) {
         name
       }
@@ -666,7 +675,6 @@ export const fetchItem = async (item_id: number): Promise<Item | undefined> => {
     item(where: {id: {_eq: $item_id}}) {
       id
       name
-      cost
       itemnames(where: {language_id: {_eq: $language_id}}) {
         name
       }
@@ -689,6 +697,32 @@ export const fetchItem = async (item_id: number): Promise<Item | undefined> => {
       }
       itemflavortexts(where: {language_id: {_eq: $language_id}}) {
         flavor_text
+        versiongroup {
+          name
+          generation {
+            name
+            generationnames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+          }
+          versions {
+            name
+            versionnames(where: {language_id: {_eq: $language_id}}) {
+              name
+            }
+          }
+        }
+      }
+      itemprices {
+        purchase_price
+        sell_price
+        currency_id
+        currency {
+          name
+          currencynames {
+            name
+          }
+        }
         versiongroup {
           name
           generation {

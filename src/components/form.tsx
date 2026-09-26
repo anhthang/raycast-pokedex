@@ -1,4 +1,4 @@
-import { List } from "@raycast/api";
+import { Color, List } from "@raycast/api";
 import json2md from "json2md";
 import { Pokemon } from "../types";
 import PokemonMetadata from "./metadata/pokemon";
@@ -56,6 +56,25 @@ export default function PokemonForms(props: {
                     <PokemonMetadata pokemon={form} formtypes={formTypes} />
                     <List.Item.Detail.Metadata.Separator />
                     <WeaknessMetadata types={formTypes} />
+                    <List.Item.Detail.Metadata.Separator />
+                    {(form.pokemonstats?.length ?? 0) > 0 && (
+                      <>
+                        <List.Item.Detail.Metadata.Separator />
+                        <List.Item.Detail.Metadata.TagList title="Base Stats">
+                          {form.pokemonstats.map((stat, idx) => (
+                            <List.Item.Detail.Metadata.TagList.Item
+                              key={idx}
+                              text={`${getLocalizedName(stat.stat.statnames, stat.stat.name)}: ${stat.base_stat}`}
+                              color={
+                                stat.stat.name.startsWith("special")
+                                  ? Color.Green
+                                  : Color.Yellow
+                              }
+                            />
+                          ))}
+                        </List.Item.Detail.Metadata.TagList>
+                      </>
+                    )}
                   </List.Item.Detail.Metadata>
                 }
               />
