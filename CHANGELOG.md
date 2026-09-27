@@ -4,6 +4,7 @@
 
 - Added **Prices** to the Items command, showing buy/sell values for each item.
 - Added **Base Stats** to Pokémon form details, so alternate forms now display their own stat spreads.
+- Reworked the **Evolution Chain** display to render each evolution stage as its own table, with name/dex-number headers.
 
 ## [Go Mobility] - 2026-07-09
 

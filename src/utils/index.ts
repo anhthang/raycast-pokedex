@@ -290,3 +290,12 @@ export const fixItemEffectText = (raw: string) => {
     .replaceAll("\n\n", "\n")
     .replaceAll("    ", "");
 };
+
+export const buildEvolutionHeader = (specy: {
+  id: number;
+  name: string;
+  pokemonspeciesnames: { name: string; language_id: number }[];
+}) => {
+  const displayName = getLocalizedName(specy.pokemonspeciesnames, specy.name);
+  return `${displayName} ${nationalDexNumber(specy.id)}`;
+};
