@@ -60,6 +60,12 @@ const getPokedexAssets = (id: number, form?: PokemonFormRef) => {
 
   const folder = artwork === "sv" ? "scarlet_violet" : "go";
 
+  // The pokedex-assets repo doesn't have a scarlet_violet/shiny folder yet,
+  // so fall back to the regular SV sprite instead of a broken image.
+  if (shiny && folder === "scarlet_violet") {
+    return `https://raw.githubusercontent.com/anhthang/pokedex-assets/refs/heads/main/assets/${folder}/${name}.png`;
+  }
+
   return shiny
     ? `https://raw.githubusercontent.com/anhthang/pokedex-assets/refs/heads/main/assets/${folder}/shiny/${name}.png`
     : `https://raw.githubusercontent.com/anhthang/pokedex-assets/refs/heads/main/assets/${folder}/${name}.png`;

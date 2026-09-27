@@ -145,16 +145,6 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
                       <ActionPanel>
                         <ActionPanel.Section title="Information">
                           <Action.Push
-                            title="Price"
-                            icon={Icon.List}
-                            target={
-                              <ItemPrices
-                                name={itemName}
-                                prices={item.itemprices}
-                              />
-                            }
-                          />
-                          <Action.Push
                             title="Descriptions"
                             icon={Icon.List}
                             target={
@@ -164,6 +154,18 @@ export default function PokeItems(props: { arguments: { search?: string } }) {
                               />
                             }
                           />
+                          {item.itemprices && item.itemprices.length > 0 && (
+                            <Action.Push
+                              title="Price"
+                              icon={Icon.List}
+                              target={
+                                <ItemPrices
+                                  name={itemName}
+                                  prices={item.itemprices}
+                                />
+                              }
+                            />
+                          )}
                         </ActionPanel.Section>
                       </ActionPanel>
                     )

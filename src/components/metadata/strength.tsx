@@ -1,23 +1,20 @@
 import { Detail, List } from "@raycast/api";
-import { usePromise } from "@raycast/utils";
-import { fetchTypes } from "../../api";
-import { PokemonType } from "../../types";
+import { PokemonType, Type } from "../../types";
 import { calculateStrengths } from "../../utils";
 
 export default function StrengthMetadata(props: {
   type?: string;
   types: PokemonType[];
+  allTypes: Type[];
 }) {
   const TagListComponent =
     props.type === "detail"
       ? Detail.Metadata.TagList
       : List.Item.Detail.Metadata.TagList;
 
-  const { data: allTypes } = usePromise(fetchTypes);
-
   const { superEffective, notVeryEffective, noEffect } = calculateStrengths(
     props.types,
-    allTypes || [],
+    props.allTypes,
   );
 
   const tagList = [];
