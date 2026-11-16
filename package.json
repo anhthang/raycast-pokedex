@@ -263,9 +263,9 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^2.5.2",
-    "@raycast/utils": "^2.3.2",
-    "axios": "^1.20.0",
+    "@raycast/api": "^2.12.1",
+    "@raycast/utils": "^2.3.3",
+    "axios": "^1.21.1",
     "json2md": "^2.0.3",
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
@@ -282,8 +282,8 @@
     "@types/lodash.shuffle": "^4.2.9",
     "@types/lodash.uniqby": "^4.7.9",
     "@types/react": "^19.3.0",
-    "eslint": "^10.11.0",
-    "prettier": "^3.9.9"
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1"
   },
   "scripts": {
     "build": "ray build",
